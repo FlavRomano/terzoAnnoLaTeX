@@ -1,0 +1,103 @@
+{
+  "main": {
+    "id": "14f9e843baad026a",
+    "type": "split",
+    "children": [
+      {
+        "id": "e6e405b775baf434",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "IS/1. Intro e Modelli di cicli di vita.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a829d5bc1a7097df",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f82be7b928e1a0f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fa266bbf5e56dc2b",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "dc7929a9f37981af",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "pod",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "4588802823540321",
+    "type": "split",
+    "children": [
+      {
+        "id": "b8a63763b7aee28e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2bef598f86611f6e",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "IS/1. Intro e Modelli di cicli di vita.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "e6e405b775baf434",
+  "lastOpenFiles": [
+    "Untitled.md",
+    "IS/1. Intro e Modelli di cicli di vita.md",
+    "Lab Reti/Java dump.md",
+    "Lab Reti/1. Threads e Threadpool.md",
+    "Lab Reti/immagini/io_java.png",
+    "Lab Reti/immagini/filter_stream.png",
+    "flusso.md",
+    "Big Farm Lab/Documentazione del progetto.md",
+    "Big Farm Lab/Istruzioni progetto.md",
+    "Programming stud/REST API/1. Introduzione.md"
+  ]
+}
