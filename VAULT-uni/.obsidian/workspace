@@ -9,9 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "IS/1. Intro e Modelli di cicli di vita.md",
-            "mode": "source",
-            "source": false
+            "file": "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
+            "mode": "preview",
+            "source": true
           }
         }
       }
@@ -53,7 +53,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4588802823540321",
@@ -69,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "IS/1. Intro e Modelli di cicli di vita.md",
+                "file": "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -89,15 +90,15 @@
   },
   "active": "e6e405b775baf434",
   "lastOpenFiles": [
-    "Untitled.md",
-    "IS/1. Intro e Modelli di cicli di vita.md",
-    "Lab Reti/Java dump.md",
-    "Lab Reti/1. Threads e Threadpool.md",
-    "Lab Reti/immagini/io_java.png",
-    "Lab Reti/immagini/filter_stream.png",
+    "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
+    "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
+    "Terzo Anno/Lab Reti/Java dump.md",
+    "Terzo Anno/Database/1. Intro.md",
+    "Terzo Anno/IS/1. Intro e Modelli di cicli di vita.md",
+    "Terzo Anno/Lab Reti/immagini/io_java.png",
+    "Terzo Anno/Lab Reti/immagini/filter_stream.png",
     "flusso.md",
     "Big Farm Lab/Documentazione del progetto.md",
-    "Big Farm Lab/Istruzioni progetto.md",
-    "Programming stud/REST API/1. Introduzione.md"
+    "Big Farm Lab/Istruzioni progetto.md"
   ]
 }

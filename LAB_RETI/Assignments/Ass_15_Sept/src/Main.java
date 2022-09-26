@@ -60,7 +60,7 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        ExecutorService service = Executors.newFixedThreadPool(10);
+        ExecutorService service = Executors.newFixedThreadPool(5);
         for (String fileName : args) {
             zipping(fileName, service);
         }
