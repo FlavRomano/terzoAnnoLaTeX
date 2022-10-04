@@ -9,9 +9,9 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
+            "file": "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
             "mode": "preview",
-            "source": true
+            "source": false
           }
         }
       }
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
+                "file": "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -90,15 +90,15 @@
   },
   "active": "e6e405b775baf434",
   "lastOpenFiles": [
-    "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
+    "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
+    "pc1.md",
+    "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
     "Terzo Anno/Lab Reti/Java dump.md",
     "Terzo Anno/Database/1. Intro.md",
     "Terzo Anno/IS/1. Intro e Modelli di cicli di vita.md",
     "Terzo Anno/Lab Reti/immagini/io_java.png",
     "Terzo Anno/Lab Reti/immagini/filter_stream.png",
-    "flusso.md",
-    "Big Farm Lab/Documentazione del progetto.md",
-    "Big Farm Lab/Istruzioni progetto.md"
+    "flusso.md"
   ]
 }

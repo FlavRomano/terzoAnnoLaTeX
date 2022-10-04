@@ -1,8 +1,10 @@
 import java.util.concurrent.*;
 
-public class UfficioPostale {
-    final static int TIME = 1000;
+public class UfficioPostaleFacoltativo {
+    final static int K = 4;
+    final static int TIME = 500;
     final static int terminationDelay = 5000;
+
     public static class Persona implements Runnable {
         int ticket;
 
@@ -18,34 +20,43 @@ public class UfficioPostale {
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
+            // System.out.format("Cliente %d esce%n", this.ticket);
+        }
+    }
+
+    public static class Pusher implements Runnable {
+        LinkedBlockingQueue<Runnable> queue;
+        public Pusher(LinkedBlockingQueue<Runnable> queue) {
+            this.queue = queue;
+        }
+        public void run() {
+            int i = 1;
+            while (true) {
+                this.queue.add(new Persona(i++));
+            }
         }
     }
 
     public static void main(String[] args) {
-        int persone = 50;
-        int k = 4;
-        System.out.println("Per inserire parametri: java UfficioPostale numeroPersone postiSalaPiccola");
-        if (args.length > 1) {
-            persone = Integer.parseInt(args[0]);
-            k = Integer.parseInt(args[1]);
-        }
-        System.out.format("Inizializzato con %d persone e %d posti nella sala piccola%n", persone, k);
         LinkedBlockingQueue<Runnable> queueGrande = new LinkedBlockingQueue<>();
-        ArrayBlockingQueue<Runnable> queuePiccola = new ArrayBlockingQueue<>(k);
+        ArrayBlockingQueue<Runnable> queuePiccola = new ArrayBlockingQueue<>(K);
+        Thread t = new Thread(new Pusher(queueGrande));
+        t.start();
         ThreadPoolExecutor service = new ThreadPoolExecutor(4,
                 4,
-                0,
+                100,
                 TimeUnit.MILLISECONDS,
                 queuePiccola,
                 new ThreadPoolExecutor.AbortPolicy());
-        for (int i = 1; i <= persone; i++) {
-            queueGrande.add(new Persona(i));
-        }
-        while (!queueGrande.isEmpty()) {
+        service.allowCoreThreadTimeOut(true);
+        while (queueGrande.peek() != null) {
             try {
                 service.execute(queueGrande.peek());
                 queueGrande.remove();
-            } catch (RejectedExecutionException ignored) {;}
+                Thread.sleep(150);
+            } catch (RejectedExecutionException ignored) {;} catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
         service.shutdown();
         try {
