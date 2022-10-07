@@ -1,72 +1,82 @@
 public class Laboratorio {
-    boolean accessoProfessore;
-    int[] computers;
-    int count, postiLiberi;
+    boolean professoreInAula = false;
+    int[] computers = new int[20];
+    int postiLiberi = 20;
 
     public Laboratorio() {
-        this.accessoProfessore = false;
-        this.computers = new int[20]; // 0 libero, 1 occupato
-        this.postiLiberi = 20;
-    }
-    public synchronized void accessoProf() {
-        while (postiLiberi != 20 || accessoProfessore) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        for (int i = 0; i < 20; i++) {
+            computers[i] = 0;
         }
-        try {
-            this.accessoProfessore = true;
-            System.out.format("Accesso professore %s%n", Thread.currentThread().getName());
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-        this.accessoProfessore = false;
-        System.out.format("Fine professore %s%n", Thread.currentThread().getName());
-        notifyAll();
     }
 
-    public synchronized void accessoTesista(Main.Tesista r) {
-        while (postiLiberi == 0 || accessoProfessore || computers[r.idComputer] == 1) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+    public synchronized void accesso(Main.Persona p) {
+        boolean full = (postiLiberi == 0);
+        if (p.priority == 0) {
+            while (full || professoreInAula) {
+                System.out.printf("Studente %s aspetta l'acquisizione di un PC%n",
+                        Thread.currentThread().getName());
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+            --postiLiberi;
+            System.out.format("Studente %s acquisisce un PC%n",
+                    Thread.currentThread().getName());
+            notifyAll();
         }
-        try {
-            this.count++;
-            computers[r.idComputer] = 1;
-            System.out.format("Accesso tesista %s al pc %d %n", Thread.currentThread().getName(), r.idComputer);
-            Thread.sleep((long) (Math.random() * 500));
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        if (p.priority == 1) {
+            while (computers[p.computerID] == 1 || full || professoreInAula) {
+                System.out.printf("Tesista %s aspetta l'acquisizione di PC%d%n",
+                        Thread.currentThread().getName(), p.computerID);
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            --postiLiberi;
+            computers[p.computerID] = 1;
+            System.out.format("Tesista %s acquisisce PC%d%n", Thread.currentThread().getName(), p.computerID);
+            notifyAll();
         }
-        computers[r.idComputer] = 0;
-        this.count--;
-        System.out.format("Fine tesista %s%n", Thread.currentThread().getName());
-        notifyAll();
+        if (p.priority == 2) {
+            while (postiLiberi != 20 || professoreInAula) {
+                System.out.printf("Professore %s aspetta l'acquisizione dell'aula%n",
+                        Thread.currentThread().getName());
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            professoreInAula = true;
+            System.out.format("Professore %s acquisisce l'aula%n",
+                    Thread.currentThread().getName());
+            notifyAll();
+        }
     }
 
-    public synchronized void accessoStudente() {
-        while (postiLiberi == 0 || accessoProfessore) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+    public synchronized void uscita(Main.Persona p) {
+        if (p.priority == 0) {
+            ++postiLiberi;
+            System.out.format("Studente %s libera un PC%n",
+                    Thread.currentThread().getName());
+            notifyAll();
         }
-        try {
-            this.count++;
-            System.out.format("Accesso studente %s%n", Thread.currentThread().getName());
-            Thread.sleep((long) (Math.random() * 500));
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        if (p.priority == 1) {
+            ++postiLiberi;
+            computers[p.computerID] = 0;
+            System.out.format("Tesista %s libera PC%d%n",
+                    Thread.currentThread().getName(), p.computerID);
+            notifyAll();
         }
-        this.count--;
-        System.out.format("Fine studente %s%n", Thread.currentThread().getName());
-        notifyAll();
+        if (p.priority == 2) {
+            professoreInAula = false;
+            System.out.format("Professore %s libera l'aula%n",
+                    Thread.currentThread().getName());
+            notifyAll();
+        }
     }
 }

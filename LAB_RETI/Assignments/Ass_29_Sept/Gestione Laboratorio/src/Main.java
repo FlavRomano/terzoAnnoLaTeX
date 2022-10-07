@@ -15,90 +15,94 @@
 // Il programma termina quando tutti gli utenti hanno completato i loro accessi al laboratorio.
 // Utenti = Threads ; Laboratorio = Monitor ; Tutor = Main.
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.Comparator;
+import java.util.Random;
+import java.util.concurrent.*;
+
 public class Main {
-
-    public static class Professore implements Runnable {
+    static protected final int MAXPRIORITY = 2;
+    static protected final int MIDPRIORITY = 1;
+    static protected final int MINPRIORITY = 0;
+    static public class Persona implements Runnable {
+        int priority;
+        int computerID = (int) (Math.random() * 20);
+        int k = (int) (Math.random() * 9);
         Laboratorio lab;
-        int priority, accessi;
-
+        public Persona (Laboratorio lab) {
+            this.lab = lab;
+        }
+        public void run() {
+            for (int i = 0; i < k; i++) {
+                lab.accesso(this);
+                try {
+                    Thread.sleep((long) (Math.random() * 1001));
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                lab.uscita(this);
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        public void setPriority(int priority) {
+            this.priority = priority;
+        }
+    }
+    static public class Professore extends Persona {
         public Professore(Laboratorio lab) {
-            this.lab = lab;
-            this.priority = 2;
-            this.accessi = (int) (Math.random() * 8);
-        }
-
-        public void run() {
-            for (int i = 0; i < this.accessi; i++) {
-                lab.accessoProf();
-            }
+            super(lab);
+            setPriority(MAXPRIORITY);
         }
     }
-
-    public static class Tesista implements Runnable {
-        Laboratorio lab;
-        int priority, idComputer, accessi;
-
+    static public class Tesista extends Persona {
         public Tesista(Laboratorio lab) {
-            this.lab = lab;
-            this.priority = 1;
-            this.idComputer = (int) (Math.random() * 20);
-            this.accessi = (int) (Math.random() * 9);
-        }
-
-        public void run() {
-            for (int i = 0; i < this.accessi; i++) {
-                lab.accessoTesista(this);
-            }
+            super(lab);
+            setPriority(MIDPRIORITY);
         }
     }
-
-    public static class Studente implements Runnable {
-        Laboratorio lab;
-        int priority, accessi;
-
+    static public class Studente extends Persona {
         public Studente(Laboratorio lab) {
-            this.lab = lab;
-            this.priority = 0;
-            this.accessi = (int) (Math.random() * 8);
-        }
-
-        public void run() {
-            for (int i = 0; i < this.accessi; i++) {
-                lab.accessoStudente();
-            }
+            super(lab);
+            setPriority(MINPRIORITY);
         }
     }
 
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
-        int numeroStudenti = 0;
-        int numeroTesisti = 30;
-        int numeroProfessori = 2;
+        int nStudenti = 10;
+        int nTesisti = 8;
+        int nProfessori = 3;
         if (args.length > 0) {
-            numeroStudenti = Integer.parseInt(args[0]);
-            numeroTesisti = Integer.parseInt(args[1]);
-            numeroProfessori = Integer.parseInt(args[2]);
+            nStudenti = Integer.parseInt(args[0]);
+            nTesisti = Integer.parseInt(args[1]);
+            nProfessori = Integer.parseInt(args[2]);
         }
-        int totUtenti = numeroStudenti + numeroTesisti + numeroProfessori;
-        ExecutorService service = Executors.newFixedThreadPool(totUtenti);
-        for (int i = 0; i < totUtenti; i++) {
-            if (numeroTesisti > 0) {
-                Tesista t = new Tesista(lab);
-                service.execute(t);
-                numeroTesisti--;
+        int size = nStudenti + nTesisti + nProfessori;
+        PriorityBlockingQueue<Runnable> queue =
+                new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority));
+        ThreadPoolExecutor service = new ThreadPoolExecutor(size,
+                size,
+                0,
+                TimeUnit.MILLISECONDS,
+                queue);
+        int i = size;
+        while (i > 0) {
+            if (nProfessori > 0) {
+                service.execute(new Professore(lab));
+                nProfessori--;
             }
-            if (numeroProfessori > 0) {
-                Professore p = new Professore(lab);
-                service.execute(p);
-                numeroProfessori--;
+            if (nStudenti > 0) {
+                service.execute(new Studente(lab));
+                nStudenti--;
             }
-            if (numeroStudenti > 0) {
-                Studente s = new Studente(lab);
-                service.execute(s);
-                numeroStudenti--;
+            if (nTesisti > 0) {
+                service.execute(new Tesista(lab));
+                nTesisti--;
             }
+            i--;
         }
         service.shutdown();
     }
