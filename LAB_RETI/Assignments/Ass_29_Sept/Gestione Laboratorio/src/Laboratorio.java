@@ -10,9 +10,8 @@ public class Laboratorio {
     }
 
     public synchronized void accesso(Main.Persona p) {
-        boolean full = (postiLiberi == 0);
         if (p.priority == 0) {
-            while (full || professoreInAula) {
+            while (postiLiberi == 0 || professoreInAula) {
                 System.out.printf("Studente %s aspetta l'acquisizione di un PC%n",
                         Thread.currentThread().getName());
                 try {
@@ -27,7 +26,7 @@ public class Laboratorio {
             notifyAll();
         }
         if (p.priority == 1) {
-            while (computers[p.computerID] == 1 || full || professoreInAula) {
+            while (computers[p.computerID] == 1 || postiLiberi == 0 || professoreInAula) {
                 System.out.printf("Tesista %s aspetta l'acquisizione di PC%d%n",
                         Thread.currentThread().getName(), p.computerID);
                 try {

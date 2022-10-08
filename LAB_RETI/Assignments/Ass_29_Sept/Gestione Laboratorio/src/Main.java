@@ -41,7 +41,7 @@ public class Main {
                 }
                 lab.uscita(this);
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(850);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -72,9 +72,9 @@ public class Main {
 
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
-        int nStudenti = 10;
-        int nTesisti = 8;
-        int nProfessori = 3;
+        int nStudenti = 20;
+        int nTesisti = 30;
+        int nProfessori = 0;
         if (args.length > 0) {
             nStudenti = Integer.parseInt(args[0]);
             nTesisti = Integer.parseInt(args[1]);
