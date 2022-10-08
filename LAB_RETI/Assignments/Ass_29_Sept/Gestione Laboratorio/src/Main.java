@@ -64,12 +64,11 @@ public class Main {
             setPriority(MINPRIORITY);
         }
     }
-
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
         int nStudenti = 10;
         int nTesisti = 10;
-        int nProfessori = 0;
+        int nProfessori = 10;
         if (args.length > 0) {
             nStudenti = Integer.parseInt(args[0]);
             nTesisti = Integer.parseInt(args[1]);
@@ -77,7 +76,7 @@ public class Main {
         }
         int size = nStudenti + nTesisti + nProfessori;
         PriorityBlockingQueue<Runnable> queue =
-                new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority));
+                new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority).reversed());
         ThreadPoolExecutor service = new ThreadPoolExecutor(size,
                 size,
                 0,
@@ -90,10 +89,12 @@ public class Main {
             }
             if (nTesisti > 0) {
                 service.execute(new Tesista(lab));
+                queue.put(new Tesista(lab));
                 nTesisti--;
             }
             if (nStudenti > 0) {
                 service.execute(new Studente(lab));
+                queue.put(new Studente(lab));
                 nStudenti--;
             }
             size--;

@@ -9,8 +9,8 @@
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
-            "mode": "preview",
+            "file": "Terzo Anno/Lab Reti/4. JavaCollections.md",
+            "mode": "source",
             "source": true
           }
         }
@@ -70,7 +70,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
+                "file": "Terzo Anno/Lab Reti/4. JavaCollections.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -88,17 +88,17 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "fa266bbf5e56dc2b",
+  "active": "e6e405b775baf434",
   "lastOpenFiles": [
-    "Terzo Anno/Lab Reti/Java dump.md",
+    "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
     "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
+    "Terzo Anno/Lab Reti/4. JavaCollections.md",
+    "Terzo Anno/Lab Reti/Java dump.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Indice.md",
     "Programming stud/REST API/2. URI.md",
     "Programming stud/REST API/1. Introduzione.md",
     "Terzo Anno/Database/1. Intro.md",
-    "Terzo Anno/Database/immagini/sistema_informatico.png",
-    "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
-    "Terzo Anno/IS/Esercitazione - Analisi dei Requisiti, Casi d'uso.md"
+    "Terzo Anno/Database/immagini/sistema_informatico.png"
   ]
 }
