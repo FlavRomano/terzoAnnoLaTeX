@@ -2,13 +2,6 @@ public class Laboratorio {
     boolean professoreInAula = false;
     int[] computers = new int[20];
     int postiLiberi = 20;
-
-    public Laboratorio() {
-        for (int i = 0; i < 20; i++) {
-            computers[i] = 0;
-        }
-    }
-
     public synchronized void accesso(Main.Persona p) {
         if (p.priority == 0) {
             while (postiLiberi == 0 || professoreInAula) {
