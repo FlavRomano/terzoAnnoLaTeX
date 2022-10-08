@@ -16,7 +16,6 @@
 // Utenti = Threads ; Laboratorio = Monitor ; Tutor = Main.
 
 import java.util.Comparator;
-import java.util.Random;
 import java.util.concurrent.*;
 
 public class Main {
@@ -36,11 +35,7 @@ public class Main {
                 lab.accesso(this);
                 try {
                     Thread.sleep((long) (Math.random() * 1001));
-                } catch (InterruptedException e) {
-                    throw new RuntimeException(e);
-                }
-                lab.uscita(this);
-                try {
+                    lab.uscita(this);
                     Thread.sleep(850);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
@@ -72,8 +67,8 @@ public class Main {
 
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
-        int nStudenti = 50;
-        int nTesisti = 30;
+        int nStudenti = 10;
+        int nTesisti = 10;
         int nProfessori = 0;
         if (args.length > 0) {
             nStudenti = Integer.parseInt(args[0]);
@@ -88,21 +83,20 @@ public class Main {
                 0,
                 TimeUnit.MILLISECONDS,
                 queue);
-        int i = size;
-        while (i > 0) {
+        while (size > 0) {
             if (nProfessori > 0) {
                 service.execute(new Professore(lab));
                 nProfessori--;
-            }
-            if (nStudenti > 0) {
-                service.execute(new Studente(lab));
-                nStudenti--;
             }
             if (nTesisti > 0) {
                 service.execute(new Tesista(lab));
                 nTesisti--;
             }
-            i--;
+            if (nStudenti > 0) {
+                service.execute(new Studente(lab));
+                nStudenti--;
+            }
+            size--;
         }
         service.shutdown();
     }
