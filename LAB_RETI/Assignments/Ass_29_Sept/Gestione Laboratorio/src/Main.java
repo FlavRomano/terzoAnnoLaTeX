@@ -1,20 +1,3 @@
-// RIASSUNTO
-// Utenti: { Studenti, Tesisti, Professori }
-// Tutor = colui che permette l'accesso al laboratorio
-// Computer: {c0,...,c19}
-// Richiesta professori = accesso a TUTTO il laboratorio.
-// Richiesta tesisti = accesso al singolo computer identificato dall'indice i.
-// Richiesta studenti = accesso a qualsiasi computer libero.
-// Sia pX la priorità con X utente => pP > pT > pS.
-
-// REQUISITI
-// Input: { #Studenti, #Tesisti, #Professori }
-// Il main attiva un thread per ogni utente
-// Ogni utente accede k volte al laboratorio (k random da 0 a 8)
-// simulare l'intervallo di permanenza in laboratorio con una Thread.sleep(random(0, 1000))
-// Il programma termina quando tutti gli utenti hanno completato i loro accessi al laboratorio.
-// Utenti = Threads ; Laboratorio = Monitor ; Tutor = Main.
-
 import java.util.Comparator;
 import java.util.concurrent.*;
 
@@ -36,7 +19,7 @@ public class Main {
                 try {
                     Thread.sleep((long) (Math.random() * 1001));
                     lab.uscita(this);
-                    Thread.sleep(850);
+                    Thread.sleep((long) (Math.random() * 851));
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
@@ -64,41 +47,59 @@ public class Main {
             setPriority(MINPRIORITY);
         }
     }
+    static public class Tutor implements Runnable {
+        int size;
+        PriorityBlockingQueue<Runnable> queueUtenti;
+        ExecutorService service;
+        public Tutor(int size, PriorityBlockingQueue<Runnable> queueUtenti) {
+            this.size = size;
+            this.queueUtenti = queueUtenti;
+            this.service = Executors.newFixedThreadPool(size);
+        }
+        public void run() {
+            while (size > 0) {
+                if (queueUtenti.peek() != null) {
+                    service.execute(queueUtenti.peek());
+                    queueUtenti.remove();
+                } else {
+                    try {
+                        Thread.sleep(500);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                --size;
+            }
+            service.shutdown();
+        }
+    }
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
-        int nStudenti = 10;
-        int nTesisti = 10;
-        int nProfessori = 10;
-        if (args.length > 0) {
-            nStudenti = Integer.parseInt(args[0]);
-            nTesisti = Integer.parseInt(args[1]);
-            nProfessori = Integer.parseInt(args[2]);
+        if (args.length == 0) {
+            System.out.println("Non hai immesso #Studenti #Tesisti #Professori");
+        } else {
+            int nStudenti = Integer.parseInt(args[0]);
+            int nTesisti = Integer.parseInt(args[1]);
+            int nProfessori = Integer.parseInt(args[2]);
+            int size = nStudenti + nTesisti + nProfessori;
+            PriorityBlockingQueue<Runnable> queue =
+                    new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority).reversed());
+            new Thread(new Tutor(size, queue)).start();
+            while (size > 0) {
+                if (nProfessori > 0) {
+                    queue.add(new Professore(lab));
+                    --nProfessori;
+                }
+                if (nTesisti > 0) {
+                    queue.add(new Tesista(lab));
+                    --nTesisti;
+                }
+                if (nStudenti > 0) {
+                    queue.add(new Studente(lab));
+                    --nStudenti;
+                }
+                --size;
+            }
         }
-        int size = nStudenti + nTesisti + nProfessori;
-        PriorityBlockingQueue<Runnable> queue =
-                new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority).reversed());
-        ThreadPoolExecutor service = new ThreadPoolExecutor(size,
-                size,
-                0,
-                TimeUnit.MILLISECONDS,
-                queue);
-        while (size > 0) {
-            if (nProfessori > 0) {
-                service.execute(new Professore(lab));
-                nProfessori--;
-            }
-            if (nTesisti > 0) {
-                service.execute(new Tesista(lab));
-                queue.put(new Tesista(lab));
-                nTesisti--;
-            }
-            if (nStudenti > 0) {
-                service.execute(new Studente(lab));
-                queue.put(new Studente(lab));
-                nStudenti--;
-            }
-            size--;
-        }
-        service.shutdown();
     }
 }

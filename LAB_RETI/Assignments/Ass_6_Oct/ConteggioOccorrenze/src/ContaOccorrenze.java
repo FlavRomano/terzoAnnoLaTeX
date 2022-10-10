@@ -13,29 +13,25 @@ public class ContaOccorrenze {
         public Task(String filePath) {
             this.filePath = filePath;
         }
-        public ConcurrentHashMap<Character,Integer> call() {
+        public ConcurrentHashMap<Character,Integer> call() throws IOException {
             File f = new File(filePath);
             FileReader fr;
             ConcurrentHashMap<Character,Integer> map = new ConcurrentHashMap<>();
-            try {
-                fr = new FileReader(f);
-                char[] chars = new char[(int) f.length()];
-                fr.read(chars);
-                fr.close();
-                System.out.format("%s prende %s%n", Thread.currentThread().getName(), filePath);
-                for (char c : chars) {
-                    if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90)) {
-                        if (map.containsKey(c)) {
-                            map.put(c, map.get(c) + 1);
-                        } else {
-                            map.put(c, 1);
-                        }
+            fr = new FileReader(f);
+            char[] chars = new char[(int) f.length()];
+            fr.read(chars);
+            fr.close();
+            System.out.format("%s prende %s%n", Thread.currentThread().getName(), filePath);
+            for (char c : chars) {
+                if ((c >= 97 && c <= 122) || (c >= 65 && c <= 90)) {
+                    if (map.containsKey(c)) {
+                        map.put(c, map.get(c) + 1);
+                    } else {
+                        map.put(c, 1);
                     }
                 }
-                return map;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
             }
+            return map;
         }
     }
     public static String formatResults(HashMap<Character,Integer> map) {
