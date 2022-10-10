@@ -7,8 +7,8 @@ public class Main {
     static protected final int MINPRIORITY = 0;
     static public class Persona implements Runnable {
         int priority;
-        int computerID = (int) (Math.random() * 20);
-        int k = (int) (Math.random() * 9);
+        int computerID = ThreadLocalRandom.current().nextInt(20);
+        int k = ThreadLocalRandom.current().nextInt(9);
         Laboratorio lab;
         public Persona (Laboratorio lab) {
             this.lab = lab;
@@ -86,17 +86,17 @@ public class Main {
                     new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority).reversed());
             new Thread(new Tutor(size, queue)).start();
             while (size > 0) {
-                if (nProfessori > 0) {
-                    queue.add(new Professore(lab));
-                    --nProfessori;
+                if (nStudenti > 0) {
+                    queue.add(new Studente(lab));
+                    --nStudenti;
                 }
                 if (nTesisti > 0) {
                     queue.add(new Tesista(lab));
                     --nTesisti;
                 }
-                if (nStudenti > 0) {
-                    queue.add(new Studente(lab));
-                    --nStudenti;
+                if (nProfessori > 0) {
+                    queue.add(new Professore(lab));
+                    --nProfessori;
                 }
                 --size;
             }
