@@ -5,14 +5,17 @@ public class Main {
     static protected final int MAXPRIORITY = 2;
     static protected final int MIDPRIORITY = 1;
     static protected final int MINPRIORITY = 0;
+
     static public class Persona implements Runnable {
         int priority;
         int computerID = ThreadLocalRandom.current().nextInt(20);
-        int k = ThreadLocalRandom.current().nextInt(9);
+        int k = ThreadLocalRandom.current().nextInt(1, 9);
         Laboratorio lab;
-        public Persona (Laboratorio lab) {
+
+        public Persona(Laboratorio lab) {
             this.lab = lab;
         }
+
         public void run() {
             for (int i = 0; i < k; i++) {
                 lab.accesso(this);
@@ -25,32 +28,38 @@ public class Main {
                 }
             }
         }
+
         public void setPriority(int priority) {
             this.priority = priority;
         }
     }
+
     static public class Professore extends Persona {
         public Professore(Laboratorio lab) {
             super(lab);
             setPriority(MAXPRIORITY);
         }
     }
+
     static public class Tesista extends Persona {
         public Tesista(Laboratorio lab) {
             super(lab);
             setPriority(MIDPRIORITY);
         }
     }
+
     static public class Studente extends Persona {
         public Studente(Laboratorio lab) {
             super(lab);
             setPriority(MINPRIORITY);
         }
     }
+
     static public class Tutor implements Runnable {
         int size;
         PriorityBlockingQueue<Runnable> queueUtenti;
         ExecutorService service;
+
         public Tutor(int size, PriorityBlockingQueue<Runnable> queueUtenti) {
             this.size = size;
             this.queueUtenti = queueUtenti;
@@ -59,8 +68,11 @@ public class Main {
         public void run() {
             while (size > 0) {
                 if (queueUtenti.peek() != null) {
-                    service.execute(queueUtenti.peek());
-                    queueUtenti.remove();
+                    try {
+                        service.execute(queueUtenti.peek());
+                        queueUtenti.remove();
+                        --size;
+                    } catch (RejectedExecutionException ignored) {;}
                 } else {
                     try {
                         Thread.sleep(500);
@@ -68,11 +80,14 @@ public class Main {
                         throw new RuntimeException(e);
                     }
                 }
-                --size;
             }
             service.shutdown();
+            try {
+                service.awaitTermination(Integer.MAX_VALUE, TimeUnit.MILLISECONDS);
+            } catch (InterruptedException ignored) {;}
         }
     }
+
     public static void main(String[] args) {
         Laboratorio lab = new Laboratorio();
         if (args.length == 0) {
@@ -85,7 +100,8 @@ public class Main {
             PriorityBlockingQueue<Runnable> queue =
                     new PriorityBlockingQueue<>(size, Comparator.comparingInt(p -> ((Persona) p).priority).reversed());
             new Thread(new Tutor(size, queue)).start();
-            while (size > 0) {
+            int i = size;
+            while (i > 0) {
                 if (nStudenti > 0) {
                     queue.add(new Studente(lab));
                     --nStudenti;
@@ -98,7 +114,7 @@ public class Main {
                     queue.add(new Professore(lab));
                     --nProfessori;
                 }
-                --size;
+                --i;
             }
         }
     }

@@ -29,7 +29,8 @@ public class Laboratorio {
             }
             --postiLiberi;
             computers[p.computerID] = 1;
-            System.out.format("Tesista %s acquisisce PC%d%n", Thread.currentThread().getName(), p.computerID);
+            System.out.format("Tesista %s acquisisce PC%d%n",
+                    Thread.currentThread().getName(), p.computerID);
         }
         if (p.priority == 2) {
             while (postiLiberi != 20 || professoreInAula) {
