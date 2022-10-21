@@ -1,6 +1,9 @@
 {
-  "baseFontSize": 16,
+  "baseFontSize": 14,
   "translucency": false,
-  "cssTheme": "Obsidian gruvbox",
-  "accentColor": ""
+  "cssTheme": "Minimal",
+  "accentColor": "#dfb234",
+  "theme": "obsidian",
+  "monospaceFontFamily": "IBM Plex Mono",
+  "baseFontSizeAction": false
 }

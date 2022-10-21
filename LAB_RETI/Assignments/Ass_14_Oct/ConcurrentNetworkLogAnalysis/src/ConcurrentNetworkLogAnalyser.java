@@ -1,8 +1,7 @@
-import java.io.*;
 import java.net.*;
 import java.util.concurrent.*;
 
-public class Main {
+public class ConcurrentNetworkLogAnalyser {
     public static class Task implements Runnable {
         String[] weblog;
 
@@ -20,24 +19,12 @@ public class Main {
             }
         }
     }
-    public static String[] weblogReader(String filePath) {
-        File f = new File(filePath);
-        char[] buf = new char[(int) f.length()];
-        try {
-            FileReader fr = new FileReader(filePath);
-            fr.read(buf);
-            fr.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return String.valueOf(buf).split("\n");
-    }
     public static void main(String[] args) {
         if (args.length == 0) {
             System.err.println("Inserire un percorso file");
         } else {
-            String[] weblogs = weblogReader(args[0]);
-            ExecutorService service = Executors.newFixedThreadPool(10);
+            String[] weblogs = NetworkLogAnalyser.weblogReader(args[0]);
+            ExecutorService service = Executors.newFixedThreadPool(5);
             for (String weblog : weblogs) {
                 service.submit(new Task(weblog));
             }
