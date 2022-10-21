@@ -12,25 +12,23 @@ public class TimeNetworkLogComparator {
             this.concurrent = concurrent;
             this.time = System.currentTimeMillis();
         }
-
         public void run() {
             if (concurrent) {
                 ConcurrentNetworkLogAnalyser.main(args);
-                long time2 = System.currentTimeMillis();
-                time = (time2 - time);
             } else {
                 NetworkLogAnalyser.main(args);
-                long time2 = System.currentTimeMillis();
-                time = (time2 - time);
             }
+            long time2 = System.currentTimeMillis();
+            time = (time2 - time);
         }
     }
     public static void main(String[] args) {
         Task taskConcurrent = new Task(args, true);
         Task taskSingleThread = new Task(args, false);
         ExecutorService service = Executors.newFixedThreadPool(2);
-        service.submit(taskSingleThread);
-        service.submit(taskConcurrent);
+        for (int i = 0; i < 2; i++) {
+            service.submit(i == 0 ? taskConcurrent : taskSingleThread);
+        }
         service.shutdown();
         try {
             service.awaitTermination(Long.MAX_VALUE, TimeUnit.NANOSECONDS);

@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.net.*;
 import java.util.concurrent.*;
 
@@ -13,8 +16,8 @@ public class ConcurrentNetworkLogAnalyser {
         public void run() {
             try {
                 InetAddress address = InetAddress.getByName(weblog[0]);
-                System.out.format("%s %s%n",address.getHostName(), weblog[1]);
-            } catch (UnknownHostException ignored) {
+                System.out.format("%s: %s %s%n", Thread.currentThread().getName(), address.getHostName(), weblog[1]);
+            } catch (UnknownHostException e) {
                 System.err.format("Impossibile determinare l'host dell'ip %s%n", weblog[0]);
             }
         }
@@ -23,10 +26,17 @@ public class ConcurrentNetworkLogAnalyser {
         if (args.length == 0) {
             System.err.println("Inserire un percorso file");
         } else {
-            String[] weblogs = NetworkLogAnalyser.weblogReader(args[0]);
             ExecutorService service = Executors.newFixedThreadPool(5);
-            for (String weblog : weblogs) {
-                service.submit(new Task(weblog));
+            BufferedReader reader;
+            try {
+                reader = new BufferedReader(new FileReader(args[0]));
+                String line = reader.readLine();
+                while (line != null) {
+                    service.submit(new Task(line));
+                    line = reader.readLine();
+                }
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
             service.shutdown();
             try {
