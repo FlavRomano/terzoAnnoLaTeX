@@ -14,12 +14,25 @@
               "type": "markdown",
               "state": {
                 "file": "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
-                "mode": "source",
+                "mode": "preview",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "237813f0036a528c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
+                "mode": "preview",
                 "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -78,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
+                "file": "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,9 +121,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "db2e3429bcc0d94f",
+  "active": "237813f0036a528c",
   "lastOpenFiles": [
     "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
+    "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
     "Terzo Anno/Lab Reti/immagini/atomicVar.png",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/immagini/tradUnicodeTo.png",
@@ -118,7 +132,6 @@
     "Terzo Anno/Lab Reti/3. Callable, Scheduled Thread, Monitor.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Terzo Anno/Lab Reti/Java dump.md",
-    "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
-    "Indice.md"
+    "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md"
   ]
 }
