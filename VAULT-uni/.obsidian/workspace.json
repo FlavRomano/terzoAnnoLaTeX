@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/Lab Reti/6. Stream Sockets for serversVolatile, Atomic.md",
+                "file": "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
                 "mode": "source",
                 "source": true
               }
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/6. Stream Sockets for serversVolatile, Atomic.md",
+                "file": "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,7 +97,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -109,6 +110,8 @@
   },
   "active": "db2e3429bcc0d94f",
   "lastOpenFiles": [
+    "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
+    "Terzo Anno/Lab Reti/immagini/atomicVar.png",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/immagini/tradUnicodeTo.png",
     "Terzo Anno/Lab Reti/4. JavaCollections.md",
@@ -116,8 +119,6 @@
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Terzo Anno/Lab Reti/Java dump.md",
     "Terzo Anno/Lab Reti/2. ThreadPoolExecutor.md",
-    "Terzo Anno/Lab Reti/6. Stream Sockets for serversVolatile, Atomic.md",
-    "Indice.md",
-    "Programming stud/REST API/2. URI.md"
+    "Indice.md"
   ]
 }
