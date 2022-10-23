@@ -6,7 +6,10 @@ import java.util.Scanner;
 public class DungeonAdventuresClient {
     public final static int PORT = 1313;
     public static boolean stringValidator(String line){
-        return "fight".equals(line) || "rematch".equals(line) || "heal".equals(line) || "exit".equals(line);
+        return "fight".equals(line) || "f".equals(line) ||
+                "rematch".equals(line) || "r".equals(line) ||
+                "heal".equals(line) || "h".equals(line) ||
+                "exit".equals(line) || "q".equals(line);
     }
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -23,15 +26,18 @@ public class DungeonAdventuresClient {
                 while (!end) {
                     String line = scanner.nextLine();
                     if (stringValidator(line)) {
-                        if ("exit".equals(line)) {
+                        if ("exit".equals(line) || "q".equals(line)) {
                             end = true;
+                        } else {
+                            out.println(line);
+                            String nextLine = in.nextLine();
+                            if (nextLine.contains("lost")) {
+                                end = true;
+                            }
+                            System.out.println(nextLine);
                         }
-                        out.println(line);
-                        String nextLine = in.nextLine();
-                        if (nextLine.contains("loses")) {
-                            end = true;
-                        }
-                        System.out.println(nextLine);
+                    } else {
+                        System.out.println("Not a command");
                     }
                 }
             } catch (IOException e) {

@@ -31,8 +31,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
+                "file": "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,10 +120,10 @@
   "ribbon": {
     "mostRecentAction": ""
   },
-  "active": "237813f0036a528c",
+  "active": "db2e3429bcc0d94f",
   "lastOpenFiles": [
-    "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
     "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
+    "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
     "Terzo Anno/Lab Reti/immagini/atomicVar.png",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/immagini/tradUnicodeTo.png",
