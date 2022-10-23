@@ -24,6 +24,7 @@ public class DungeonAdventuresServer implements Runnable {
         int playerHP;
         int monsterHP;
         int potion;
+        boolean play = true;
         String status;
 
         public CombatLog() {
@@ -44,19 +45,20 @@ public class DungeonAdventuresServer implements Runnable {
             status = "Fight";
         }
 
-        public boolean winOrDraw() {
+        public void winOrDraw() {
             if (playerHP > 0 && monsterHP < 1) {
                 status = "Win";
-                return true;
-            } else if (playerHP == 0 && playerHP == monsterHP) {
-                status = "Draw";
-                return true;
-            } else if (playerHP > 0 && monsterHP > 0) {
-                status = "Fight";
-                return false;
             }
-            status = "Lost";
-            return false;
+            if (playerHP < 1 && monsterHP > 0) {
+                status = "Lost";
+                play = false;
+            }
+            if (playerHP == 0 && playerHP == monsterHP) {
+                status = "Draw";
+            }
+            if (playerHP > 0 && monsterHP > 0) {
+                status = "Fight";
+            }
         }
 
         public void fight() {
@@ -80,13 +82,13 @@ public class DungeonAdventuresServer implements Runnable {
         }
     }
     public void run() {
-        System.out.format("Connected socket w/port=%d managed by %s%n", socket.getPort(), Thread.currentThread().getName());
+        System.out.format("Connected socket w/port=%d managed by %s%n",
+                socket.getPort(), Thread.currentThread().getName());
         CombatLog combatLog = new CombatLog();
-        boolean play = true;
         int wins = 0;
         try (Scanner in = new Scanner(socket.getInputStream())) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-            while (in.hasNextLine() && play) {
+            while (in.hasNextLine() && combatLog.play) {
                 String line = in.nextLine();
                 if ("f".equals(line)) {
                     switch (combatLog.status) {
@@ -94,10 +96,6 @@ public class DungeonAdventuresServer implements Runnable {
                             combatLog.fight();
                             out.format("Fighting... Player: %d HP, Monster: %d HP, Potion: %d%n",
                                     combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
-                            break;
-                        case "Lost":
-                            out.format("Player lost. Total wins: %d.", wins);
-                            play = false;
                             break;
                         case "Win":
                             out.println("Player won, press 'q' to quit or 'r' to restart.");
@@ -136,6 +134,7 @@ public class DungeonAdventuresServer implements Runnable {
                     out.println("Fight, heal or quit.");
                 }
             }
+            out.format("Total wins: %d%n", wins);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

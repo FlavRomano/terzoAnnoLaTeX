@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class DungeonAdventuresClient {
@@ -40,8 +41,8 @@ public class DungeonAdventuresClient {
                         System.out.println("Not a command");
                     }
                 }
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } catch (IOException | NoSuchElementException ignored ) {
+                ;
             } finally {
                 assert scanner != null;
                 assert in != null;
