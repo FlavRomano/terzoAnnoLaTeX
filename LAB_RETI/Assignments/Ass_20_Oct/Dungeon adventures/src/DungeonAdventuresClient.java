@@ -42,8 +42,10 @@ public class DungeonAdventuresClient {
                 while (!end) {
                     String line = scanner.nextLine();
                     if (stringValidator(line)) {
-                        if ("quit".equals(line) || "q".equals(line)) {
+                        if (line.equals("quit") || line.equals("q")) {
                             end = true;
+                        } else if (line.equals("help")) {
+                            System.out.println(COMMANDS);
                         } else {
                             out.println(line);
                             String nextLine = in.nextLine();

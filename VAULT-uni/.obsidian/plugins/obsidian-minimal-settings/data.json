@@ -2,7 +2,7 @@
   "theme": "moonstone",
   "lightStyle": "minimal-light",
   "darkStyle": "minimal-dark",
-  "lightScheme": "minimal-everforest-light",
+  "lightScheme": "minimal-macos-light",
   "darkScheme": "minimal-macos-dark",
   "editorFont": "",
   "lineHeight": 1.5,

@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-public class NetworkLogAnalyser {
+public class NetworkLogPrinter {
     public static void main(String[] args) {
         if (args.length == 0) {
             System.err.println("Inserire un percorso file");

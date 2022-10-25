@@ -10,13 +10,13 @@ public class TimeNetworkLogComparator {
         public Task(String[] args, boolean concurrent) {
             this.args = args;
             this.concurrent = concurrent;
-            this.time = System.currentTimeMillis();
         }
         public void run() {
+            time = System.currentTimeMillis();
             if (concurrent) {
-                ConcurrentNetworkLogAnalyser.main(args);
+                ConcurrentNetworkLogPrinter.main(args);
             } else {
-                NetworkLogAnalyser.main(args);
+                NetworkLogPrinter.main(args);
             }
             long time2 = System.currentTimeMillis();
             time = (time2 - time);

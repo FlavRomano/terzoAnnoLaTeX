@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.*;
 import java.util.concurrent.*;
 
-public class ConcurrentNetworkLogAnalyser {
+public class ConcurrentNetworkLogPrinter {
     public static class Task implements Runnable {
         String[] weblog;
 

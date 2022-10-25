@@ -90,7 +90,7 @@ public class DungeonAdventuresServer implements Runnable {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             while (in.hasNextLine() && combatLog.play) {
                 String line = in.nextLine();
-                if ("f".equals(line)) {
+                if ("f".equals(line) || "fight".equals(line)) {
                     switch (combatLog.status) {
                         case "Fight":
                             combatLog.fight();
@@ -123,7 +123,7 @@ public class DungeonAdventuresServer implements Runnable {
                             }
                             break;
                     }
-                } else if ("h".equals(line)) {
+                } else if ("h".equals(line) || "heal".equals(line)) {
                     if (combatLog.heal() && combatLog.status.equals("Fight")) {
                         out.format("Fighting... Player: %d HP, Monster: %d HP, Potion: %d%n",
                                 combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
@@ -144,7 +144,7 @@ public class DungeonAdventuresServer implements Runnable {
     public static void main(String[] args) {
         try (ServerSocket listener = new ServerSocket(PORT)) {
             System.out.format("Server is running at %s%n", listener.getInetAddress().getHostAddress());
-            ExecutorService service = Executors.newFixedThreadPool(5);
+            ExecutorService service = Executors.newFixedThreadPool(25);
             while (true) {
                 service.execute(new DungeonAdventuresServer(listener.accept()));
             }
