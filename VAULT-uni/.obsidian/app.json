@@ -1,0 +1,14 @@
+{
+  "legacyEditor": false,
+  "livePreview": false,
+  "promptDelete": false,
+  "fileSortOrder": "alphabetical",
+  "alwaysUpdateLinks": true,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 90
+  }
+}
