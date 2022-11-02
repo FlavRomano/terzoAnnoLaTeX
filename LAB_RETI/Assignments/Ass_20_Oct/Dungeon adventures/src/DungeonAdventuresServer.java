@@ -75,10 +75,26 @@ public class DungeonAdventuresServer implements Runnable {
             if (potion > 0) {
                 int potionConsume = ThreadLocalRandom.current().nextInt(1, 76);
                 playerHP = (potionConsume > potion ? playerHP + potion : playerHP + potionConsume);
-                potion = (potionConsume > potion ? 0 : potion - potionConsume);
+                potion = Math.max((potion - potionConsume), 0);
                 return true;
             }
             return false;
+        }
+    }
+    public boolean isQuitting(Scanner in, PrintWriter out, CombatLog combatLog, int wins) {
+        while (true) {
+            String line = in.nextLine();
+            if (line.equals("r")) {
+                combatLog.restorePG();
+                out.format("Let's fight! Player: %d HP, Monster: %d HP, Potion: %d%n",
+                        combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
+                return false;
+            } else if (line.equals("q")) {
+                out.format("Total wins: %d%n", wins);
+                return true;
+            } else {
+                out.println("Press 'q' to quit or 'r' to restart.");
+            }
         }
     }
     public void run() {
@@ -88,6 +104,9 @@ public class DungeonAdventuresServer implements Runnable {
         int wins = 0;
         try (Scanner in = new Scanner(socket.getInputStream())) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            out.println("Connected to server");
+            out.format("Ready to fight | Player: %d HP, Monster: %d HP, Potion: %d%n",
+                    combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
             while (in.hasNextLine() && combatLog.play) {
                 String line = in.nextLine();
                 if ("f".equals(line) || "fight".equals(line)) {
@@ -100,26 +119,14 @@ public class DungeonAdventuresServer implements Runnable {
                         case "Win":
                             out.println("Player won, press 'q' to quit or 'r' to restart.");
                             ++wins;
-                            while (true) {
-                                if (in.nextLine().equals("r")) {
-                                    combatLog.restorePG();
-                                    out.format("Let's fight! Player: %d HP, Monster: %d HP, Potion: %d%n",
-                                            combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
-                                    break;
-                                }
-                                out.println("Press 'q' to quit or 'r' to restart.");
+                            if (isQuitting(in, out, combatLog, wins)) {
+                                combatLog.play = false;
                             }
                             break;
                         case "Draw":
                             out.println("Player drew, press 'q' to quit or 'r' to restart.");
-                            while (true) {
-                                if (in.nextLine().equals("r")) {
-                                    combatLog.restorePG();
-                                    out.format("Let's fight! Player: %d HP, Monster: %d HP, Potion: %d%n",
-                                            combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
-                                    break;
-                                }
-                                out.println("Press 'q' to quit or 'r' to restart.");
+                            if (isQuitting(in, out, combatLog, wins)) {
+                                combatLog.play = false;
                             }
                             break;
                     }
@@ -130,6 +137,8 @@ public class DungeonAdventuresServer implements Runnable {
                     } else {
                         out.println("Cannot heal");
                     }
+                } else if ("q".equals(line) || "quit".equals(line)) {
+                    break;
                 } else {
                     out.println("Fight, heal or quit.");
                 }

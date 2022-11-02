@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
@@ -34,18 +35,23 @@ public class DungeonAdventuresClient {
         } else {
             System.out.println(TITLE);
             System.out.println(COMMANDS);
-            Scanner scanner = null;
-            Scanner in = null;
-            try (Socket socket = new Socket(args[0], PORT)) {
+            try (
+                 Socket socket = new Socket(args[0], PORT);
+                 Scanner in = new Scanner(socket.getInputStream());
+                 Scanner scanner = new Scanner(System.in)
+                ) {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+                System.out.println(in.nextLine());
+                System.out.println(in.nextLine()); // Take the initial stats
                 boolean end = false;
-                scanner = new Scanner(System.in);
-                in = new Scanner(socket.getInputStream());
                 while (!end) {
                     String line = scanner.nextLine();
                     if (stringValidator(line)) {
                         if (line.equals("quit") || line.equals("q")) {
+                            out.println(line);
+                            String nextLine = in.nextLine();
                             end = true;
+                            System.out.println(nextLine);
                         } else if (line.equals("help")) {
                             System.out.println(COMMANDS);
                         } else {
@@ -62,11 +68,6 @@ public class DungeonAdventuresClient {
                 }
             } catch (IOException e) {
                 throw new RuntimeException(e);
-            } finally {
-                assert scanner != null;
-                assert in != null;
-                scanner.close();
-                in.close();
             }
         }
     }

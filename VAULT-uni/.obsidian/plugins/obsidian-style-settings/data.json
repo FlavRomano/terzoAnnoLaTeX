@@ -1,0 +1,19 @@
+{
+  "ul-theme-settings@@ul-theme-light": "ul-timberwolf-lt",
+  "ul-theme-settings@@ul-font-code": "IBM Plex Mono",
+  "ul-theme-settings@@ul-bullet-size": "medium",
+  "ul-theme-settings@@ul-font-int": "Raleway",
+  "ul-theme-settings@@ul-font-tex": "Proza Libre",
+  "ul-theme-settings@@ul-font-title": "Inter",
+  "ul-theme-settings@@ul-accent-bg": false,
+  "ul-theme-settings@@focus": false,
+  "ul-theme-settings@@ul-theme-dark": "ul-timberwolf-dt",
+  "catppuccin-theme-settings@@catppuccin-theme-dark": "ctp-macchiato",
+  "catppuccin-theme-settings@@catppuccin-theme-accents": "ctp-accent-teal",
+  "anuppuccin-theme-settings@@anuppuccin-theme-light": "ctp-latte",
+  "anuppuccin-theme-settings@@anuppuccin-theme-dark": "ctp-mocha",
+  "anuppuccin-theme-settings@@anuppuccin-theme-accents": "ctp-accent-rosewater",
+  "anuppuccin-theme-settings@@anp-alt-tab-style": "anp-alternate-tab-toggle",
+  "anuppuccin-theme-settings@@anp-editor-font-toggle": true,
+  "minimal-advanced@@styled-scrollbars": false
+}

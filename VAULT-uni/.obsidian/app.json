@@ -10,5 +10,6 @@
     "landscape": false,
     "margin": "0",
     "downscalePercent": 90
-  }
+  },
+  "readableLineLength": true
 }

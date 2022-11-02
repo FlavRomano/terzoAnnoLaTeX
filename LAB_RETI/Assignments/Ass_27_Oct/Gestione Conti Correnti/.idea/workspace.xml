@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer$CombatLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer$CombatLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer$CombatLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer$CombatLog.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/appearance.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/community-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/community-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GkwGDJeS8LEIiRUBflHfEttz9Y" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/flavio/Desktop/University/terzoAnnoLaTeX/LAB_RETI/Assignments/Ass_27_Oct/Gestione Conti Correnti/src&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propDebugger&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Gestione Conti Correnti" />
+      <option name="PROGRAM_PARAMETERS" value="test/accounts.json" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="" />
+      <created>1666945791844</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1666945791844</updated>
+      <workItem from="1666945792947" duration="169000" />
+      <workItem from="1666972670112" duration="517000" />
+      <workItem from="1667032779435" duration="9469000" />
+      <workItem from="1667043301102" duration="3000" />
+      <workItem from="1667043337910" duration="6000" />
+      <workItem from="1667043832093" duration="460000" />
+      <workItem from="1667044308326" duration="60000" />
+      <workItem from="1667120492130" duration="982000" />
+      <workItem from="1667121490859" duration="609000" />
+      <workItem from="1667122125205" duration="5224000" />
+      <workItem from="1667127402420" duration="103000" />
+      <workItem from="1667204162689" duration="1297000" />
+      <workItem from="1667205679545" duration="164000" />
+      <workItem from="1667211670749" duration="3890000" />
+      <workItem from="1667378340544" duration="823000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -8,43 +8,18 @@
         "type": "tabs",
         "children": [
           {
-            "id": "edb651d70a1f77da",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "504186d213602d1f",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Terzo Anno/Lab Reti/Assignment's code/20 Ottobre-Dungeon Adventures.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
             "id": "8c7cfb23eefa69cb",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md",
+                "file": "Terzo Anno/Lab Reti/Assignment's code/14 Ottobre-WebLog.md",
                 "mode": "preview",
                 "source": true
               }
             }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -103,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md",
+                "file": "Terzo Anno/Lab Reti/Assignment's code/14 Ottobre-WebLog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -121,6 +96,14 @@
               "type": "advanced-tables-toolbar",
               "state": {}
             }
+          },
+          {
+            "id": "6a3edf4d7d20c91f",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
           }
         ],
         "currentTab": 1
@@ -132,15 +115,15 @@
   },
   "active": "8c7cfb23eefa69cb",
   "lastOpenFiles": [
-    "Terzo Anno/Lab Reti/Assignment's code/20 Ottobre-Dungeon Adventures.md",
-    "Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md",
-    "Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md",
-    "Terzo Anno/Lab Reti/Assignment's code/14 Ottobre-WebLog.md",
-    "Terzo Anno/Lab Reti/Assignment's code/29 Settembre-Gestione Laboratorio.md",
-    "Terzo Anno/Lab Reti/Assignment's code/22 Settembre-Ufficio Postale.md",
     "Terzo Anno/Lab Reti/Assignment's code/15 Settembre.md",
+    "Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md",
+    "Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.pdf",
+    "Terzo Anno/Lab Reti/Assignment's code/14 Ottobre-WebLog.md",
     "Terzo Anno/Lab Reti/7. JSON e Serializzazione.md",
-    "Terzo Anno/Database/SQL Query/Query.md",
+    "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
+    "Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md",
+    "Terzo Anno/Lab Reti/Assignment's code/20 Ottobre-Dungeon Adventures.md",
+    "Terzo Anno/Lab Reti/Assignment's code/22 Settembre-Ufficio Postale.md",
     "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md"
   ]
 }

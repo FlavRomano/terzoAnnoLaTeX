@@ -5,5 +5,7 @@
   "accentColor": "#dfb234",
   "theme": "obsidian",
   "monospaceFontFamily": "IBM Plex Mono",
-  "baseFontSizeAction": false
+  "baseFontSizeAction": false,
+  "interfaceFontFamily": "",
+  "textFontFamily": ""
 }

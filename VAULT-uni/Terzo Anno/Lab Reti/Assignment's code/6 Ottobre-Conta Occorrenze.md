@@ -7,7 +7,15 @@ Scrivere un programma che conta le occorrenze dei caratteri alfabetici (lettere 
 <carattere N>,<numero occorrenze>  
 ```
   
-Esempio di file di output:  `a,1281   b,315   c,261   d,302   ...`
+Esempio di file di output:  
+```
+a,1281   
+b,315   
+c,261   
+d,302   
+...
+```
+
 ## Codice
 ```java
 import java.io.File;
