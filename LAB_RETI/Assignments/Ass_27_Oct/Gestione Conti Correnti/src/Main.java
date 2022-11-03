@@ -44,7 +44,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        if (args.length % 2 == 0) {
+        if (args.length != 1) {
             System.err.format("Inserire un path di file json%n\tjava -cp :gson-2.10.jar Main path/example.json%n");
         } else {
             map.put("F24", 0);
@@ -82,4 +82,4 @@ F24,3998118
 PAGOBANCOMAT,3996664
 BONIFICO,4001414
 ACCREDITO,3999846
- */
+*/

@@ -1,4 +1,3 @@
-## Impiegati Supervisione
 ```start-multi-column
 ID: ID_rcbs
 Number of Columns: 2
@@ -47,7 +46,7 @@ Impiegati(==Matricola==, Nome, Età, Stipendio)
 |      1037 |       Levon |  20 |        80 |
 |      1038 |   Catharine |  46 |        74 |
 |      1039 |       Meggy |  50 |        72 |
-|      1040 |        Dirk |  34 |        80 |
+|      1040 |        Dirk |  34 |        90 |
 |      1041 |      Tallie |  49 |        90 |
 --- column-end ---
 
@@ -93,24 +92,24 @@ Supervisione(==Impiegato==\*, ==Capo==\*)
 
 **[Results][2]**:
 
-    |      Nome | Stipendio |
-    |-----------|-----------|
-    |    Eimile |        50 |
-    |    Amandy |        70 |
-    |     Emmet |        49 |
-    |    Adrian |        73 |
-    |  Gretchen |        37 |
-    | Marmaduke |        41 |
-    | Philomena |        30 |
-    |     Kylie |        55 |
-    |    Blinny |        86 |
-    |    Thaine |        55 |
-    |  Veronica |        42 |
-    |    Arlina |        73 |
-    |      Jojo |        74 |
-    |     Levon |        80 |
-    | Catharine |        74 |
-    |      Dirk |        80 |
+|      Nome | Stipendio |
+|-----------|-----------|
+|    Eimile |        50 |
+|    Amandy |        70 |
+|     Emmet |        49 |
+|    Adrian |        73 |
+|  Gretchen |        37 |
+| Marmaduke |        41 |
+| Philomena |        30 |
+|     Kylie |        55 |
+|    Blinny |        86 |
+|    Thaine |        55 |
+|  Veronica |        42 |
+|    Arlina |        73 |
+|      Jojo |        74 |
+|     Levon |        80 |
+| Catharine |        74 |
+|      Dirk |        90 |
 
   [1]: http://sqlfiddle.com/#!9/6c0e85b/50
   [2]: http://sqlfiddle.com/#!9/6c0e85b/50/0
@@ -127,26 +126,71 @@ Supervisione(==Impiegato==\*, ==Capo==\*)
 
 **[Results][2]**:
 
-    | Matricola |
-    |-----------|
-    |      1022 |
-    |      1023 |
-    |      1025 |
-    |      1026 |
-    |      1027 |
-    |      1028 |
-    |      1029 |
-    |      1030 |
-    |      1032 |
-    |      1033 |
-    |      1034 |
-    |      1035 |
-    |      1036 |
-    |      1037 |
-    |      1038 |
-    |      1040 |
+| Matricola |
+|-----------|
+|      1022 |
+|      1023 |
+|      1025 |
+|      1026 |
+|      1027 |
+|      1028 |
+|      1029 |
+|      1030 |
+|      1032 |
+|      1033 |
+|      1034 |
+|      1035 |
+|      1036 |
+|      1037 |
+|      1038 |
+|      1040 |
 
   [1]: http://sqlfiddle.com/#!9/6c0e85b/53
   [2]: http://sqlfiddle.com/#!9/6c0e85b/53/0
 
-3. Trovare gli impiegati che guadagnano più del proprio capo, mostrando matricola, nome e stipendio dell'impiegato e del capo.
+3. Trovare gli impiegati che guadagnano più del proprio capo, mostrando matricola, nome e stipendio dell'impiegato e del capo. 
+
+**Query 3**:
+```sql
+SELECT Sottoposti.Matricola, Sottoposti.Nome, Sottoposti.Stipendio, Capi.*
+FROM (SELECT Matricola, Nome, Stipendio 
+      FROM Supervisione S, Impiegati I
+      WHERE I.Matricola = S.Capo) as Capi, 
+      (SELECT Matricola, Nome, Stipendio, Capo
+       FROM Supervisione S, Impiegati I
+       WHERE I.Matricola = S.Impiegato) as Sottoposti
+WHERE Sottoposti.Capo = Capi.Matricola 
+      and Sottoposti.Stipendio > Capi.Stipendio;
+```
+
+**[Results](http://sqlfiddle.com/#!9/6c0e85b/88/0)**:
+
+| Matricola | Nome        | Stipendio | Matricola | Nome      | Stipendio |
+| --------- | ----------- | --------- | --------- | --------- | --------- |
+| 1002      | Gilbertina  | 58        | 1022      | Eimile    | 50        |
+| 1003      | Nicolea     | 79        | 1023      | Amandy    | 70        |
+| 1005      | Clerkclaude | 69        | 1025      | Emmet     | 49        |
+| 1006      | Tybi        | 84        | 1026      | Adrian    | 73        |
+| 1007      | Ethe        | 68        | 1027      | Gretchen  | 37        |
+| 1008      | Hortense    | 43        | 1028      | Marmaduke | 41        |
+| 1009      | Cherise     | 75        | 1029      | Philomena | 30        |
+| 1010      | Thayne      | 67        | 1030      | Kylie     | 55        |
+| 1013      | Vevay       | 83        | 1033      | Thaine    | 55        |
+| 1014      | Milt        | 54        | 1034      | Veronica  | 42        |
+| 1018      | Guthrie     | 77        | 1038      | Catharine | 74        |
+
+4. Trovare quali sono gli impiegati che hanno stipendio massimo
+
+**Query 4**:
+```sql
+SELECT *
+FROM Impiegati
+WHERE Impiegati.Stipendio in (SELECT MAX(Stipendio) FROM Impiegati);
+```
+
+** [Results](http://sqlfiddle.com/#!9/5bd169/1/0)**:
+
+| Matricola |   Nome | Eta | Stipendio |
+|-----------|--------|-----|-----------|
+|      1040 |   Dirk |  34 |        90 |
+|      1041 | Tallie |  49 |        90 |

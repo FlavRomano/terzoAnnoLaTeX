@@ -11,5 +11,6 @@
     "margin": "0",
     "downscalePercent": 90
   },
-  "readableLineLength": true
+  "readableLineLength": true,
+  "showFrontmatter": true
 }

@@ -2,23 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer$CombatLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer$CombatLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/out/production/Dungeon adventures/DungeonAdventuresServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer$CombatLog.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer$CombatLog.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/appearance.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/appearance.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/community-plugins.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/community-plugins.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/6bis. Dungeon Adventures.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/6 Ottobre-Conta Occorrenze.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +62,7 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Gestione Conti Correnti" />
-      <option name="PROGRAM_PARAMETERS" value="test/accounts.json" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/../../../../../../accounts.json" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,6 +92,9 @@
       <workItem from="1667205679545" duration="164000" />
       <workItem from="1667211670749" duration="3890000" />
       <workItem from="1667378340544" duration="823000" />
+      <workItem from="1667379748153" duration="16000" />
+      <workItem from="1667398620573" duration="243000" />
+      <workItem from="1667429869372" duration="214000" />
     </task>
     <servers />
   </component>
