@@ -31,7 +31,7 @@ public class DungeonAdventuresClient {
                 "rematch".equals(line) || "r".equals(line) ||
                 "heal".equals(line) || "h".equals(line) ||
                 "exit".equals(line) || "q".equals(line) ||
-                "help".equals(line);
+                "quit".equals(line) || "help".equals(line);
     }
 
     public static void main(String[] args) {
@@ -45,7 +45,7 @@ public class DungeonAdventuresClient {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             int faultyInputs = System.in.available();
             while (faultyInputs > 0) {
-                // for consuming random commands user may type before the game started
+                // for skipping random commands user may type before the game started
                 int commandLen = scanner.nextLine().length() + 1; // we must consider the CR (e.g "f\n", "aaa\n",)
                 faultyInputs -= commandLen;
             }
