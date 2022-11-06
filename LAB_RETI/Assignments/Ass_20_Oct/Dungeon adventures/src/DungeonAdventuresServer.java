@@ -12,6 +12,7 @@ public class DungeonAdventuresServer implements Runnable {
     public static final String ANSI_GREEN = "\u001B[32m";
     public static final String ANSI_YELLOW = "\u001B[33m";
     public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_RESET = "\u001B[0m";
 
     public DungeonAdventuresServer(Socket socket) {
@@ -86,7 +87,7 @@ public class DungeonAdventuresServer implements Runnable {
                         ANSI_YELLOW, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
                 return false;
             } else if (line.equals("q")) {
-                out.format("Total wins: %d%n", wins);
+                out.format("%sTotal wins: %d%s%n", ANSI_PURPLE, wins, ANSI_RESET);
                 return true;
             } else {
                 out.format("%sPress 'q' to quit or 'r' to restart.%s%n", ANSI_RED, ANSI_RESET);
@@ -127,7 +128,7 @@ public class DungeonAdventuresServer implements Runnable {
                             }
                             break;
                         case "Draw":
-                            out.format("%sPlayer drew, press 'q' to quit or 'r' to restart.%s%n", ANSI_GREEN, ANSI_RESET);
+                            out.format("%sPlayer drew, press 'q' to quit or 'r' to restart.%s%n", ANSI_CYAN, ANSI_RESET);
                             if (isQuitting(in, out, combatLog, wins)) {
                                 combatLog.play = false;
                             }

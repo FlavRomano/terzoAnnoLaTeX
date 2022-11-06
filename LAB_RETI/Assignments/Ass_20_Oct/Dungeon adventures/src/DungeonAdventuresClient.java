@@ -9,7 +9,7 @@ public class DungeonAdventuresClient {
     public static final String ANSI_RESET = "\u001B[0m";
     public final static String TITLE = ANSI_PURPLE +
             "█▀▄ █░█ █▄░█ █▀▀ █▀▀ █▀█ █▄░█   ▄▀█ █▀▄ █░█ █▀▀ █▄░█ ▀█▀ █░█ █▀█ █▀▀ █▀\n" +
-                    "█▄▀ █▄█ █░▀█ █▄█ ██▄ █▄█ █░▀█   █▀█ █▄▀ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ██▄ ▄█"
+            "█▄▀ █▄█ █░▀█ █▄█ ██▄ █▄█ █░▀█   █▀█ █▄▀ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ██▄ ▄█"
             + ANSI_RESET;
     public final static String COMMANDS = "+----------------+-------------------------------------------------+\n" +
             "| command        | description                                     |\n" +
