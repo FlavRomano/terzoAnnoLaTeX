@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class DungeonAdventuresServer implements Runnable {
     public final static int PORT = 1313;
-    private Socket socket;
+    private final Socket socket;
 
     public DungeonAdventuresServer(Socket socket) {
         this.socket = socket;
