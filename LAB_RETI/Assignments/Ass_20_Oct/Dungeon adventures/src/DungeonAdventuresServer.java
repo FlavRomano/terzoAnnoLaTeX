@@ -53,7 +53,7 @@ public class DungeonAdventuresServer implements Runnable {
                 status = "Lost";
                 play = false;
             }
-            if (playerHP == 0 && playerHP == monsterHP) {
+            if (Math.max(playerHP, monsterHP) == 0) {
                 status = "Draw";
             }
             if (playerHP > 0 && monsterHP > 0) {

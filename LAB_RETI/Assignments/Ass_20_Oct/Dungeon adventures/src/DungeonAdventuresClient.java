@@ -46,8 +46,8 @@ public class DungeonAdventuresClient {
             int i = System.in.available();
             while (i > 0) {
                 // for consuming random commands user may type before the game started
-                int len = scanner.nextLine().length() + 1; // we must consider the CR (e.g "f\n", "aaa\n",)
-                i -= len;
+                int commandLen = scanner.nextLine().length() + 1; // we must consider the CR (e.g "f\n", "aaa\n",)
+                i -= commandLen;
             }
             boolean end = false;
             while (!end) {
