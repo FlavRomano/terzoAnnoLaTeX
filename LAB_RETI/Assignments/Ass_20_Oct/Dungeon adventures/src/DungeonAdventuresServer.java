@@ -8,13 +8,21 @@ import java.util.concurrent.ThreadLocalRandom;
 public class DungeonAdventuresServer implements Runnable {
     public final static int PORT = 1313;
     private final Socket socket;
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_RESET = "\u001B[0m";
 
     public DungeonAdventuresServer(Socket socket) {
         this.socket = socket;
     }
+
     public static class CombatLog {
         int playerHP;
         int monsterHP;
+        int damagePlayer;
+        int damageMonster;
         int potion;
         boolean play = true;
         String status;
@@ -43,7 +51,6 @@ public class DungeonAdventuresServer implements Runnable {
             }
             if (playerHP < 1 && monsterHP > 0) {
                 status = "Lost";
-                play = false;
             }
             if (Math.max(playerHP, monsterHP) == 0) {
                 status = "Draw";
@@ -54,41 +61,39 @@ public class DungeonAdventuresServer implements Runnable {
         }
 
         public void fight() {
-            if (status.equals("Fight")) {
-                int damagePlayer = ThreadLocalRandom.current().nextInt(0, 100);
-                int damageMonster = ThreadLocalRandom.current().nextInt(0, 100);
-                playerHP = makeDamage(playerHP, damageMonster);
-                monsterHP = makeDamage(monsterHP, damagePlayer);
-                winOrDraw();
-            }
+            damagePlayer = ThreadLocalRandom.current().nextInt(0, 100);
+            damageMonster = ThreadLocalRandom.current().nextInt(0, 100);
+            playerHP = makeDamage(playerHP, damageMonster);
+            monsterHP = makeDamage(monsterHP, damagePlayer);
+            winOrDraw();
         }
 
-        public boolean heal() {
-            if (potion > 0) {
-                int potionConsume = ThreadLocalRandom.current().nextInt(1, 76);
-                playerHP = (potionConsume > potion ? playerHP + potion : playerHP + potionConsume);
-                potion = Math.max((potion - potionConsume), 0);
-                return true;
-            }
-            return false;
+        public int heal() {
+            int potionConsume = ThreadLocalRandom.current().nextInt(1, 76);
+            int healing = Math.min(potionConsume, potion);
+            playerHP = playerHP + healing;
+            potion = Math.max((potion - potionConsume), 0);
+            return healing;
         }
     }
+
     public boolean isQuitting(Scanner in, PrintWriter out, CombatLog combatLog, int wins) {
         while (true) {
             String line = in.nextLine();
             if (line.equals("r")) {
                 combatLog.restorePG();
-                out.format("Let's fight! Player: %d HP, Monster: %d HP, Potion: %d%n",
-                        combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
+                out.format("%sLet's fight! Player: %d HP, Monster: %d HP, Potion: %d%s%n",
+                        ANSI_YELLOW, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
                 return false;
             } else if (line.equals("q")) {
                 out.format("Total wins: %d%n", wins);
                 return true;
             } else {
-                out.println("Press 'q' to quit or 'r' to restart.");
+                out.format("%sPress 'q' to quit or 'r' to restart.%s%n", ANSI_RED, ANSI_RESET);
             }
         }
     }
+
     public void run() {
         System.out.format("Connected socket w/port=%d managed by %s%n",
                 socket.getPort(), Thread.currentThread().getName());
@@ -97,45 +102,52 @@ public class DungeonAdventuresServer implements Runnable {
         try (Scanner in = new Scanner(socket.getInputStream())) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             out.println("Connected to server");
-            out.format("Ready to fight | Player: %d HP, Monster: %d HP, Potion: %d%n",
-                    combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
+            out.format("%sReady to fight | Player: %d HP, Monster: %d HP, Potion: %d%s%n",
+                    ANSI_YELLOW, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
             while (in.hasNextLine() && combatLog.play) {
                 String line = in.nextLine();
                 if ("f".equals(line) || "fight".equals(line)) {
                     switch (combatLog.status) {
                         case "Fight":
                             combatLog.fight();
-                            out.format("Fighting... Player: %d HP, Monster: %d HP, Potion: %d%n",
-                                    combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
+                            out.format("%s-%d to Player and -%d to Monster | Player: %d HP, Monster: %d HP, Potion: %d%s%n",
+                                    ANSI_YELLOW, combatLog.damageMonster, combatLog.damagePlayer,
+                                    combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
+                            break;
+                        case "Lost":
+                            out.format("%sPlayer lost.%s%n", ANSI_RED, ANSI_RESET);
+                            out.format("%sTotal wins: %d%s%n", ANSI_PURPLE, wins, ANSI_RESET);
+                            combatLog.play = false;
                             break;
                         case "Win":
-                            out.println("Player won, press 'q' to quit or 'r' to restart.");
+                            out.format("%sPlayer won, press 'q' to quit or 'r' to restart.%s%n", ANSI_GREEN, ANSI_RESET);
                             ++wins;
                             if (isQuitting(in, out, combatLog, wins)) {
                                 combatLog.play = false;
                             }
                             break;
                         case "Draw":
-                            out.println("Player drew, press 'q' to quit or 'r' to restart.");
+                            out.format("%sPlayer drew, press 'q' to quit or 'r' to restart.%s%n", ANSI_GREEN, ANSI_RESET);
                             if (isQuitting(in, out, combatLog, wins)) {
                                 combatLog.play = false;
                             }
                             break;
                     }
                 } else if ("h".equals(line) || "heal".equals(line)) {
-                    if (combatLog.heal() && combatLog.status.equals("Fight")) {
-                        out.format("Fighting... Player: %d HP, Monster: %d HP, Potion: %d%n",
-                                combatLog.playerHP, combatLog.monsterHP, combatLog.potion);
+                    if (combatLog.potion > 0 && combatLog.status.equals("Fight")) {
+                        int healed = combatLog.heal();
+                        out.format("%sHealed %d | Player: %d HP, Monster: %d HP, Potion: %d%s%n",
+                                ANSI_GREEN, healed, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
                     } else {
-                        out.println("Cannot heal");
+                        out.format("%sCannot heal%s%n", ANSI_RED, ANSI_RESET);
                     }
                 } else if ("q".equals(line) || "quit".equals(line)) {
                     break;
-                } else {
-                    out.println("Fight, heal or quit.");
+                }  else {
+                    out.format("%sFight, heal or quit.%s%n", ANSI_RED, ANSI_RESET);
                 }
             }
-            out.format("Total wins: %d%n", wins);
+            out.format("%sTotal wins: %d%s%n", ANSI_PURPLE, wins, ANSI_RESET);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

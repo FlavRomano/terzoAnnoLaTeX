@@ -4,9 +4,13 @@ import java.net.Socket;
 import java.util.Scanner;
 
 public class DungeonAdventuresClient {
-    public final static String TITLE =
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_RESET = "\u001B[0m";
+    public final static String TITLE = ANSI_PURPLE +
             "█▀▄ █░█ █▄░█ █▀▀ █▀▀ █▀█ █▄░█   ▄▀█ █▀▄ █░█ █▀▀ █▄░█ ▀█▀ █░█ █▀█ █▀▀ █▀\n" +
-                    "█▄▀ █▄█ █░▀█ █▄█ ██▄ █▄█ █░▀█   █▀█ █▄▀ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ██▄ ▄█";
+                    "█▄▀ █▄█ █░▀█ █▄█ ██▄ █▄█ █░▀█   █▀█ █▄▀ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ██▄ ▄█"
+            + ANSI_RESET;
     public final static String COMMANDS = "+----------------+-------------------------------------------------+\n" +
             "| command        | description                                     |\n" +
             "+----------------+-------------------------------------------------+\n" +
@@ -39,16 +43,16 @@ public class DungeonAdventuresClient {
                 Scanner scanner = new Scanner(System.in)
         ) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+            int faultyInputs = System.in.available();
+            while (faultyInputs > 0) {
+                // for consuming random commands user may type before the game started
+                int commandLen = scanner.nextLine().length() + 1; // we must consider the CR (e.g "f\n", "aaa\n",)
+                faultyInputs -= commandLen;
+            }
             String connString = in.nextLine();
             System.out.println(connString);
             String initialState = in.nextLine();
             System.out.println(initialState);
-            int i = System.in.available();
-            while (i > 0) {
-                // for consuming random commands user may type before the game started
-                int commandLen = scanner.nextLine().length() + 1; // we must consider the CR (e.g "f\n", "aaa\n",)
-                i -= commandLen;
-            }
             boolean end = false;
             while (!end) {
                 String line = scanner.nextLine();
@@ -63,13 +67,20 @@ public class DungeonAdventuresClient {
                     } else {
                         out.println(line);
                         String nextLine = in.nextLine();
-                        if (nextLine.contains("wins")) {
+                        if (nextLine.contains("lost")) {
                             end = true;
+                            System.out.println(nextLine);
+                            nextLine = in.nextLine();
+                            System.out.println(nextLine);
+                        } else if (nextLine.contains("wins")) {
+                            end = true;
+                            System.out.println(nextLine);
+                        } else {
+                            System.out.println(nextLine);
                         }
-                        System.out.println(nextLine);
                     }
                 } else {
-                    System.out.println("Not a command");
+                    System.out.println(ANSI_RED+"Not a command"+ANSI_RESET);
                 }
             }
         } catch (IOException e) {
