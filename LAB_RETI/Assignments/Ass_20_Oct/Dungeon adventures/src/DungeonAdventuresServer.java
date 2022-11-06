@@ -139,7 +139,7 @@ public class DungeonAdventuresServer implements Runnable {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        System.out.format("Socket w/port=%d quitted%n", socket.getPort());
+        System.out.format("Socket w/port=%d quit%n", socket.getPort());
     }
 
     public static void main(String[] args) {
