@@ -12,14 +12,6 @@ public class DungeonAdventuresServer implements Runnable {
     public DungeonAdventuresServer(Socket socket) {
         this.socket = socket;
     }
-
-    public static void restoreGame(int[] combatLog) {
-        combatLog[0] = 100;
-        combatLog[1] = 100;
-        combatLog[2] = 75;
-        combatLog[3] = 0;
-    }
-
     public static class CombatLog {
         int playerHP;
         int monsterHP;
