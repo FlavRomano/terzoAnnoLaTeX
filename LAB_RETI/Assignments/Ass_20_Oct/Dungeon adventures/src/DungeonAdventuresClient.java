@@ -38,7 +38,7 @@ public class DungeonAdventuresClient {
         System.out.println(TITLE);
         System.out.println(COMMANDS);
         try (
-                Socket socket = new Socket("0.0.0.0", PORT);
+                Socket socket = new Socket("",PORT);
                 Scanner in = new Scanner(socket.getInputStream());
                 Scanner scanner = new Scanner(System.in)
         ) {
