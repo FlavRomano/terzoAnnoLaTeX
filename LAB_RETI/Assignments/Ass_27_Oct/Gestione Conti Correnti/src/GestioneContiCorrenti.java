@@ -1,23 +1,11 @@
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonToken;
-
 import java.io.*;
 import java.util.Map;
 import java.util.concurrent.*;
 
-public class Main {
+public class GestioneContiCorrenti {
     private static final ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
-
-    public class Record {
-        String date;
-        String reason;
-    }
-
-    public class Conto {
-        String owner;
-        Record[] records;
-    }
 
     public static class Task implements Runnable {
         Conto conto;
@@ -29,7 +17,7 @@ public class Main {
         public void run() {
             System.out.format("%s controlla il conto di %s%n",
                     Thread.currentThread().getName(), conto.owner);
-            for (Record r : conto.records) {
+            for (Conto.Record r : conto.records) {
                 map.compute(r.reason, (key, value) -> value + 1);
             }
         }
@@ -45,7 +33,7 @@ public class Main {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.err.format("Inserire un path di file json%n\tjava -cp :gson-2.10.jar Main path/example.json%n");
+            System.err.format("Inserire un path di file json%n\tjava -cp :gson-2.10.jar GestioneContiCorrenti path/example.json%n");
         } else {
             map.put("F24", 0);
             map.put("BONIFICO", 0);

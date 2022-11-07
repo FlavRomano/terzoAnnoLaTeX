@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_20_Oct/Dungeon adventures/src/DungeonAdventuresClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/plugins/obsidian-minimal-settings/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main$Conto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main$Record.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main$Task.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GestioneContiCorrenti.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +97,7 @@
       <workItem from="1667379748153" duration="16000" />
       <workItem from="1667398620573" duration="243000" />
       <workItem from="1667429869372" duration="214000" />
+      <workItem from="1667838362582" duration="1022000" />
     </task>
     <servers />
   </component>
