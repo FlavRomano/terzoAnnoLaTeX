@@ -21,12 +21,12 @@ public class DungeonAdventuresServer implements Runnable {
     public boolean isQuitting(Scanner in, PrintWriter out, CombatLog combatLog, int wins) {
         while (true) {
             String line = in.nextLine();
-            if (line.equals("r")) {
+            if (line.equals("r") || "4".equals(line)) {
                 combatLog.restorePG();
                 out.format("%s> Let's fight! Player: %d HP, Monster: %d HP, Potion: %d%s%n",
                         ANSI_YELLOW, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
                 return false;
-            } else if (line.equals("q")) {
+            } else if (line.equals("q") || "3".equals(line)) {
                 out.format("%sTotal wins: %d%s%n", ANSI_PURPLE, wins, ANSI_RESET);
                 return true;
             } else {
@@ -47,7 +47,7 @@ public class DungeonAdventuresServer implements Runnable {
                     ANSI_YELLOW, combatLog.playerHP, combatLog.monsterHP, combatLog.potion, ANSI_RESET);
             while (in.hasNextLine() && combatLog.play) {
                 String line = in.nextLine();
-                if ("f".equals(line) || "fight".equals(line)) {
+                if ("f".equals(line) || "fight".equals(line) || "1".equals(line)) {
                     switch (combatLog.status) {
                         case "Fight":
                             combatLog.fight();
@@ -74,7 +74,7 @@ public class DungeonAdventuresServer implements Runnable {
                             }
                             break;
                     }
-                } else if ("h".equals(line) || "heal".equals(line)) {
+                } else if ("h".equals(line) || "heal".equals(line) || "2".equals(line)) {
                     if (combatLog.potion > 0 && combatLog.status.equals("Fight")) {
                         int healed = combatLog.heal();
                         out.format("%s> Healed %d | Player: %d HP, Monster: %d HP, Potion: %d%s%n",
@@ -82,7 +82,7 @@ public class DungeonAdventuresServer implements Runnable {
                     } else {
                         out.format("%sCannot heal%s%n", ANSI_RED, ANSI_RESET);
                     }
-                } else if ("q".equals(line) || "quit".equals(line)) {
+                } else if ("q".equals(line) || "quit".equals(line) || "3".equals(line)) {
                     break;
                 }  else {
                     out.format("%sFight, heal or quit.%s%n", ANSI_RED, ANSI_RESET);

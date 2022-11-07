@@ -11,27 +11,27 @@ public class DungeonAdventuresClient {
             "█▀▄ █░█ █▄░█ █▀▀ █▀▀ █▀█ █▄░█   ▄▀█ █▀▄ █░█ █▀▀ █▄░█ ▀█▀ █░█ █▀█ █▀▀ █▀\n" +
             "█▄▀ █▄█ █░▀█ █▄█ ██▄ █▄█ █░▀█   █▀█ █▄▀ ▀▄▀ ██▄ █░▀█ ░█░ █▄█ █▀▄ ██▄ ▄█"
             + ANSI_RESET;
-    public final static String COMMANDS = "+----------------+-------------------------------------------------+\n" +
-            "| command        | description                                     |\n" +
-            "+----------------+-------------------------------------------------+\n" +
-            "| 'fight', 'f'   | fight the monster                               |\n" +
-            "+----------------+-------------------------------------------------+\n" +
-            "| 'heal', 'h'    | heal the player                                 |\n" +
-            "+----------------+-------------------------------------------------+\n" +
-            "| 'rematch', 'r' | request a rematch (only in case of win or draw) |\n" +
-            "+----------------+-------------------------------------------------+\n" +
-            "| 'quit', 'q'    | quit the game                                   |\n" +
-            "+----------------+-------------------------------------------------+\n" +
-            "| 'help'         | print this table                                |\n" +
-            "+----------------+-------------------------------------------------+";
+    public final static String COMMANDS = "+--------+----------------+-------------------------------------------------+\n" +
+            "| \033[0;1mnumpad\u001B[0m |    \033[0;1mcommand\u001B[0m     |                  \033[0;1m description\u001B[0m                   |\n" +
+            "+========+================+=================================================+\n" +
+            "|    1   | 'fight', 'f'   | fight the monster or action                     |\n" +
+            "+--------+----------------+-------------------------------------------------+\n" +
+            "|    2   | 'heal', 'h'    | heal the player                                 |\n" +
+            "+--------+----------------+-------------------------------------------------+\n" +
+            "|    3   | 'quit', 'q'    | quit the game                                   |\n" +
+            "+--------+----------------+-------------------------------------------------+\n" +
+            "|    4   | 'rematch', 'r' | request a rematch (only in case of win or draw) |\n" +
+            "+--------+----------------+-------------------------------------------------+\n" +
+            "|    5   | 'help'         | print this table                                |\n" +
+            "+--------+----------------+-------------------------------------------------+";
     public final static int PORT = 1313;
 
     public static boolean stringValidator(String line) {
-        return "fight".equals(line) || "f".equals(line) ||
-                "rematch".equals(line) || "r".equals(line) ||
-                "heal".equals(line) || "h".equals(line) ||
-                "exit".equals(line) || "q".equals(line) ||
-                "quit".equals(line) || "help".equals(line);
+        return "fight".equals(line) || "f".equals(line) || "1".equals(line) ||
+                "heal".equals(line) || "h".equals(line) || "2".equals(line) ||
+                "quit".equals(line) || "q".equals(line) || "3".equals(line) ||
+                "rematch".equals(line) || "r".equals(line) || "4".equals(line) ||
+                "help".equals(line) || "5".equals(line);
     }
 
     public static void main(String[] args) {
@@ -62,7 +62,7 @@ public class DungeonAdventuresClient {
                         String nextLine = in.nextLine();
                         end = true;
                         System.out.println(nextLine);
-                    } else if (line.equals("help")) {
+                    } else if (line.equals("help") || line.equals("5")) {
                         System.out.println(COMMANDS);
                     } else {
                         out.println(line);
