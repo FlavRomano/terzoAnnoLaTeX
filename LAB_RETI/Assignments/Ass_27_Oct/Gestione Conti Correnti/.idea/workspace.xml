@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="" />
+    <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../Ass_3_Nov/Valutazioni bufferizzazione/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_3_Nov/Valutazioni bufferizzazione/src/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +93,7 @@
       <workItem from="1667429869372" duration="214000" />
       <workItem from="1667838362582" duration="1022000" />
       <workItem from="1668419846870" duration="36000" />
+      <workItem from="1668464043288" duration="6000" />
     </task>
     <servers />
   </component>

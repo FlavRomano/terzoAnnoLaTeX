@@ -17,7 +17,7 @@ public class FileChannelCopyIndirectBuffer {
         try (FileChannel in = new FileInputStream(source).getChannel();
              FileChannel out = new FileOutputStream(target).getChannel()) {
             ByteBuffer buffer = ByteBuffer.allocate(bufLen);
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             while (in.read(buffer) != -1) {
                 buffer.flip();
                 out.write(buffer);
@@ -27,7 +27,7 @@ public class FileChannelCopyIndirectBuffer {
             while (buffer.hasRemaining()) {
                 out.write(buffer);
             }
-            time = System.currentTimeMillis() - start;
+            time = System.nanoTime() - start;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

@@ -13,9 +13,9 @@ public class FileChannelCopyTransferTo {
         File target = new File(source.getParentFile() + "/outFCTto-" + source.getName());
         try (FileChannel in = new FileInputStream(source).getChannel();
              FileChannel out = new FileOutputStream(target).getChannel()) {
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             in.transferTo(0, in.size(), out);
-            this.time = System.currentTimeMillis() - start;
+            this.time = System.nanoTime() - start;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

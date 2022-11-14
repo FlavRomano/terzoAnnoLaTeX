@@ -12,12 +12,12 @@ public class BufferedStreamCopy {
         File target = new File(source.getParentFile() + "/outBufStr-" + source.getName());
         try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(source));
              BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(target))) {
-            long start = System.currentTimeMillis();
+            long start = System.nanoTime();
             int byteCounts;
             while ((byteCounts = in.read()) != -1) {
                 out.write(byteCounts);
             }
-            this.time = System.currentTimeMillis() - start;
+            this.time = System.nanoTime() - start;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
