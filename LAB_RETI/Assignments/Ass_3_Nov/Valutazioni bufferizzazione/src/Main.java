@@ -1,4 +1,4 @@
-// RISULTATI CON FILE TEST DI MOODLE (20 file grandi in media 8KB)
+// RISULTATI CON FILE TEST DI MOODLE (su 20 file grandi in media ~8MB)
 //| Metodo                                                  |  Tempo medio  |
 //| ------------------------------------------------------- | ------------- |
 //| `FileChannel` con buffer indiretto da 16 KB             |    5 ms.      |
