@@ -36,7 +36,7 @@ public class Main {
             System.err.println("Nessun file inserito");
             System.err.println("Uso: java Main file1 file2 ...");
         } else {
-            int bufLen = 16 * 1024;
+            int bufLen = 32 * 1024;
             System.out.format("Dimensione buffer: %d KB%n", bufLen);
             for (String filepath : args) {
                 confronto(filepath, bufLen);
