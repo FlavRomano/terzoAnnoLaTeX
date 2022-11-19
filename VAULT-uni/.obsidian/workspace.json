@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -115,8 +115,8 @@
   },
   "active": "accee554a6734397",
   "lastOpenFiles": [
-    "Terzo Anno/Lab Reti/8bis. Esercizio in classe.md",
     "Terzo Anno/Lab Reti/8. Java NIO (Buffers e Channels).md",
+    "Terzo Anno/Lab Reti/8bis. Esercizio in classe.md",
     "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
