@@ -17,11 +17,11 @@ public class Server {
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         if (socketClient.read(buffer) == -1) {
             System.out.format("Connection terminated %s%n", socketClient.getRemoteAddress());
-            socketClient.close(); // fa anche una key.cancel() implicita
+            socketClient.close();
         } else {
             buffer.flip();
             String result = new String(buffer.array()).trim();
-            ByteBuffer message = ByteBuffer.wrap(("echoed by server " + result).getBytes());
+            ByteBuffer message = ByteBuffer.wrap((result + " echoed by server").getBytes());
             socketClient.write(message);
         }
     }

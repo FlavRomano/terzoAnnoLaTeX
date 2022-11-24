@@ -11,24 +11,18 @@ public class Client {
         try (SocketChannel socketChannelClient = SocketChannel.open(inetSocketAddress);
              Scanner scanner = new Scanner(System.in)) {
             System.out.println("Connecting to Server on port 8080");
-            boolean run = true;
-            while (run) {
+            System.out.println("Press ^C to quit");
+            while (true) {
                 String line = scanner.nextLine();
-                if (line.equals("quit")) {
-                    // va bene anche un SIGINT per terminare
-                    run = false;
-                }
-                else {
-                    // scrittura
-                    byte[] message = line.getBytes();
-                    ByteBuffer buffer = ByteBuffer.wrap(message);
-                    socketChannelClient.write(buffer);
-                    // lettura
-                    ByteBuffer outBuffer = ByteBuffer.allocate(1024);
-                    socketChannelClient.read(outBuffer);
-                    String response = new String(outBuffer.array()).trim();
-                    System.out.println(response);
-                }
+                // scrittura
+                byte[] message = line.getBytes();
+                ByteBuffer buffer = ByteBuffer.wrap(message);
+                socketChannelClient.write(buffer);
+                // lettura
+                ByteBuffer outBuffer = ByteBuffer.allocate(1024);
+                socketChannelClient.read(outBuffer);
+                String response = new String(outBuffer.array()).trim();
+                System.out.println(response);
             }
         }
 
