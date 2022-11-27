@@ -15,27 +15,6 @@ public class UserData {
     public UserData() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
-
-    public static class User {
-        String username;
-        String password;
-        boolean active;
-
-        public User(String username, String password) {
-            this.username = username;
-            this.password = password;
-            this.active = false;
-        }
-
-        public void login() {
-            this.active = true;
-        }
-
-        public void logout() {
-            this.active = false;
-        }
-    }
-
     public void read() throws IOException {
         try (Reader reader = new FileReader(userJsonPath)) {
             Type type = new TypeToken<ArrayList<User>>() {
