@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserData {
-    final String userJsonPath = "src/WordleUsers.json";
+    final String userJsonPath = "WordleUsers.json";
     Gson gson;
     private List<User> userList = new ArrayList<>();
 
@@ -19,18 +19,20 @@ public class UserData {
     public static class User {
         String username;
         String password;
-        boolean loggedIn;
+        boolean active;
 
         public User(String username, String password) {
             this.username = username;
             this.password = password;
-            this.loggedIn = false;
+            this.active = false;
         }
+
         public void login() {
-            this.loggedIn = true;
+            this.active = true;
         }
+
         public void logout() {
-            this.loggedIn = false;
+            this.active = false;
         }
     }
 
@@ -45,8 +47,10 @@ public class UserData {
         }
     }
 
-    public void add(String username, String password) {
+    public void add(String username, String password, boolean login) {
         User user = new User(username, password);
+        if (login)
+            user.login();
         this.userList.add(user);
         try (Writer writer = new FileWriter(userJsonPath)) {
             gson.toJson(this.userList, writer);
@@ -57,15 +61,23 @@ public class UserData {
 
     /**
      * @param username
-     * @return password
+     * @return password | ""
      */
-    public String get(String username, boolean login) {
+    public String get(String username, boolean login, boolean logout) {
         if (this.userList != null) {
             for (User user : userList) {
-                if (user.username.equals(username))
-                    if (login)
-                        user.login();
-                return user.password;
+                if (user.username.equals(username)) {
+                    String password = user.password;
+                    if (login) {
+                        userList.remove(user);
+                        add(username, password, true);
+                    }
+                    if (logout) {
+                        userList.remove(user);
+                        add(username, password, false);
+                    }
+                    return user.password;
+                }
             }
         }
         return "";
