@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class User {
     public static class Statistics {
         int numberOfPlays;
@@ -14,6 +16,7 @@ public class User {
     String username;
     String password;
     boolean active;
+    ArrayList<String> playedWords = new ArrayList<>();
     Statistics statistics = new Statistics();
     public User(String username, String password) {
         this.username = username;

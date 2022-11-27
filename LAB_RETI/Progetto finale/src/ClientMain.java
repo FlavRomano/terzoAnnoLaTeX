@@ -92,7 +92,8 @@ public class ClientMain {
             String line = scanner.nextLine();
             switch (line) {
                 case "1":
-                    // play
+                    out.println("1");
+
                     break;
                 case "2":
                     // show statistics

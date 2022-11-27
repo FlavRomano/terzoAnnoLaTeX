@@ -5,6 +5,7 @@ import java.util.concurrent.*;
 
 public class ServerMain implements Runnable {
     static ServerSetup setup = new ServerSetup();
+    static WordsReader wr = new WordsReader();
     Socket socket;
     ServerUserAccess serverUserAccess;
 

@@ -1,2 +1,3 @@
 port:1313
 nThreads:25
+wordTTL:2
