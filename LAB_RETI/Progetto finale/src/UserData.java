@@ -15,7 +15,7 @@ public class UserData {
     public UserData() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
-    public void read() throws IOException {
+    public void fetchUsers() throws IOException {
         try (Reader reader = new FileReader(userJsonPath)) {
             Type type = new TypeToken<ArrayList<User>>() {
             }.getType();
@@ -25,7 +25,6 @@ public class UserData {
             }
         }
     }
-
     public void add(String username, String password, boolean login) {
         User user = new User(username, password);
         if (login)
@@ -37,13 +36,30 @@ public class UserData {
             throw new RuntimeException(e);
         }
     }
-
+    public void addUser(User user) {
+        userList.removeIf(user1 -> user1.username.equals(user.username));
+        this.userList.add(user);
+        try (Writer writer = new FileWriter(userJsonPath)) {
+            gson.toJson(this.userList, writer);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public User getUser(String username) {
+        if (userList != null) {
+            for (User user : userList) {
+                if (user.username.equals(username))
+                    return user;
+            }
+        }
+        return null;
+    }
     /**
      * @param username
      * @return password | ""
      */
-    public String get(String username, boolean login, boolean logout) {
-        if (this.userList != null) {
+    public String approveUser(String username, boolean login, boolean logout) {
+        if (userList != null) {
             for (User user : userList) {
                 if (user.username.equals(username)) {
                     String password = user.password;

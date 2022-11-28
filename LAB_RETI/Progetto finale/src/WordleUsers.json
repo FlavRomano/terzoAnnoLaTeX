@@ -1,0 +1,28 @@
+[
+  {
+    "username": "flavio",
+    "password": "forza",
+    "active": false,
+    "playedWords": [],
+    "statistics": {
+      "numberOfPlays": 20,
+      "wonBefore": false,
+      "winningPercentage": 45.0,
+      "recentWinningStreak": 0,
+      "allTimeWinningStreak": 9
+    }
+  },
+  {
+    "username": "antonio",
+    "password": "cassano",
+    "active": false,
+    "playedWords": [],
+    "statistics": {
+      "numberOfPlays": 0,
+      "wonBefore": false,
+      "winningPercentage": 0.0,
+      "recentWinningStreak": 0,
+      "allTimeWinningStreak": 0
+    }
+  }
+]

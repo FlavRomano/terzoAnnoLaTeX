@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 // compila:  javac -cp :gson-2.10.jar ClientMain.java
 // esegui:   java -cp :gson-2.10.jar ClientMain
-
-
-// java -cp :gson-2.10.jar ServerMain
 public class ClientMain {
     static ClientSetup setup = new ClientSetup();
     final static String ACCESSMENU = "+--------+------------------------------+\n" +
@@ -39,9 +36,9 @@ public class ClientMain {
         return in.nextLine();
     }
     public static void accessPhase(Scanner in, Scanner scanner, PrintWriter out) throws IOException {
-        System.out.println(ACCESSMENU);
         boolean stop = false;
         while (!stop) {
+            System.out.println(ACCESSMENU);
             String line = scanner.nextLine();
             switch (line) {
                 case "1": {
@@ -54,7 +51,10 @@ public class ClientMain {
                             System.out.println("> Successfully signed in...");
                             System.out.println("> Login now, press 2");
                             break;
-                        case "ko":
+                        case "INVUSR":
+                            System.out.println("> Invalid username");
+                            break;
+                        case "INVPSW":
                             System.out.println("> Invalid password");
                             break;
                         case "YETREG":
@@ -73,6 +73,9 @@ public class ClientMain {
                             System.out.println("> Successfully logged in...");
                             stop = true;
                             break;
+                        case "ko":
+                            System.out.println("> User already logged in");
+                            break;
                         case "NOTREG":
                             System.out.println("> User not listed in the system");
                             break;
@@ -86,28 +89,50 @@ public class ClientMain {
         }
     }
     public static void gamePhase(Scanner in, Scanner scanner, PrintWriter out) throws IOException {
-        System.out.println(GAMEMENU);
         boolean stop = false;
         while (!stop) {
+            System.out.println(GAMEMENU);
             String line = scanner.nextLine();
+            String serverResponse;
             switch (line) {
                 case "1":
                     out.println("1");
-
+                    serverResponse = in.nextLine();
+                    if (serverResponse.equals("ko")) {
+                        System.out.println("You've played with this word before");
+                    } else {
+                        boolean gameOver = false;
+                        while (!gameOver) {
+                            System.out.println(serverResponse);
+                            if (serverResponse.contains("✓") || serverResponse.contains("✗")){
+                                serverResponse = in.nextLine();
+                                System.out.println(serverResponse+"\n");
+                                gameOver = true;
+                            } else {
+                                out.println(scanner.nextLine());
+                                serverResponse = in.nextLine();
+                            }
+                        }
+                    }
                     break;
                 case "2":
                     // show statistics
+                    out.println("2");
+                    for (int i = 0; i < 4; i++) {
+                        serverResponse = in.nextLine();
+                        System.out.println(serverResponse);
+                    }
                     break;
                 case "3":
                     // share results
                     break;
                 case "4":
-                    // show players progress
+                    // show me sharing
                     break;
                 case "5":
                     // logout
                     out.println("5");
-                    String serverResponse = in.nextLine();
+                    serverResponse = in.nextLine();
                     if (serverResponse.equals("ok")) {
                         System.out.println("> Successfully logged out, have a nice one");
                         stop = true;
@@ -126,6 +151,10 @@ public class ClientMain {
         ) {
             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             accessPhase(in, scanner, out);
+            System.out.println("> Welcome to Wordle! You have 12 attempts to guess the word.");
+            System.out.println("\t- If a character in my message is \u001B[32mgreen\u001B[0m then it's in the right position.");
+            System.out.println("\t- If it's \u001B[33myellow\u001B[0m then it appears in the secret word but not in that position.");
+            System.out.println("\t- Otherwise it's wrong.");
             gamePhase(in, scanner, out);
         } catch (IOException e) {
             throw new RuntimeException(e);

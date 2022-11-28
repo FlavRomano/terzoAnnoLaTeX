@@ -5,10 +5,12 @@ import java.util.HashMap;
 
 public class ServerSetup {
     private final HashMap<String, String> config;
+
     public ServerSetup() {
         config = new HashMap<>();
         read();
     }
+
     public void read() {
         String config_path = "configServer.txt";
         try (BufferedReader br = new BufferedReader(new FileReader(config_path))) {
@@ -21,10 +23,16 @@ public class ServerSetup {
             throw new RuntimeException(e);
         }
     }
+
     public int getPort() {
         return Integer.parseInt(config.get("port"));
     }
+
     public int getNThreads() {
         return Integer.parseInt(config.get("nThreads"));
+    }
+
+    public long getWordTTL() {
+        return Long.parseLong(config.get("wordTTL"));
     }
 }
