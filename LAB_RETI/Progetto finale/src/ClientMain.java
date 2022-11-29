@@ -125,6 +125,10 @@ public class ClientMain {
                     break;
                 case "3":
                     // share results
+                    out.println("3");
+                    serverResponse = in.nextLine();
+                    if (serverResponse.equals("ko"))
+                        System.out.println("> You must have played at least one word first");
                     break;
                 case "4":
                     // show me sharing
@@ -155,6 +159,8 @@ public class ClientMain {
             System.out.println("\t- If a character in my message is \u001B[32mgreen\u001B[0m then it's in the right position.");
             System.out.println("\t- If it's \u001B[33myellow\u001B[0m then it appears in the secret word but not in that position.");
             System.out.println("\t- Otherwise it's wrong.");
+            Thread udpReceiver = new Thread(new UDPReceiver());
+            udpReceiver.start();
             gamePhase(in, scanner, out);
         } catch (IOException e) {
             throw new RuntimeException(e);

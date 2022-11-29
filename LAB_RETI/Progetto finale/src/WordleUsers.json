@@ -1,28 +1,47 @@
 [
   {
-    "username": "flavio",
-    "password": "forza",
-    "active": false,
-    "playedWords": [],
-    "statistics": {
-      "numberOfPlays": 20,
-      "wonBefore": false,
-      "winningPercentage": 45.0,
-      "recentWinningStreak": 0,
-      "allTimeWinningStreak": 9
-    }
-  },
-  {
     "username": "antonio",
     "password": "cassano",
     "active": false,
-    "playedWords": [],
+    "playedWords": [
+      "overwinter"
+    ],
     "statistics": {
-      "numberOfPlays": 0,
-      "wonBefore": false,
-      "winningPercentage": 0.0,
-      "recentWinningStreak": 0,
-      "allTimeWinningStreak": 0
+      "numberOfPlays": 1,
+      "wonBefore": true,
+      "winningPercentage": 100.0,
+      "recentWinningStreak": 1,
+      "allTimeWinningStreak": 1
+    }
+  },
+  {
+    "username": "flavio",
+    "password": "forza",
+    "active": false,
+    "playedWords": [
+      "confessary",
+      "phascolome",
+      "louverwork",
+      "synagogian",
+      "nonflowing",
+      "disengaged",
+      "bituminize",
+      "dulcetness",
+      "paltriness",
+      "winetaster",
+      "unsweating",
+      "precontemn",
+      "microsomia",
+      "negrophobe",
+      "psalmodist",
+      "blastplate"
+    ],
+    "statistics": {
+      "numberOfPlays": 36,
+      "wonBefore": true,
+      "winningPercentage": 44.44444444444444,
+      "recentWinningStreak": 16,
+      "allTimeWinningStreak": 16
     }
   }
 ]

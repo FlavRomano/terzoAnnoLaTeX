@@ -1,4 +1,6 @@
 import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ServerUserAccess {
     UserData userData;
@@ -38,6 +40,19 @@ public class ServerUserAccess {
         return "ok";
     }
 
+    public void postGame(User user, String game) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd MM yyyy HH:mm");
+        User.Statistics statistics = user.statistics;
+        String header = String.format("%s by %s%n", formatter.format(new Date()), user.username);
+        String footnote = String.format("Matches played: %d\nWinning percentage: %.2f%%\n" +
+                "Recent winning streak: %d\nAlltime winning streak: %d%n",
+                statistics.numberOfPlays, statistics.winningPercentage, statistics.recentWinningStreak, statistics.allTimeWinningStreak);
+        String separator = "+-------------------------+\n";
+        userData.postOnSocial(header + game + footnote + separator);
+    }
+    public String getSocial() {
+        return userData.readSocial();
+    }
     public User getUser(String username) throws IOException {
         userData.fetchUsers();
         return userData.getUser(username);

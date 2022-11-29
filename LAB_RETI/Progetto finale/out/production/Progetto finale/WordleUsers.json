@@ -1,7 +1,30 @@
 [
   {
+    "username": "antonio",
+    "password": "cassano",
+    "active": false,
+    "playedWords": [
+      "overwinter"
+    ],
+    "statistics": {
+      "numberOfPlays": 1,
+      "wonBefore": true,
+      "winningPercentage": 100.0,
+      "recentWinningStreak": 1,
+      "allTimeWinningStreak": 1
+    }
+  },
+  {
     "username": "flavio",
-    "password": "ottimaPassword",
-    "active": false
+    "password": "forza",
+    "active": false,
+    "playedWords": [],
+    "statistics": {
+      "numberOfPlays": 20,
+      "wonBefore": false,
+      "winningPercentage": 45.0,
+      "recentWinningStreak": 0,
+      "allTimeWinningStreak": 9
+    }
   }
 ]

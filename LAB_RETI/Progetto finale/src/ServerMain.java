@@ -6,13 +6,16 @@ import java.util.concurrent.*;
 public class ServerMain implements Runnable {
     static ServerSetup setup = new ServerSetup();
     static long wordTTL = setup.getWordTTL();
-    static WordsReader wr = new WordsReader(wordTTL);
+    static WordsReader wordReader = new WordsReader(wordTTL);
+    String game;
     Socket socket;
     ServerUserAccess serverUserAccess;
+    UDPNotifier udpNotifier;
 
-    public ServerMain(Socket socket) {
+    public ServerMain(Socket socket, UDPNotifier udpNotifier) {
         this.socket = socket;
         this.serverUserAccess = new ServerUserAccess();
+        this.udpNotifier = udpNotifier;
     }
 
     public User accessHandler(Scanner in, PrintWriter out) throws IOException {
@@ -51,7 +54,7 @@ public class ServerMain implements Runnable {
         try {
             while (!stop) {
                 String line = in.nextLine();
-                String secretWord = wr.getExtractedWord();
+                String secretWord = wordReader.getExtractedWord();
                 WordleHandler wordleHandler = new WordleHandler(secretWord);
                 System.out.println(secretWord);
                 switch (line) {
@@ -64,6 +67,7 @@ public class ServerMain implements Runnable {
                             user.statistics.numberOfPlays++;
                             serverUserAccess.updateUser(user);
                             boolean win = wordleHandler.playWordle(in, out, secretWord);
+                            game = wordleHandler.game;
                             if (win)
                                 user.win();
                             else
@@ -81,6 +85,13 @@ public class ServerMain implements Runnable {
                         break;
                     case "3":
                         // share results
+                        if (game != null) {
+                            serverUserAccess.postGame(user, game);
+                            udpNotifier.sendToGroup(user.username);
+                            game = null;
+                        } else {
+                            out.println("ko");
+                        }
                         break;
                     case "4":
                         // show me sharing
@@ -112,14 +123,16 @@ public class ServerMain implements Runnable {
     }
 
     public static void main(String[] args) {
+        System.setProperty("java.net.preferIPv4Stack", "true");
         int port = setup.getPort();
         int nThreads = setup.getNThreads();
         ExecutorService service = Executors.newFixedThreadPool(nThreads);
-        service.execute(wr);
+        UDPNotifier udpNotifier = new UDPNotifier();
+        service.execute(wordReader);
         try (ServerSocket listener = new ServerSocket(port)) {
             System.out.format("Wordle server listening at port %d%n", port);
             while (true) {
-                service.execute(new ServerMain(listener.accept()));
+                service.execute(new ServerMain(listener.accept(), udpNotifier));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -9,6 +9,7 @@ import java.util.List;
 
 public class UserData {
     final String userJsonPath = "WordleUsers.json";
+    final String socialPath = "Social.txt";
     Gson gson;
     private List<User> userList = new ArrayList<>();
 
@@ -76,5 +77,23 @@ public class UserData {
             }
         }
         return "";
+    }
+    public void postOnSocial(String post) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(socialPath, true))) {
+            bw.write(post);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public String readSocial() {
+        StringBuilder result = new StringBuilder();
+        try (BufferedReader br = new BufferedReader(new FileReader(socialPath))) {
+            String line;
+            while ((line = br.readLine()) != null)
+                result.append(line).append("\n");
+            return result.toString();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -7,11 +7,13 @@ public class WordleHandler {
     final String ANSI_GREEN = "\u001B[32m";
     final String ANSI_YELLOW = "\u001B[33m";
     String secretWord;
+    String game;
     String censor = "0. ░ ░ ░ ░ ░ ░ ░ ░ ░ ░";
 
 
     public WordleHandler(String secretWord) {
         this.secretWord = secretWord;
+        this.game = String.format("Secret word: %s%n", secretWord);
     }
 
     public String formatGW(String guessWord, int attempt) {
@@ -48,16 +50,19 @@ public class WordleHandler {
             String line = in.nextLine();
             if (line.equals(secretWord)) {
                 String response = String.format("%s ✓", formatGW(line, i));
+                game += response + "\n";
                 out.println(response);
                 out.format("> Congratulations, you make it in %d attempts!%n", i);
                 return true;
             } else if (i == 12) {
                 String response = String.format("%s ✗", formatGW(line, i));
+                game += response + "\n";
                 out.println(response);
                 out.println("> Sorry, you ran out of 12 attempts");
                 return false;
             } else if (line.length() == 10) {
                 String response = formatGW(line, i);
+                game += response + "\n";
                 out.println(response);
                 i++;
             } else {
