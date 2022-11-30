@@ -6,9 +6,7 @@ import java.util.Scanner;
 // compila:  javac -cp :gson-2.10.jar ClientMain.java
 // esegui:   java -cp :gson-2.10.jar ClientMain
 public class ClientMain {
-    static boolean quit = false;
     static ClientSetup setup = new ClientSetup();
-    static String username;
     final static String ACCESSMENU = "+---------+------------------------------+\n" +
             "| command |          description         |\n" +
             "+---------+------------------------------+\n" +
@@ -35,6 +33,8 @@ public class ClientMain {
             "+---------+------------------------------+\n" +
             "|    m    |           Show menu          |\n" +
             "+---------+------------------------------+";
+    static String username;
+    static boolean quit = false;
 
     public static String sendInfo(Scanner in, Scanner scanner, PrintWriter out) {
         System.out.format("Username: ");

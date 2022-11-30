@@ -60,7 +60,6 @@ public class ServerMain implements Runnable {
                 System.out.println(secretWord);
                 switch (line) {
                     case "1":
-                        long clientTime = System.currentTimeMillis();
                         // play
                         if (user.isPlayed(secretWord))
                             out.println("ko");
