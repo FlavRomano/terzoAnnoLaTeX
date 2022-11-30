@@ -36,6 +36,8 @@ public class ServerMain implements Runnable {
                     String code = serverUserAccess.login(userInfo);
                     out.println(code);
                     if (code.equals(username)) {
+                        user.login();
+                        serverUserAccess.updateUser(user);
                         break;
                     }
                 }
@@ -58,6 +60,7 @@ public class ServerMain implements Runnable {
                 System.out.println(secretWord);
                 switch (line) {
                     case "1":
+                        long clientTime = System.currentTimeMillis();
                         // play
                         if (user.isPlayed(secretWord))
                             out.println("ko");
@@ -65,10 +68,10 @@ public class ServerMain implements Runnable {
                             user.addWord(secretWord);
                             user.statistics.numberOfPlays++;
                             serverUserAccess.updateUser(user);
-                            boolean win = wordleHandler.playWordle(in, out, secretWord);
+                            int numberOfGuess = wordleHandler.playWordle(in, out, wordReader, secretWord);
                             game = wordleHandler.game;
-                            if (win)
-                                user.win();
+                            if (numberOfGuess < 13)
+                                user.win(numberOfGuess);
                             else
                                 user.lost();
                             user.statistics.updateWinningPercentage();
@@ -101,8 +104,6 @@ public class ServerMain implements Runnable {
                         user.logout();
                         serverUserAccess.updateUser(user);
                         udpNotifier.sendToGroup(user.username, true);
-                        String code = "ok";
-                        out.println(code);
                         stop = true;
                         break;
                 }

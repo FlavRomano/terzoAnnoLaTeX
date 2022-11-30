@@ -13,12 +13,13 @@ public class WordleHandler {
 
     public WordleHandler(String secretWord) {
         this.secretWord = secretWord;
-        this.game = String.format("Secret word: %s%n", secretWord);
+        this.game = "> Wordle game.\n";
     }
 
     public String formatGW(String guessWord, int attempt) {
         guessWord = guessWord.toLowerCase();
         StringBuilder res = new StringBuilder().append(attempt).append(". ");
+        game += attempt + ".";
         HashMap<Character, Integer> letters = new HashMap<>();
         for (int i = 0; i < secretWord.length(); i++) {
             Character key = secretWord.charAt(i);
@@ -30,45 +31,52 @@ public class WordleHandler {
             if (gwChar == swChar) {
                 String rightChar = ANSI_GREEN + gwChar + ANSI_RESET;
                 res.append(rightChar).append(" ");
+                game += " \uD83D\uDFE9";
                 letters.compute(swChar, (key, val) -> val - 1);
             } else if (secretWord.contains(String.valueOf(gwChar)) && letters.get(gwChar) > 0) {
                 String halfRightChar = ANSI_YELLOW + gwChar + ANSI_RESET;
                 res.append(halfRightChar).append(" ");
+                game += " \uD83D\uDFE8";
                 letters.compute(gwChar, (key, val) -> val - 1);
-            } else if (i < secretWord.length() - 1)
+            } else if (i < secretWord.length() - 1) {
+                game += " ⬜";
                 res.append(gwChar).append(" ");
-            else
+            }
+            else {
+                game += " ⬜";
                 res.append(gwChar);
+            }
         }
+        game += "\n";
         return res.toString();
     }
 
-    public boolean playWordle(Scanner in, PrintWriter out, String secretWord) {
+    public int playWordle(Scanner in, PrintWriter out, WordsReader wordReader, String secretWord) {
         int i = 1;
         out.println(censor);
         while (i <= 12) {
-            String line = in.nextLine();
-            if (line.equals(secretWord)) {
-                String response = String.format("%s ✓", formatGW(line, i));
-                game += response + "\n";
+            String guessedWord = in.nextLine();
+            String response;
+            if (guessedWord.length() != 10)
+                out.println("> Your guess must be long 10 character");
+            else if (!wordReader.checkWord(guessedWord)) {
+                out.println("> Not in the dictionary");
+            } else if (guessedWord.equals(secretWord)) {
+                response = String.format("%s ✓", formatGW(guessedWord, i));
                 out.println(response);
                 out.format("> Congratulations, you make it in %d attempts!%n", i);
-                return true;
+                return i;
             } else if (i == 12) {
-                String response = String.format("%s ✗", formatGW(line, i));
-                game += response + "\n";
+                response = String.format("%s ✗", formatGW(guessedWord, i));
                 out.println(response);
                 out.println("> Sorry, you ran out of 12 attempts");
-                return false;
-            } else if (line.length() == 10) {
-                String response = formatGW(line, i);
-                game += response + "\n";
+                return i;
+            } else {
+                response = formatGW(guessedWord, i);
                 out.println(response);
                 i++;
-            } else {
-                out.println("> Your guess must be long 10 character");
             }
         }
-        return false;
+        return i;
     }
 }

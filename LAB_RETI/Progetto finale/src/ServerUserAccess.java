@@ -35,18 +35,17 @@ public class ServerUserAccess {
             return "ko";
         if (!user.password.equals(password))
             return "WRGPSW";
-        user.login();
-        updateUser(user);
         return username;
     }
 
     public void postGame(User user, String game) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd MM yyyy HH:mm");
         User.Statistics statistics = user.statistics;
-        String header = String.format("%s by %s%n", formatter.format(new Date()), user.username);
+        String header = String.format("posted by %s%n", user.username);
         String footnote = String.format("> Matches played:         %d\n> Winning percentage:     %.2f%%\n" +
-                "> Recent winning streak:  %d\n> Alltime winning streak: %d%n",
-                statistics.numberOfPlays, statistics.winningPercentage, statistics.recentWinningStreak, statistics.allTimeWinningStreak);
+                "> Recent winning streak:  %d\n> Alltime winning streak: %d\n                - %s%n",
+                statistics.numberOfPlays, statistics.winningPercentage,
+                statistics.recentWinningStreak, statistics.allTimeWinningStreak, formatter.format(new Date()));
         String separator = "——————————————————————————————————\n";
         userData.postOnSocial(header + game + footnote + separator);
     }
