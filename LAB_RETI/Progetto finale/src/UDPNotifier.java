@@ -6,11 +6,11 @@ public class UDPNotifier {
     int port = 4000;
     int groupPort = 4444;
 
-    public void sendToGroup(String username) {
+    public void sendToGroup(String username, boolean quit) {
         try (MulticastSocket multicastSocket = new MulticastSocket(port)) {
             InetAddress group = InetAddress.getByName(host);
             multicastSocket.joinGroup(group);
-            String message = String.format("> %s shared a game!%n", username);
+            String message = quit ? String.format("%s QUITTING", username) : String.format("> %s shared a game!", username);
             byte[] buffer = message.getBytes();
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, group, groupPort);
             multicastSocket.send(packet);

@@ -4,14 +4,16 @@
     "password": "cassano",
     "active": false,
     "playedWords": [
-      "overwinter"
+      "overwinter",
+      "photodrama",
+      "xenogamous"
     ],
     "statistics": {
-      "numberOfPlays": 1,
+      "numberOfPlays": 3,
       "wonBefore": true,
       "winningPercentage": 100.0,
-      "recentWinningStreak": 1,
-      "allTimeWinningStreak": 1
+      "recentWinningStreak": 3,
+      "allTimeWinningStreak": 3
     }
   },
   {
@@ -34,14 +36,47 @@
       "microsomia",
       "negrophobe",
       "psalmodist",
-      "blastplate"
+      "blastplate",
+      "floatstone",
+      "muttonhood",
+      "photodrama",
+      "procensure",
+      "xenogamous",
+      "triplewise",
+      "chapellage",
+      "flushboard",
+      "overlewdly",
+      "splenalgic",
+      "amphophile",
+      "vagabondia",
+      "undestined",
+      "myrtlelike",
+      "orthogenic",
+      "panopticon",
+      "causidical",
+      "flusherman",
+      "hemochrome",
+      "cynomorium",
+      "taxational",
+      "depilation",
+      "tachinidae",
+      "interpiece",
+      "antimaniac",
+      "omnivision",
+      "cyclostomi",
+      "interceder",
+      "pistilline",
+      "verminlike",
+      "trunkmaker",
+      "myorrhexis",
+      "iconograph"
     ],
     "statistics": {
-      "numberOfPlays": 36,
+      "numberOfPlays": 69,
       "wonBefore": true,
-      "winningPercentage": 44.44444444444444,
-      "recentWinningStreak": 16,
-      "allTimeWinningStreak": 16
+      "winningPercentage": 65.21739130434783,
+      "recentWinningStreak": 45,
+      "allTimeWinningStreak": 45
     }
   }
 ]

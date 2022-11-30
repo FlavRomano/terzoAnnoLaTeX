@@ -85,13 +85,13 @@ public class UserData {
             throw new RuntimeException(e);
         }
     }
-    public String readSocial() {
-        StringBuilder result = new StringBuilder();
+    public void sendSocial(PrintWriter out) {
         try (BufferedReader br = new BufferedReader(new FileReader(socialPath))) {
-            String line;
-            while ((line = br.readLine()) != null)
-                result.append(line).append("\n");
-            return result.toString();
+            String socialLine;
+            while ((socialLine = br.readLine()) != null) {
+                out.println(socialLine);
+            }
+            out.println("EOF");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

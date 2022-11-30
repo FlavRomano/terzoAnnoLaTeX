@@ -34,11 +34,10 @@ public class ServerMain implements Runnable {
                     String username = userInfo.substring(0, userInfo.indexOf(":"));
                     user = serverUserAccess.getUser(username);
                     String code = serverUserAccess.login(userInfo);
-                    if (code.equals("ok")) {
-                        out.println(code);
+                    out.println(code);
+                    if (code.equals(username)) {
                         break;
                     }
-                    out.println(code);
                 }
             }
         } catch (NoSuchElementException ignored) {
@@ -87,19 +86,21 @@ public class ServerMain implements Runnable {
                         // share results
                         if (game != null) {
                             serverUserAccess.postGame(user, game);
-                            udpNotifier.sendToGroup(user.username);
+                            udpNotifier.sendToGroup(user.username, false);
                             game = null;
+                            out.println("ok");
                         } else {
                             out.println("ko");
                         }
                         break;
                     case "4":
-                        // show me sharing
+                        serverUserAccess.sendSocial(out);
                         break;
                     case "5":
                         // logout
                         user.logout();
                         serverUserAccess.updateUser(user);
+                        udpNotifier.sendToGroup(user.username, true);
                         String code = "ok";
                         out.println(code);
                         stop = true;

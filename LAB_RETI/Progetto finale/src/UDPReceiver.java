@@ -2,10 +2,13 @@ import java.io.IOException;
 import java.net.*;
 
 public class UDPReceiver implements Runnable {
+    String username;
     String groupName = "226.226.226.226";
     int port = 4444;
-    // gestisci il fatto che ad un utente non debba arrivare la sua stessa notifica di post
-    public void receiveUDPMessage() {
+    public UDPReceiver(String username) {
+        this.username = username;
+    }
+    public void run() {
         byte[] buffer = new byte[1024];
         try (MulticastSocket multicastSocket = new MulticastSocket(port)) {
             InetAddress group = InetAddress.getByName(groupName);
@@ -14,14 +17,13 @@ public class UDPReceiver implements Runnable {
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 multicastSocket.receive(packet);
                 String message = new String(packet.getData(), packet.getOffset(), packet.getLength());
-                System.out.println(message);
+                if (message.contains(username) && message.contains("QUITTING"))
+                    break;
+                if (!message.contains(username) && !message.contains("QUITTING"))
+                    System.out.println(message);
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-    }
-    public void run() {
-        System.setProperty("java.net.preferIPv4Stack", "true");
-        receiveUDPMessage();
     }
 }

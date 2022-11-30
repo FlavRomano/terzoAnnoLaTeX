@@ -37,21 +37,21 @@ public class ServerUserAccess {
             return "WRGPSW";
         user.login();
         updateUser(user);
-        return "ok";
+        return username;
     }
 
     public void postGame(User user, String game) {
         SimpleDateFormat formatter = new SimpleDateFormat("dd MM yyyy HH:mm");
         User.Statistics statistics = user.statistics;
         String header = String.format("%s by %s%n", formatter.format(new Date()), user.username);
-        String footnote = String.format("Matches played: %d\nWinning percentage: %.2f%%\n" +
-                "Recent winning streak: %d\nAlltime winning streak: %d%n",
+        String footnote = String.format("> Matches played:         %d\n> Winning percentage:     %.2f%%\n" +
+                "> Recent winning streak:  %d\n> Alltime winning streak: %d%n",
                 statistics.numberOfPlays, statistics.winningPercentage, statistics.recentWinningStreak, statistics.allTimeWinningStreak);
-        String separator = "+-------------------------+\n";
+        String separator = "——————————————————————————————————\n";
         userData.postOnSocial(header + game + footnote + separator);
     }
-    public String getSocial() {
-        return userData.readSocial();
+    public void sendSocial(PrintWriter out) {
+        userData.sendSocial(out);
     }
     public User getUser(String username) throws IOException {
         userData.fetchUsers();

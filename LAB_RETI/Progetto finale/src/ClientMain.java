@@ -7,6 +7,7 @@ import java.util.Scanner;
 // esegui:   java -cp :gson-2.10.jar ClientMain
 public class ClientMain {
     static ClientSetup setup = new ClientSetup();
+    static String username;
     final static String ACCESSMENU = "+--------+------------------------------+\n" +
             "| numpad |          description         |\n" +
             "+========+==============================+\n" +
@@ -69,10 +70,6 @@ public class ClientMain {
                     out.println("2");
                     String serverResponse = sendInfo(in, scanner, out);
                     switch (serverResponse) {
-                        case "ok":
-                            System.out.println("> Successfully logged in...");
-                            stop = true;
-                            break;
                         case "ko":
                             System.out.println("> User already logged in");
                             break;
@@ -82,6 +79,10 @@ public class ClientMain {
                         case "WRGPSW":
                             System.out.println("> Wrong password, please retry");
                             break;
+                        default:
+                            System.out.println("> Successfully logged in...");
+                            username = serverResponse;
+                            stop = true;
                     }
                     break;
                 }
@@ -132,6 +133,12 @@ public class ClientMain {
                     break;
                 case "4":
                     // show me sharing
+                    out.println("4");
+                    serverResponse = in.nextLine();
+                    while (!serverResponse.equals("EOF")) {
+                        System.out.println(serverResponse);
+                        serverResponse = in.nextLine();
+                    }
                     break;
                 case "5":
                     // logout
@@ -146,6 +153,7 @@ public class ClientMain {
         }
     }
     public static void main(String[] args) {
+        System.setProperty("java.net.preferIPv4Stack", "true");
         int port = setup.getServerPort();
         String host = setup.getHost();
         try (
@@ -159,7 +167,7 @@ public class ClientMain {
             System.out.println("\t- If a character in my message is \u001B[32mgreen\u001B[0m then it's in the right position.");
             System.out.println("\t- If it's \u001B[33myellow\u001B[0m then it appears in the secret word but not in that position.");
             System.out.println("\t- Otherwise it's wrong.");
-            Thread udpReceiver = new Thread(new UDPReceiver());
+            Thread udpReceiver = new Thread(new UDPReceiver(username));
             udpReceiver.start();
             gamePhase(in, scanner, out);
         } catch (IOException e) {
