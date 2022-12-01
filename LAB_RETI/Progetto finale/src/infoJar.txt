@@ -1,0 +1,13 @@
+Generare un .jar
+- Server
+	javac -cp :./Server/gson-2.10.jar -d Out ./Server/*.java
+	jar -cvf WordleServer.jar Out/Server/ServerMain.class
+- Client
+	javac -d Out ./Client/*.java
+ 	jar -cvf WordleClient.jar Out/Client/ClientMain.class
+
+Compilare con un .jar
+- Server
+	javac -cp :WordleServer.jar:Server/gson-2.10.jar Server/ServerMain.java
+- Client
+	javac -cp :WordleClient.jar:gson-2.10.jar Client/ClientMain.java
