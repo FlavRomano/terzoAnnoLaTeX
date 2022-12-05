@@ -2,6 +2,11 @@ package Server;
 
 import java.io.*;
 
+/**
+ * @desc Class that reads Wordle's dictionary, draws the new word
+ * randomly and changes it when it expires.
+ * @wordTTL Lifetime of the secret word.
+ */
 public class WordsReader implements Runnable {
     final String wordsPath = "Database/words.txt";
     private String extractedWord;
@@ -25,7 +30,7 @@ public class WordsReader implements Runnable {
         try (BufferedReader br = new BufferedReader(new FileReader(wordsPath))) {
             String line;
             while ((line = br.readLine()) != null) {
-                if (line.equalsIgnoreCase(guessedWord))
+                if (line.equals(guessedWord))
                     return true;
             }
         } catch (IOException e) {

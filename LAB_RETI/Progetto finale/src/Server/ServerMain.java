@@ -16,12 +16,17 @@ public class ServerMain implements Runnable {
     ServerUserAccess serverUserAccess;
     UDPNotifier udpNotifier;
 
-    public ServerMain(Socket socket, UDPNotifier udpNotifier) {
+    public ServerMain(Socket socket, ServerUserAccess serverUserAccess, UDPNotifier udpNotifier) {
         this.socket = socket;
-        this.serverUserAccess = new ServerUserAccess();
+        this.serverUserAccess = serverUserAccess;
         this.udpNotifier = udpNotifier;
     }
 
+    /**
+     * @return User (who has successfully logged in)
+     * @desc Manages the user's login phase, returning appropriate error or confirmation
+     * codes to the user for sign-in, or login, if successful.
+     */
     public User accessHandler(Scanner in, PrintWriter out) throws IOException {
         User user = null;
         try {
@@ -47,11 +52,15 @@ public class ServerMain implements Runnable {
                 }
             }
         } catch (NoSuchElementException ignored) {
-
         }
         return user;
     }
 
+    /**
+     * @desc Manages the user's game phase.
+     * @implNote If the user exits unexpectedly a NoSuchElementException is raised,
+     * which will be handled by the server by successfully logging the user out.
+     */
     public void gameHandler(Scanner in, PrintWriter out, User user) throws IOException {
         boolean stop = false;
         if (user == null)
@@ -118,8 +127,8 @@ public class ServerMain implements Runnable {
     }
 
     public void run() {
-        try (Scanner in = new Scanner(socket.getInputStream())) {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+        try (Scanner in = new Scanner(socket.getInputStream());
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true)) {
             User user = accessHandler(in, out);
             gameHandler(in, out, user);
         } catch (IOException e) {
@@ -127,17 +136,25 @@ public class ServerMain implements Runnable {
         }
     }
 
+    /**
+     * @desc Two threads are sent running before the server accepts user connection requests:
+     * one to handle Wordle's secret words and the other to send multicast UDP notifications to
+     * logged-in users (for social).
+     * @implNote System.setProperty(...) is used to avoid errors on the UDPNotifier's multicast socket.
+     */
     public static void main(String[] args) {
         System.setProperty("java.net.preferIPv4Stack", "true");
         int port = setup.getPort();
         int nThreads = setup.getNThreads();
         ExecutorService service = Executors.newFixedThreadPool(nThreads);
         UDPNotifier udpNotifier = new UDPNotifier();
+        ServerUserAccess serverUserAccess = new ServerUserAccess();
         service.execute(wordReader);
         try (ServerSocket listener = new ServerSocket(port)) {
+            serverUserAccess.restartingServer();
             System.out.format("Wordle server listening at port %d%n", port);
             while (true) {
-                service.execute(new ServerMain(listener.accept(), udpNotifier));
+                service.execute(new ServerMain(listener.accept(), serverUserAccess, udpNotifier));
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

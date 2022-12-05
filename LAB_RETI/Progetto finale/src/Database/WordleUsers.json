@@ -3,48 +3,17 @@
     "username": "antonio",
     "password": "cassano",
     "active": false,
-    "playedWords": [
-      "unnational"
-    ],
+    "playedWords": [],
     "statistics": {
-      "numberOfPlays": 1,
-      "wonBefore": true,
-      "winningPercentage": 100.0,
-      "recentWinningStreak": 1,
-      "allTimeWinningStreak": 1,
+      "numberOfPlays": 0,
+      "wonBefore": false,
+      "winningPercentage": 0.0,
+      "recentWinningStreak": 0,
+      "allTimeWinningStreak": 0,
       "guessDistribution": {
         "1": 0,
         "2": 0,
         "3": 0,
-        "4": 1,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0,
-        "10": 0,
-        "11": 0,
-        "12": 0
-      }
-    }
-  },
-  {
-    "username": "pippo",
-    "password": "scarso",
-    "active": false,
-    "playedWords": [
-      "fusicoccum"
-    ],
-    "statistics": {
-      "numberOfPlays": 1,
-      "wonBefore": true,
-      "winningPercentage": 100.0,
-      "recentWinningStreak": 1,
-      "allTimeWinningStreak": 1,
-      "guessDistribution": {
-        "1": 0,
-        "2": 0,
-        "3": 1,
         "4": 0,
         "5": 0,
         "6": 0,
@@ -59,51 +28,63 @@
   },
   {
     "username": "flavio",
-    "password": "forte",
+    "password": "forza",
     "active": false,
     "playedWords": [
-      "bebothered",
-      "makeweight",
-      "tubicinate",
-      "lepismidae",
-      "sandlapper",
-      "jacobinism",
-      "capacitive",
-      "slippingly",
-      "haemophile",
-      "derivately",
-      "refracture",
-      "cradletime",
-      "presatisfy",
-      "thumpingly",
-      "untippable",
-      "hypocrital",
-      "indignancy",
-      "maternally",
-      "untwisting",
-      "winterward",
-      "sternebral",
-      "bleachable"
+      "unenrolled",
+      "epiplocele",
+      "millimolar"
     ],
     "statistics": {
-      "numberOfPlays": 22,
+      "numberOfPlays": 3,
       "wonBefore": true,
-      "winningPercentage": 86.36363636363636,
-      "recentWinningStreak": 19,
-      "allTimeWinningStreak": 19,
+      "winningPercentage": 100.0,
+      "recentWinningStreak": 3,
+      "allTimeWinningStreak": 3,
       "guessDistribution": {
-        "1": 6,
-        "2": 3,
-        "3": 2,
-        "4": 5,
-        "5": 1,
-        "6": 1,
-        "7": 1,
+        "1": 1,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
         "8": 0,
         "9": 0,
         "10": 0,
         "11": 0,
-        "12": 0
+        "12": 2
+      }
+    }
+  },
+  {
+    "username": "test",
+    "password": "prova",
+    "active": false,
+    "playedWords": [
+      "chiropodic",
+      "effrontery",
+      "tyrantship"
+    ],
+    "statistics": {
+      "numberOfPlays": 3,
+      "wonBefore": false,
+      "winningPercentage": 33.33333333333333,
+      "recentWinningStreak": 0,
+      "allTimeWinningStreak": 1,
+      "guessDistribution": {
+        "1": 0,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0,
+        "10": 0,
+        "11": 0,
+        "12": 1
       }
     }
   }

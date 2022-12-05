@@ -3,6 +3,13 @@ package Server;
 import java.io.IOException;
 import java.net.*;
 
+/**
+ * @desc Class that sends notifications to the multicast group that all clients join.
+ * The notifications are used to let users know that someone has just posted a game session.
+ * @host 226.226.226.226
+ * @port 4000
+ * @groupPort 4444
+ */
 public class UDPNotifier {
     String host = "226.226.226.226";
     int port = 4000;
@@ -11,12 +18,12 @@ public class UDPNotifier {
     public void sendToGroup(String username, boolean quit) {
         try (MulticastSocket multicastSocket = new MulticastSocket(port)) {
             InetAddress group = InetAddress.getByName(host);
-            multicastSocket.joinGroup(group);
+            //multicastSocket.joinGroup(group);
             String message = quit ? String.format("%s QUITTING", username) : String.format("> %s shared a game!", username);
             byte[] buffer = message.getBytes();
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, group, groupPort);
             multicastSocket.send(packet);
-            multicastSocket.leaveGroup(group);
+            //multicastSocket.leaveGroup(group);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

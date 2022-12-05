@@ -4,6 +4,10 @@ import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Scanner;
 
+/**
+ * @secretWord
+ * @game Spoiler-less match
+ */
 public class WordleHandler {
     final String ANSI_RESET = "\u001B[0m";
     final String ANSI_GREEN = "\u001B[32m";
@@ -18,6 +22,11 @@ public class WordleHandler {
         this.game = "> Wordle game.\n";
     }
 
+    /**
+     * @param guessWord User's submitted word
+     * @param attempt User's current attempt number
+     * @return Line formatted with colors representing hints to the user.
+     */
     public String formatGW(String guessWord, int attempt) {
         guessWord = guessWord.toLowerCase();
         StringBuilder res = new StringBuilder().append(attempt).append(". ");
@@ -53,6 +62,12 @@ public class WordleHandler {
         return res.toString();
     }
 
+    /**
+     * @param wordReader To check that the word entered by the user is present in the Wordle dictionary.
+     * @return Number of attempts spent by the user
+     * @desc Implements the actual game. Sends, as responses to the user, the guessed
+     * word with hints and any errors.
+     */
     public int playWordle(Scanner in, PrintWriter out, WordsReader wordReader, String secretWord) {
         int i = 1;
         out.println(censor);
@@ -72,6 +87,7 @@ public class WordleHandler {
                 response = String.format("%s ✗", formatGW(guessedWord, i));
                 out.println(response);
                 out.println("> Sorry, you ran out of 12 attempts");
+                i++;
                 return i;
             } else {
                 response = formatGW(guessedWord, i);

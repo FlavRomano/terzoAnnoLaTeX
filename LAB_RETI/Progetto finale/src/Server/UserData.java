@@ -9,6 +9,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @desc Class that uses google's Gson library to read, update the
+ * file with Wordle users and manage the social page.
+ * @userJsonPath Database/WordleUsers.json
+ * @socialPath Database/Social.txt
+ * @userList List of users that it updates based on what it finds in the Database.
+ */
 public class UserData {
     final String userJsonPath = "Database/WordleUsers.json";
     final String socialPath = "Database/Social.txt";
@@ -18,6 +25,10 @@ public class UserData {
     public UserData() {
         this.gson = new GsonBuilder().setPrettyPrinting().create();
     }
+
+    /**
+     * @desc Reads from JSON and updates its list.
+     */
     public void fetchUsers() throws IOException {
         try (Reader reader = new FileReader(userJsonPath)) {
             Type type = new TypeToken<ArrayList<User>>() {
@@ -28,6 +39,13 @@ public class UserData {
             }
         }
     }
+
+    /**
+     * @param username
+     * @param password
+     * @param login True if logging in, False if logging out
+     * @desc Adds a new user to the Json.
+     */
     public void add(String username, String password, boolean login) {
         User user = new User(username, password);
         if (login)
@@ -39,7 +57,24 @@ public class UserData {
             throw new RuntimeException(e);
         }
     }
-    public void addUser(User user) {
+    public void logOutAll() {
+        if (userList != null) {
+            for (User user : userList) {
+                user.logout();
+            }
+            try (Writer writer = new FileWriter(userJsonPath)) {
+                gson.toJson(this.userList, writer);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    /**
+     * @param user
+     * @desc Update the user's information in the Json.
+     */
+    public void updateUser(User user) {
         userList.removeIf(user1 -> user1.username.equals(user.username));
         this.userList.add(user);
         try (Writer writer = new FileWriter(userJsonPath)) {
@@ -48,6 +83,11 @@ public class UserData {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * @param username
+     * @return User object from the Json.
+     */
     public User getUser(String username) {
         if (userList != null) {
             for (User user : userList) {
@@ -59,6 +99,12 @@ public class UserData {
     }
     /**
      * @param username
+     * @param login
+     * @param logout
+     * @implNote If login == logout == false then retrieves the password.
+     * @desc Check if the username is in the database. If it is present then edit the user's Active
+     * field based on the login and logout parameters. If so it returns the password,
+     * otherwise an empty string.
      * @return password | ""
      */
     public String approveUser(String username, boolean login, boolean logout) {
@@ -80,6 +126,11 @@ public class UserData {
         }
         return "";
     }
+
+    /**
+     * @param post New social post.
+     * @desc Adds the post with the match and statistics of the user who pressed share to Social.
+     */
     public void postOnSocial(String post) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(socialPath, true))) {
             bw.write(post);
@@ -87,6 +138,10 @@ public class UserData {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * @desc Send the social page to the client.
+     */
     public void sendSocial(PrintWriter out) {
         try (BufferedReader br = new BufferedReader(new FileReader(socialPath))) {
             String socialLine;

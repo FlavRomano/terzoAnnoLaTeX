@@ -39,6 +39,10 @@ public class ClientMain {
     static String username;
     static boolean quit = false;
 
+    /**
+     * @desc Send username and password
+     * to Server in the format "username:password"
+     */
     public static String sendInfo(Scanner in, Scanner scanner, PrintWriter out) {
         System.out.format("Username: ");
         String username = scanner.nextLine();
@@ -59,7 +63,10 @@ public class ClientMain {
         System.out.println("\t- Otherwise it's wrong.");
     }
 
-    public static void accessPhase(Scanner in, Scanner scanner, PrintWriter out) throws IOException {
+    /**
+     * @desc Handles user sign in, login and client termination.
+     */
+    public static void accessPhase(Scanner in, Scanner scanner, PrintWriter out) {
         boolean stop = false;
         while (!stop) {
             System.out.println(ACCESSMENU);
@@ -118,7 +125,11 @@ public class ClientMain {
         }
     }
 
-    public static void gamePhase(Scanner in, Scanner scanner, PrintWriter out) throws IOException {
+    /**
+     * @desc It manages the entire Wordle phase, notifying the server
+     * of user interactions and acting appropriately.
+     */
+    public static void gamePhase(Scanner in, Scanner scanner, PrintWriter out) {
         boolean stop = false;
         printGameMenu();
         while (!stop) {
@@ -140,7 +151,8 @@ public class ClientMain {
                                 printGameMenu();
                                 gameOver = true;
                             } else {
-                                out.println(scanner.nextLine());
+                                String guessedWord = scanner.nextLine().toLowerCase();
+                                out.println(guessedWord);
                                 serverResponse = in.nextLine();
                             }
                         }
@@ -194,8 +206,8 @@ public class ClientMain {
                 Socket socket = new Socket(host, port);
                 Scanner in = new Scanner(socket.getInputStream());
                 Scanner scanner = new Scanner(System.in);
+                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
         ) {
-            PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
             accessPhase(in, scanner, out);
             if (!quit) {
                 printInstruction();
