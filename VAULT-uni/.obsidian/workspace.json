@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "accee554a6734397",
+            "id": "c6280957c5690572",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
-                "mode": "preview",
+                "file": "Terzo Anno/Lab Reti/Relazione Progetto LabReti a.a 2022-2023.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -78,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
+                "file": "Terzo Anno/Lab Reti/Relazione Progetto LabReti a.a 2022-2023.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -106,24 +106,24 @@
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
   },
-  "active": "accee554a6734397",
+  "active": "c6280957c5690572",
   "lastOpenFiles": [
+    "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
+    "Terzo Anno/Lab Reti/Relazione Progetto LabReti a.a 2022-2023.md",
+    "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
     "Terzo Anno/Lab Reti/8. Java NIO (Buffers e Channels).md",
     "Terzo Anno/Lab Reti/8bis. Esercizio in classe.md",
-    "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
-    "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
+    "Terzo Anno/Lab Reti/7. JSON e Serializzazione.md",
+    "Terzo Anno/Lab Reti/6. Stream Sockets lato server, Volatile e Atomic.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Terzo Anno/Lab Reti/Assignment's code/29 Settembre-Gestione Laboratorio.md",
-    "Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md",
-    "Terzo Anno/Lab Reti/Assignment's code/22 Settembre-Ufficio Postale.md",
-    "Terzo Anno/Lab Reti/Assignment's code/20 Ottobre-Dungeon Adventures.md",
-    "Terzo Anno/Database/SQL Query/Query (Impiegati-Supervisore).md"
+    "Terzo Anno/Lab Reti/Assignment's code/27 Ottobre-Gestione conti correnti.md"
   ]
 }

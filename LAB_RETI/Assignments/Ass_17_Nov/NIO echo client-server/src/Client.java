@@ -5,9 +5,8 @@ import java.nio.channels.*;
 import java.util.Scanner;
 
 public class Client {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         InetSocketAddress inetSocketAddress = new InetSocketAddress("localhost", 8080);
-
         try (SocketChannel socketChannelClient = SocketChannel.open(inetSocketAddress);
              Scanner scanner = new Scanner(System.in)) {
             System.out.println("Connecting to Server on port 8080");
@@ -24,6 +23,8 @@ public class Client {
                 String response = new String(outBuffer.array()).trim();
                 System.out.println(response);
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
     }
