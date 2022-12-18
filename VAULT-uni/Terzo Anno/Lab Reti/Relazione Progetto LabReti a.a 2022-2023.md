@@ -1,9 +1,9 @@
 ` Studente: Flavio Romano, Matricola: 614801`
 ## Istruzioni per l'avvio
-- Per compilare il file ServerMain.java: `javac -cp :./Server/gson-2.10.jar -d Out ./Server/*.java`
-	- Per eseguire il ServerMain.class: `java -cp :./Server/gson-2.10.jar:Out Server.ServerMain`
-- Per compilare il file ClientMain.java: `javac -d Out ./Client/*.java`
-	- Per eseguire il ClientMain.class: `java -cp Out Client.ClientMain`
+- Per compilare il file ServerMain.java: `javac -cp :lib/gson-2.10.jar -d out ./server/*.java`
+	- Per eseguire il ServerMain.class: `java -cp :lib/gson-2.10.jar:out server.ServerMain`
+- Per compilare il file ClientMain.java: `javac -d out ./client/*.java`
+	- Per eseguire il ClientMain.class: `java -cp out client.ClientMain`
 - Per eseguire con il jar:
 	- Eseguire il server: `java -jar WordleServer.jar`
 	- Eseguire il client: `java -jar WordleClient.jar`
