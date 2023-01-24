@@ -1,0 +1,67 @@
+- Alfa test. Test eseguiti dagli sviluppatori o dagli utenti in un ambiente controllato, vengono osservati dall'organizzazione dello sviluppo.
+- Beta test. Test eseguiti da utenti reali nel loro ambienti, eseguendo attività reali senza interferenze o monitoraggio ravvicinato.
+- Convalida (validazione). Stiamo costruendo un sistema utile all'utente?
+- Verifica. Stiamo costruendo un sistema che rispetta le specifiche?
+- Malfunzionamento. Sw a tempo di esecuzione non si comporta secondo le specifiche. Ha una natura dinamica, osservabile solo mediante esecuzione. È causato da almeno un difetto.
+- Difetto (bug, fault).  Errore nel codice (struttura statica del programma), non sempre causa un malfunzionamento (i.e difetto latente). 
+- Errore. Causa di un difetto.
+- Limite teorico del testing. Testing esaustivo $\equiv$ provare il programma con input infiniti impiegherebbe tempo infinito.
+- Frase a effetto 1. Il testing rileva i difetti ma non dimostra l'assenza.
+- Verifica statica. Verifica che non prevede l'esecuzione del programma:
+	- Desk-check (lettura del codice)
+	- Model checking
+	- Esecuzione simbolica
+	- Theorem proving.
+	- Metodi di lettura del codice:
+		- Inspection. Lettura mirata del codice (si segue una lista di controllo) per rivelare la presenza di difetti. Si fa error guessing (e.g off-by-one error)
+			- 4 fasi: Pianificazione, def Lista di controllo, lettura del codice, correzione.
+			- Liste di controllo. Contengono aspetti che non possono essere controllati in maniera automatica, vengono mantenute aggiornate a ogni inspection.
+		- Walkthrough. Lettura critica del codice per rivelare la presenza di difetti, si percorre il codice simulandone l'esecuzione.
+			- 3 fasi. Pianificazione, lettura del codice, correzione.
+		- Affinità. Controlli statici basati sul desk-check, programmatori e verificatori contrapposti, documentazione formale.
+		- Differenze. Inspection basato su errori presupposti, walkthrough è più completo ma meno rapido.
+	- Metodi formali. Tecnica per dimostrare formalmente la correttezza di un modello finito.
+		- Two-phase locking. Si dimostra corretto se istanziato correttamente garantisce assenza di malfunzionamenti dovuti alla race condition. È un protocollo corretto ma non è detto che un applicazione che lo implementi lo sia. Occorre provare che il programma con two-phase locking lo applichi correttamente.
+- Verifica dinamica. 4 fasi: Progettazione, esecuzione, analisi dei risultati, debugging.
+	- Test case (caso di prova). Tripla $test case:= <input, output, \rho>$ dove l'output è quello atteso e $\rho$ è l'ambiente corrente.
+		- Se il sistema supera un insieme di test case allora presumibilmente è corretto.
+	- Criteri di inadeguatezza. Insieme di test obligations
+		- Test obligations. Una specifica di test cases che richiede proprietà ritenute importanti per il testing.
+			- e.g specifica del test case: "Due input, uno formato da 2 parole e l'altro da 3"
+			- e.g Test cases $= \{[\textit{alpha beta}], \textit{[Milano Pisa Roma]}\}$
+		- Soddisfare un criterio di inadeguatezza. Tutti i test hanno successo e ogni Test obligation è soddisfatta da almeno un test case (dall'insieme scelto).
+		- Definire test obligation. 
+			- A partire dalle funzionalità (black box) guardando la specifica, così da evidenziare malfunzionamenti relativi alle funzionalità. 
+			- A partire dalla struttura (white box) guardando il codice.
+			- A partire dal modello del programma.
+			- A partire da fault ipotetici (bug comuni).
+	- Elementi di una prova. Test suite e procedure di prova.
+		- Test suite. Sequenza di test cases.
+		- Procedura di prova. Procedure per eseguire, registrare e analizzare i risultati di un test suite.
+		- Test Scaffolding. Codice aggiuntivo per eseguire un test. Può includere:
+			- Driver di test. Sostituiscono il main.
+			- Stub. Sostituiscono le funzionalità chiamate dal sw di prova.
+			- Test harness. Sostituiscono parti dell'ambiente di sviluppo.
+	- Metodi Black-box. Criteri per individuare dei casi di input che si basano sulle specifiche.
+		- Strategia. Separare le funzionalità da testare usando i casi d'uso, sviluppare un insieme di test cases per ogni funzionalità. Quindi per ogni input si individuano i valori da testare, e per ogni valore da testare si usano tecniche del testing combinatorio per ridurre le combinazioni di possibili parametri.
+			- Metodo statistico. Selezionare i test case in base alla distribuzione di probabilità dei dati in input, così da generare dati di test facilmente automatizzabili.
+			- Partizione dei dati in input in categorie (classi di equivalenza). Ripartiamo il dominio dei dati in input in classi di equivalenza, o categorie. Due valori appartengono alla stessa categoria se, in base ai requisiti, producono lo stesso comportamento del programma $\neq$ output. È un metodo induttivista che non garantisce la corretteza su tutta la categoria.
+			- Valori limite. Metodo basato sul trovare valori estremi, tipo delle stesse categorie definite prima.
+			- Casi non validi. Per ogni input si definiscono anche i casi non validi (per controllare che generino effettivamente un errore).
+			- Random. Genero input random, costo zero, non ripetibile, output atteso difficile da determinare, non considera i casi limite.
+			- Catalogo. Si ha già una Test suite ben definita da cui attingere test cases, si velocizza il processo di testing e si riduce l'errore umano.
+	- Testing combinatorio. Tecnica da applicare al crescere del numero di parametri in input. Quando si hanno tanti dati in input diventano difficili da gestire, quindi è bene generare test cases significati per ridurre l'esplosione combinatoria. Abbiamo due tecniche.
+		1. Vincoli. Per ridurre il numero di possibili considerazioni abbiamo 3 strategie diverse di imposizione di vincoli: di errore, di proprietà, singoletti.
+			1. Vincoli di errore. Dati $n$ parametri in input, viene preso un solo caso, per ogni posizione, con input non valido.
+			2. Singoletti. Per uno o più parametri si può decidere di testare un solo valore.
+			3. Considerazioni. I vincoli limitano il numero di test cases, funziona bene se i vincoli che imponiamo sono reali vincoli del dominio e non se li aggiungiamo al solo scopo di limitare le combinazioni.
+		2. Pairwise testing. Generare tutte le possibili combinazioni solo per le possibili coppie di variabili in input.
+	 - Criteri White box. Vengono usati per individuare dei test case basati sulla struttura del codice. Per questo motivo sono noti come Criteri strutturati. Servono ad aggiungere test oltre a quelli già generati dai criteri funzionali, per far emergere malfunzionamenti non apparsi utilizzando i metodi black-box.
+		 - Elementi di un flusso di controllo. I control flow testing sono definiti per classi particolari di elementi e richiedono che i test esercitino tutti gli elementi del programma (comandi, branch degli if, condizioni).
+		 - Grafo di flusso. Definisce la struttura del codice identificandone le parti e come sono collegate tra loro, viene ottenuto a partire dal codice. La copertura dei comandi di un programma misura l'adeguatezza di quest'ultimo grazie alla misura di copertura $$\textit{misura di copertura} = \dfrac{\textit{numero di comandi esercitati}}{\textit{numero di comandi totali}} = \dfrac{\textit{numero di archi esercitati}}{\textit{numero di archi totali}}$$ 
+		 - Copertura di condizioni semplici. Un insieme di test T per un programma P copre tutte le basic conditions (condizioni semplici) di P se, per ogni condizione semplice CS in P, T contiene un test in cui CS è **true** e un test in cui CS è **false**. $$\textit{Copertura delle basic conditions}=\frac{\#\textit{valori di verita' assunti dalle basic conditions}}{ 2 \cdot \#\textit{basic conditions}}$$
+		 - Multiple condition coverage. Richiede di testare tutte le possibili combinazioni ($2^n$ con $n$ condizioni semplici).
+	- Fault based testing. Ipotizza dei difetti potenziali nel codice sotto test. Crea o valuta una test suite sulla base della sua capacità di rilevare i difetti ipotizzati. La tecnica più usata è il test mutazionale, si iniettano difetti modificando il codice (e.g sostiuiamo un <= con un <).
+		- Test mutazionale. Per verificare approfonditamente un programma si introducono piccoli difetti (mutazioni), il programma modificato viene detto mutante. Vengono eseguiti sul mutante gli stessi test eseguiti sull'originale, i test dovrebbero manifestare dei malfunzionamenti; se ciò non accade allora abbiamo una test suite penosa. Questo metodo è ottimo per valutare la capacità di un test e far capire se è necessario introdurre test più raffinati. Un mutante viene ucciso se fallisce almeno un test case $$\textit{efficacia di un test} = \#\textit{mutanti uccisi}$$ Un mutante è invalido se non è sintatticamente corretto, cioè se il programma non passa lo static checking. Un mutante è utile se è valido e distinguerlo dall'originale è difficile, solo un piccolo sottoinsieme di test cases permette di distinguerli. Un mutante è inutile se tutti i test cases.
+	- Oracolo. Inutile produrre 10'000 casi di input se l'output atteso deve essere calcolato a mano. 
+		- Trovare l'output atteso. Attraverso specifiche formali ed eseguibili. L'oracolo è un metodo per generare i risultati corretti da usare come paragone durante il test.

@@ -4,35 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "778644271e0c3e47",
+        "id": "98a18d8d9b23fcaf",
         "type": "tabs",
         "children": [
           {
-            "id": "eb049c69d8446a0c",
+            "id": "6830cf11eaea5b56",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lab2/Thread.md",
-                "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "d3cd352c439bd01b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lab2/Segnali.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -74,8 +57,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "4588802823540321",
@@ -91,7 +73,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Lab2/Segnali.md",
+                "file": "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,17 +108,27 @@
     "width": 300,
     "collapsed": true
   },
-  "active": "d3cd352c439bd01b",
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
+    }
+  },
+  "active": "fa266bbf5e56dc2b",
   "lastOpenFiles": [
-    "Lab2/Thread.md",
-    "Lab2/Segnali.md",
-    "Lab2/Processi.md",
-    "Lab2/Compilare in C.md",
-    "Lab2/Differenza Struct e Union.md",
-    "Lab2/Makefile.md",
-    "Terzo Anno/Lab Reti/Relazione Progetto LabReti a.a 2022-2023.md",
-    "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
-    "Terzo Anno/Lab Reti/9. Java NIO (Channel Multiplexing).md",
-    "Terzo Anno/Lab Reti/8. Java NIO (Buffers e Channels).md"
+    "Programming stud/Siciliano, The programming language.md",
+    "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
+    "Terzo Anno/IS/3. Diagramma delle classi.md",
+    "Terzo Anno/IS/5. Diagramma di Macchina a stati.md",
+    "Terzo Anno/IS/4. Diagramma delle attività.md",
+    "Terzo Anno/IS/Testing/Scratch book testing.md",
+    "Terzo Anno/IS/Design patterns/Adapter.md",
+    "Terzo Anno/IS/Design patterns/Singleton.md",
+    "Terzo Anno/IS/Design patterns/Decorator.md",
+    "Terzo Anno/IS/0. Argomenti.md"
   ]
 }

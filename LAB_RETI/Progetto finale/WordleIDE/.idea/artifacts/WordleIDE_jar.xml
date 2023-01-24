@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="WordleIDE:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/WordleIDE_jar</output-path>
+    <root id="archive" name="WordleIDE.jar">
+      <element id="module-output" name="WordleIDE" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/src/lib/gson-2.10.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

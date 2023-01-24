@@ -1,0 +1,4 @@
+host:localhost
+serverPort:1313
+multicastGroup:226.226.226.226
+multicastGroupPort:4444

@@ -2,7 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="57a67978-daac-448c-a6a7-820eefc5f4c8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Ass_3_Nov/Valutazioni bufferizzazione/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_3_Nov/Valutazioni bufferizzazione/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Ass_17_Nov/NIO echo client-server/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Ass_17_Nov/NIO echo client-server/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gson-2.10.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ClientMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ClientMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerSetup.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerSetup.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerUserAccess.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/ServerUserAccess.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/UserData$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/UserData$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/UserData$User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/UserData.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/UserData.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/WordleUsers.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/WordleUsers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/configServer.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/out/production/Progetto finale/configServer.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Progetto finale/src/WordleUsers.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Progetto finale/src/WordleUsers.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../VAULT-uni/.obsidian/workspace.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,6 +109,10 @@
       <workItem from="1668419846870" duration="36000" />
       <workItem from="1668464043288" duration="6000" />
       <workItem from="1668621611150" duration="8000" />
+      <workItem from="1669485362189" duration="21000" />
+      <workItem from="1669487920108" duration="57000" />
+      <workItem from="1669504648327" duration="9000" />
+      <workItem from="1669735802582" duration="12000" />
     </task>
     <servers />
   </component>

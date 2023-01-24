@@ -1,2 +1,0 @@
-host:localhost
-serverPort:1313
