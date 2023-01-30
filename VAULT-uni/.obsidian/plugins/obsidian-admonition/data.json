@@ -1,5 +1,18 @@
 {
-  "userAdmonitions": {},
+  "userAdmonitions": {
+    "def": {
+      "type": "def",
+      "color": "24, 251, 28",
+      "icon": {
+        "name": "bible",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "title": "Definition",
+      "injectColor": true,
+      "noTitle": false
+    }
+  },
   "syntaxHighlight": false,
   "copyButton": false,
   "version": "9.0.5",

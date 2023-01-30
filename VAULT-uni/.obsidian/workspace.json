@@ -11,8 +11,12 @@
             "id": "6830cf11eaea5b56",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Terzo Anno/IIA/2. Agenti intelligenti.md",
+                "mode": "preview",
+                "source": true
+              }
             }
           }
         ]
@@ -57,7 +61,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "4588802823540321",
@@ -73,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
+                "file": "Terzo Anno/IIA/2. Agenti intelligenti.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,17 +123,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "fa266bbf5e56dc2b",
+  "active": "6830cf11eaea5b56",
   "lastOpenFiles": [
+    "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
+    "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
+    "Terzo Anno/IIA/2. Agenti intelligenti.md",
     "Programming stud/Siciliano, The programming language.md",
     "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
     "Terzo Anno/IS/3. Diagramma delle classi.md",
     "Terzo Anno/IS/5. Diagramma di Macchina a stati.md",
     "Terzo Anno/IS/4. Diagramma delle attività.md",
     "Terzo Anno/IS/Testing/Scratch book testing.md",
-    "Terzo Anno/IS/Design patterns/Adapter.md",
-    "Terzo Anno/IS/Design patterns/Singleton.md",
-    "Terzo Anno/IS/Design patterns/Decorator.md",
-    "Terzo Anno/IS/0. Argomenti.md"
+    "Terzo Anno/IS/Design patterns/Adapter.md"
   ]
 }
