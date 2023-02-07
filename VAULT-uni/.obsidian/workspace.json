@@ -13,8 +13,20 @@
             "state": {
               "type": "markdown",
               "state": {
+                "file": "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "32185a0b4b01445a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
                 "file": "Terzo Anno/IIA/1. Agenti.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               }
             }
@@ -78,7 +90,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/1. Agenti.md",
+                "file": "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -125,15 +137,15 @@
   },
   "active": "6830cf11eaea5b56",
   "lastOpenFiles": [
+    "Terzo Anno/IIA/1. Agenti.md",
+    "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
-    "Terzo Anno/IIA/1. Agenti.md",
     "Programming stud/Siciliano, The programming language.md",
     "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
     "Terzo Anno/IS/3. Diagramma delle classi.md",
     "Terzo Anno/IS/5. Diagramma di Macchina a stati.md",
     "Terzo Anno/IS/4. Diagramma delle attività.md",
-    "Terzo Anno/IS/Testing/Scratch book testing.md",
-    "Terzo Anno/IS/Design patterns/Adapter.md"
+    "Terzo Anno/IS/Testing/Scratch book testing.md"
   ]
 }
