@@ -11,5 +11,6 @@
   "obsidian-pandoc",
   "url-into-selection",
   "obsidian-minimal-settings",
-  "obsidian-contextual-typography"
+  "obsidian-contextual-typography",
+  "obsidian-plugin-toc"
 ]
