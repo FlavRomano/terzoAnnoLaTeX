@@ -8,13 +8,13 @@
         "type": "tabs",
         "children": [
           {
-            "id": "32185a0b4b01445a",
+            "id": "65c3f79213c4c471",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
-                "mode": "source",
+                "file": "Terzo Anno/IIA/3. Ricerca euristica.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "pod",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,7 +57,8 @@
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -78,7 +79,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
+                "file": "Terzo Anno/IIA/3. Ricerca euristica.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -123,17 +124,17 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "32185a0b4b01445a",
+  "active": "65c3f79213c4c471",
   "lastOpenFiles": [
-    "Terzo Anno/IIA/1. Agenti.md",
     "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
+    "Terzo Anno/IIA/1. Agenti.md",
+    "Terzo Anno/IIA/3. Ricerca euristica.md",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Programming stud/Siciliano, The programming language.md",
     "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
     "Terzo Anno/IS/3. Diagramma delle classi.md",
     "Terzo Anno/IS/5. Diagramma di Macchina a stati.md",
-    "Terzo Anno/IS/4. Diagramma delle attività.md",
-    "Terzo Anno/IS/Testing/Scratch book testing.md"
+    "Terzo Anno/IS/4. Diagramma delle attività.md"
   ]
 }

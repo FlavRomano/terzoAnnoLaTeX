@@ -11,6 +11,30 @@
       "title": "Definition",
       "injectColor": true,
       "noTitle": false
+    },
+    "theo": {
+      "type": "theo",
+      "color": "0, 204, 255",
+      "icon": {
+        "name": "binoculars",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Theorem",
+      "injectColor": true,
+      "noTitle": true
+    },
+    "proof": {
+      "type": "proof",
+      "color": "255, 123, 0",
+      "icon": {
+        "name": "bezier-curve",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Proof",
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": false,
