@@ -69,7 +69,7 @@ Distanza Manhattan da (x,y) a (2,4).
     (4, 4): 2,
 ```
 
-Con ordinamento $\uparrow, \rightarrow, \downarrow,\leftarrow$, la coda per la frontiera è con priorità in funzione di $h(u)$ (visto che $f = h$).
+Con ordinamento $\uparrow, \rightarrow, \downarrow,\leftarrow$, la coda per la frontiera è con priorità in funzione di $h(u)$ (visto che $f = h$). 
 
 | iterazione | nodo  | figli (Distanza Manhattan) | esplorati                 | coda frontiera            | figlio goal? |
 | ---------- | ----- | -------------------------- | ------------------------- | ------------------------- | ------------ |
