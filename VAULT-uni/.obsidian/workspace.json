@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "98a18d8d9b23fcaf",
+        "id": "7ebd730db9950619",
         "type": "tabs",
         "children": [
           {
-            "id": "65c3f79213c4c471",
+            "id": "ec5444e6e462cbc0",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -18,8 +18,21 @@
                 "source": true
               }
             }
+          },
+          {
+            "id": "f12db894728d9174",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "4. Ricerca locale.md",
+                "mode": "preview",
+                "source": true
+              }
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -57,8 +70,7 @@
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -79,7 +91,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/3. Ricerca euristica.md",
+                "file": "4. Ricerca locale.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -124,17 +136,16 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "65c3f79213c4c471",
+  "active": "f12db894728d9174",
   "lastOpenFiles": [
+    "Terzo Anno/IIA/3. Ricerca euristica.md",
+    "Terzo Anno/IIA/Esercitazioni/Teseo.md",
+    "Terzo Anno/IIA/Immagini/greedy_bfirst_teseo.jpeg",
     "Terzo Anno/IIA/2. Agenti risolutori di problemi.md",
     "Terzo Anno/IIA/1. Agenti.md",
-    "Terzo Anno/IIA/3. Ricerca euristica.md",
     "Terzo Anno/Lab Reti/5. InetAddress-Stream Sockets per clients.md",
     "Terzo Anno/Lab Reti/1. Threads e Threadpool.md",
     "Programming stud/Siciliano, The programming language.md",
-    "Terzo Anno/IS/2. Diagramma dei casi d'uso.md",
-    "Terzo Anno/IS/3. Diagramma delle classi.md",
-    "Terzo Anno/IS/5. Diagramma di Macchina a stati.md",
-    "Terzo Anno/IS/4. Diagramma delle attività.md"
+    "Terzo Anno/IS/2. Diagramma dei casi d'uso.md"
   ]
 }
