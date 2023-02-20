@@ -13,5 +13,6 @@
   },
   "readableLineLength": true,
   "showFrontmatter": true,
-  "spellcheck": false
+  "spellcheck": false,
+  "vimMode": false
 }
