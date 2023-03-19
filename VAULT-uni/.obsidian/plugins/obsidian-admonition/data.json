@@ -2,7 +2,7 @@
   "userAdmonitions": {
     "def": {
       "type": "def",
-      "color": "24, 251, 28",
+      "color": "147, 133, 133",
       "icon": {
         "name": "bible",
         "type": "font-awesome"
@@ -10,7 +10,8 @@
       "command": true,
       "title": "Definition",
       "injectColor": true,
-      "noTitle": false
+      "noTitle": false,
+      "copy": false
     },
     "theo": {
       "type": "theo",
@@ -38,7 +39,7 @@
     }
   },
   "syntaxHighlight": false,
-  "copyButton": false,
+  "copyButton": true,
   "version": "9.0.5",
   "autoCollapse": false,
   "defaultCollapseType": "open",

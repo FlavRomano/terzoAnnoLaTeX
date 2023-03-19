@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "e402fb804cf49890",
+        "id": "d12732ba7a344e13",
         "type": "tabs",
         "children": [
           {
-            "id": "77137f8fde4fee20",
+            "id": "5d1d42f6766c96b2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/IIA/1. Agenti basati su conoscenza.md",
+                "file": "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
                 "mode": "preview",
                 "source": true
               }
             }
-          },
-          {
-            "id": "c9a1d6240b93b1a2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Terzo Anno/IIA/2. Agenti logici, calcolo proposizionale.md",
-                "mode": "source",
-                "source": true
-              }
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -91,7 +78,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/2. Agenti logici, calcolo proposizionale.md",
+                "file": "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -136,16 +123,43 @@
       "canvas:Create new canvas": false
     }
   },
-  "active": "c9a1d6240b93b1a2",
+  "active": "5d1d42f6766c96b2",
   "lastOpenFiles": [
-    "Terzo Anno/IIA/Immagini/equiv_logiche.png",
-    "Terzo Anno/IIA/1. Agenti basati su conoscenza.md",
-    "Terzo Anno/IIA/2. Agenti logici, calcolo proposizionale.md",
+    "Untitled.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
+    "Terzo Anno/IIA/Immagini/classificare_nuoviDati.png",
+    "Terzo Anno/IIA/Immagini/repr_VersionSpace.png",
+    "Terzo Anno/IIA/Immagini/ex_findS.png",
+    "Terzo Anno/IIA/Immagini/ex_specificGeneral.png",
+    "![[ex_Aldo1.png]].md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
+    "Terzo Anno/IIA/Immagini/ex_Aldo1.png",
+    "Terzo Anno/IIA/Immagini/ex_boolFuncTab.png",
+    "Terzo Anno/IIA/Immagini/ex_boolFunc.png",
+    "Programming stud/Articles/We live in a small world!.md",
+    "Programming stud/Articles",
+    "Terzo Anno/IIA/Lezioni/Seconda parte/3. Agenti logici, logica del prim'ordine.md",
+    "Terzo Anno/IIA/Lezioni/Seconda parte/2. Agenti logici, calcolo proposizionale.md",
+    "Terzo Anno/IIA/Immagini/ex_xAndf(x).png",
+    "Terzo Anno/IIA/Lezioni/Seconda parte/1. Agenti basati su conoscenza.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte",
+    "Terzo Anno/IIA/Lezioni",
+    "Terzo Anno/IIA/Lezioni/Seconda parte",
+    "Calcolo numerico/1. Aritmetica di un calcolatore/Analisi dell'errore.md",
+    "Calcolo numerico/1. Aritmetica di un calcolatore/Artimetica di macchina.md",
+    "Calcolo numerico/1. Aritmetica di un calcolatore/Insieme dei numeri di macchina.md",
+    "Calcolo numerico/1. Aritmetica di un calcolatore/Teorema di rappresentazione in base.md",
+    "Calcolo numerico/Untitled.md",
+    "Calcolo numerico/1. Aritmetica di un calcolatore",
+    "Calcolo numerico",
+    "Terzo Anno/IIA/Immagini/grafo_ex_refutazioneFOL.png",
+    "Terzo Anno/IIA/Immagini/ex_refutazioneFOL.png",
+    "Untitled.canvas",
     "Terzo Anno/IIA/1. Agenti basati su conoscenza (scratch).md",
-    "Terzo Anno/IIA/Prima parte/3. Ricerca euristica.md",
-    "Terzo Anno/IIA/Prima parte/2. Agenti risolutori di problemi.md",
-    "Terzo Anno/IIA/Prima parte/4. Ricerca locale.md",
-    "Terzo Anno/IIA/Prima parte/1. Agenti.md",
+    "Terzo Anno/IIA/Lezioni/Prima parte/3. Ricerca euristica.md",
+    "Terzo Anno/IIA/Lezioni/Prima parte/2. Agenti risolutori di problemi.md",
+    "Terzo Anno/IIA/Lezioni/Prima parte/4. Ricerca locale.md",
+    "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md",
     "Terzo Anno/IIA/Ripassini/CheatSheet Algoritmi.md",
     "Terzo Anno/IIA/Esercitazioni/Soluzione Teseo.md",
     "Terzo Anno/Lab Reti/Assignment's code/20 Ottobre-Dungeon Adventures.md"
