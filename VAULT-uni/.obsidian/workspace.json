@@ -8,12 +8,12 @@
         "type": "tabs",
         "children": [
           {
-            "id": "810c7950b3924720",
+            "id": "8847a5b5758911bc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+                "file": "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
                 "mode": "source",
                 "source": true
               }
@@ -77,7 +77,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+                "file": "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -122,30 +122,31 @@
       "canvas:Create new canvas": false
     }
   },
-  "active": "810c7950b3924720",
+  "active": "8847a5b5758911bc",
   "lastOpenFiles": [
-    "Terzo Anno/IIA/Immagini/threshold_func.png",
-    "Terzo Anno/IIA/Immagini/decision_boundary.png",
-    "Terzo Anno/IIA/Immagini/tikonov_table.png",
-    "Terzo Anno/IIA/Immagini/lambda_tradeoff.png",
-    "Terzo Anno/IIA/Immagini/ex_tikonov2.png",
-    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
-    "Terzo Anno/IIA/Immagini/ex_tikonov.png",
+    "Terzo Anno/IIA/Lezioni/Terza parte/5. Validation and Theoretical issues.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
+    "Terzo Anno/IIA/Immagini/VC-plot.png",
+    "Terzo Anno/IIA/Immagini/big_dataSetEx.png",
+    "Terzo Anno/IIA/Immagini/small_dataSetEx.png",
+    "Terzo Anno/IIA/Immagini/typical_learning5.png",
+    "Terzo Anno/IIA/Immagini/typical_learning4.png",
+    "Terzo Anno/IIA/Immagini/typical_learning3.png",
+    "Terzo Anno/IIA/Immagini/typical_learning2.png",
+    "Terzo Anno/IIA/Immagini/typical_learning.png",
+    "Terzo Anno/IIA/Immagini/counterexample_table.png",
+    "Terzo Anno/IIA/Immagini/schema_trvlts.png",
     "Terzo Anno/IIA/Lezioni/Terza parte/4. Apprendimento tramite alberi decisionali.md",
-    "Terzo Anno/IIA/Immagini/ex_lbe3.png",
-    "Terzo Anno/IIA/Immagini/ex_lbe2.png",
-    "Terzo Anno/IIA/Immagini/ex_lbe.png",
     "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
     "Programming stud/REST API/1. Introduzione.md",
     "Programming stud/REST API/3. Design delle interazioni con HTTP.md",
-    "Terzo Anno/IIA/Immagini/entropia.png",
-    "Terzo Anno/IIA/decision-tree.png",
     "Terzo Anno/IIA/Lezioni/Seconda parte/2. Agenti logici, calcolo proposizionale.md",
     "Terzo Anno/IIA/Lezioni/Seconda parte/3. Agenti logici, logica del prim'ordine.md",
     "Terzo Anno/IIA/Lezioni/Seconda parte/4. Sistemi a regole.md",
     "Terzo Anno/IIA/Lezioni/Seconda parte/1. Agenti basati su conoscenza.md",
     "Untitled.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
     "![[ex_Aldo1.png]].md",
     "Programming stud/Articles/We live in a small world!.md",
     "Programming stud/Articles",
@@ -165,7 +166,6 @@
     "Terzo Anno/IIA/Lezioni/Prima parte/2. Agenti risolutori di problemi.md",
     "Terzo Anno/IIA/Lezioni/Prima parte/4. Ricerca locale.md",
     "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md",
-    "Terzo Anno/IIA/Ripassini/CheatSheet Algoritmi.md",
-    "Terzo Anno/IIA/Esercitazioni/Soluzione Teseo.md"
+    "Terzo Anno/IIA/Ripassini/CheatSheet Algoritmi.md"
   ]
 }
