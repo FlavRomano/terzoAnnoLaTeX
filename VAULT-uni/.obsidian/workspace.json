@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b03c5541687cc440",
+        "id": "cef15cd3ac66b16c",
         "type": "tabs",
         "children": [
           {
-            "id": "8847a5b5758911bc",
+            "id": "f26cc718ef387bb2",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -61,7 +61,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5026054382324
+    "width": 298.5026054382324,
+    "collapsed": true
   },
   "right": {
     "id": "4588802823540321",
@@ -122,24 +123,24 @@
       "canvas:Create new canvas": false
     }
   },
-  "active": "8847a5b5758911bc",
+  "active": "f26cc718ef387bb2",
   "lastOpenFiles": [
-    "Terzo Anno/IIA/Lezioni/Terza parte/5. Validation and Theoretical issues.md",
     "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
+    "Terzo Anno/IIA/Immagini/slack_var2.png",
+    "Terzo Anno/IIA/Immagini/slack_var1.png",
+    "Terzo Anno/IIA/Immagini/iperpiano_supportVector.png",
+    "Terzo Anno/IIA/Immagini/support_vector.png",
+    "Terzo Anno/IIA/Immagini/margine_safezone.png",
+    "Terzo Anno/IIA/Immagini/margine.png",
+    "Terzo Anno/IIA/Lezioni/Terza parte/4. Apprendimento tramite alberi decisionali.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/5. Validation and Theoretical issues.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
     "Terzo Anno/IIA/Immagini/VC-plot.png",
     "Terzo Anno/IIA/Immagini/big_dataSetEx.png",
     "Terzo Anno/IIA/Immagini/small_dataSetEx.png",
     "Terzo Anno/IIA/Immagini/typical_learning5.png",
-    "Terzo Anno/IIA/Immagini/typical_learning4.png",
-    "Terzo Anno/IIA/Immagini/typical_learning3.png",
-    "Terzo Anno/IIA/Immagini/typical_learning2.png",
-    "Terzo Anno/IIA/Immagini/typical_learning.png",
-    "Terzo Anno/IIA/Immagini/counterexample_table.png",
-    "Terzo Anno/IIA/Immagini/schema_trvlts.png",
-    "Terzo Anno/IIA/Lezioni/Terza parte/4. Apprendimento tramite alberi decisionali.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
     "Programming stud/REST API/1. Introduzione.md",
     "Programming stud/REST API/3. Design delle interazioni con HTTP.md",
     "Terzo Anno/IIA/Lezioni/Seconda parte/2. Agenti logici, calcolo proposizionale.md",
@@ -165,7 +166,6 @@
     "Terzo Anno/IIA/Lezioni/Prima parte/3. Ricerca euristica.md",
     "Terzo Anno/IIA/Lezioni/Prima parte/2. Agenti risolutori di problemi.md",
     "Terzo Anno/IIA/Lezioni/Prima parte/4. Ricerca locale.md",
-    "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md",
-    "Terzo Anno/IIA/Ripassini/CheatSheet Algoritmi.md"
+    "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md"
   ]
 }
