@@ -4,16 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "cef15cd3ac66b16c",
+        "id": "57d5a12ae405a64e",
         "type": "tabs",
         "children": [
           {
-            "id": "f26cc718ef387bb2",
+            "id": "c4cbc72ec6ef3cb7",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "6fccbfc26a5ff60b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
+                "file": "Terzo Anno/Database/Note/sistemi informatici direzionali.md",
                 "mode": "source",
                 "source": true
               }
@@ -56,6 +64,14 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "ab249d30138bde22",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
           }
         ]
       }
@@ -78,7 +94,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,8 +120,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -119,53 +133,58 @@
       "graph:Open graph view": false,
       "command-palette:Open command palette": false,
       "markdown-importer:Open format converter": false,
-      "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "canvas:Create new canvas": false
+      "canvas:Create new canvas": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "f26cc718ef387bb2",
+  "active": "c4cbc72ec6ef3cb7",
   "lastOpenFiles": [
-    "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
-    "Terzo Anno/IIA/Immagini/slack_var2.png",
-    "Terzo Anno/IIA/Immagini/slack_var1.png",
-    "Terzo Anno/IIA/Immagini/iperpiano_supportVector.png",
-    "Terzo Anno/IIA/Immagini/support_vector.png",
-    "Terzo Anno/IIA/Immagini/margine_safezone.png",
-    "Terzo Anno/IIA/Immagini/margine.png",
-    "Terzo Anno/IIA/Lezioni/Terza parte/4. Apprendimento tramite alberi decisionali.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+    "Terzo Anno/Database/1. Costruzione di una base di dati.md",
+    "Terzo Anno/Database/Note/sistemi informatici direzionali.md",
+    "Terzo Anno/Database/Note/Serializzabilità transazioni.md",
+    "Terzo Anno/Database/Note/Persistenza transazioni.md",
+    "Terzo Anno/Database/Note/Atomicità transazioni.md",
+    "Terzo Anno/Database/Note/transazione DBMS.md",
+    "Terzo Anno/Database/Note/Affidabilità DBMS.md",
+    "Terzo Anno/Database/Note/Sicurezza DBMS.md",
+    "Terzo Anno/Database/Note/Integrità DBMS.md",
+    "Terzo Anno/Database/Note/indipendenza fisica dei dati.md",
+    "Terzo Anno/Database/Note/indipendenza logica dei dati.md",
+    "Terzo Anno/Database/Note/Livello fisico (schema fisico).md",
+    "Terzo Anno/Database/Note/Livello di vista logica (schema esterno o vista).md",
+    "Terzo Anno/Database/immagini/Pasted image 20230811175929.png",
+    "Terzo Anno/Database/Note/Livello logico (schema logico).md",
+    "Terzo Anno/Database/Note/Livello di **vista logica**.md",
+    "Terzo Anno/Database/Note/Untitled.md",
+    "Terzo Anno/Database/Note/schemi nel DDL.md",
     "Terzo Anno/IIA/Lezioni/Terza parte/2. Concept Learning.md",
-    "Terzo Anno/IIA/Lezioni/Terza parte/5. Validation and Theoretical issues.md",
     "Terzo Anno/IIA/Lezioni/Terza parte/1. Intro all'apprendimento automatico.md",
-    "Terzo Anno/IIA/Immagini/VC-plot.png",
-    "Terzo Anno/IIA/Immagini/big_dataSetEx.png",
-    "Terzo Anno/IIA/Immagini/small_dataSetEx.png",
-    "Terzo Anno/IIA/Immagini/typical_learning5.png",
-    "Programming stud/REST API/1. Introduzione.md",
-    "Programming stud/REST API/3. Design delle interazioni con HTTP.md",
-    "Terzo Anno/IIA/Lezioni/Seconda parte/2. Agenti logici, calcolo proposizionale.md",
-    "Terzo Anno/IIA/Lezioni/Seconda parte/3. Agenti logici, logica del prim'ordine.md",
-    "Terzo Anno/IIA/Lezioni/Seconda parte/4. Sistemi a regole.md",
-    "Terzo Anno/IIA/Lezioni/Seconda parte/1. Agenti basati su conoscenza.md",
-    "Untitled.md",
-    "![[ex_Aldo1.png]].md",
-    "Programming stud/Articles/We live in a small world!.md",
+    "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/3. Modelli lineari.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/4. Apprendimento tramite alberi decisionali.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/5. Validation and Theoretical issues.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/6. SVM.md",
+    "Terzo Anno/IIA/Lezioni/Terza parte/7. K-NN, unsupervised learning, ecc....md",
+    "Untitled.canvas",
+    "Terzo Anno/Database/Note/differenze OLTP e OLAP.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230811162458.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230811160512.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230811155229.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230811155219.png",
+    "Terzo Anno/Database/Note",
+    "Terzo Anno/Database/immagini/sistema_informatico.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230811112100.png",
+    "Terzo Anno/WebScraping/immagini/unlockingBTC.png",
+    "Terzo Anno/WebScraping/immagini/transaction.png",
+    "Terzo Anno/WebScraping/immagini/distributing_utxo.png",
+    "Terzo Anno/WebScraping/immagini",
+    "Terzo Anno/WebScraping",
+    "Terzo Anno/HMI",
+    "Terzo Anno/IUM",
     "Programming stud/Articles",
     "Terzo Anno/IIA/Lezioni/Terza parte",
     "Terzo Anno/IIA/Lezioni",
     "Terzo Anno/IIA/Lezioni/Seconda parte",
-    "Calcolo numerico/1. Aritmetica di un calcolatore/Analisi dell'errore.md",
-    "Calcolo numerico/1. Aritmetica di un calcolatore/Artimetica di macchina.md",
-    "Calcolo numerico/1. Aritmetica di un calcolatore/Insieme dei numeri di macchina.md",
-    "Calcolo numerico/1. Aritmetica di un calcolatore/Teorema di rappresentazione in base.md",
-    "Calcolo numerico/Untitled.md",
-    "Calcolo numerico/1. Aritmetica di un calcolatore",
-    "Calcolo numerico",
-    "Untitled.canvas",
-    "Terzo Anno/IIA/1. Agenti basati su conoscenza (scratch).md",
-    "Terzo Anno/IIA/Lezioni/Prima parte/3. Ricerca euristica.md",
-    "Terzo Anno/IIA/Lezioni/Prima parte/2. Agenti risolutori di problemi.md",
-    "Terzo Anno/IIA/Lezioni/Prima parte/4. Ricerca locale.md",
-    "Terzo Anno/IIA/Lezioni/Prima parte/1. Agenti.md"
+    "Calcolo numerico/1. Aritmetica di un calcolatore"
   ]
 }

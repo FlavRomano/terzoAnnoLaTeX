@@ -1,0 +1,1 @@
+I programmi applicativi **non** devono essere modificati in seguito a modifiche dello **schema logico**

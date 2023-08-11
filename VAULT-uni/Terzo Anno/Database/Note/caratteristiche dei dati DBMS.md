@@ -1,0 +1,10 @@
+- Sono organizzati in **insiemi strutturati e omogenei** fra i quali sono definite **relazioni**; entrambe descritte nello schema usando meccanismi di astrazione del modello dei dati del DBMS.
+- Sono **molti**, sia in assoluto che rispetto ai metadati
+	- non possono essere gestiti in memoria temporanea
+- Sono accessibili mediante **transazioni**
+	- unità di lavoro atomiche
+	- senza effetti parziali
+- Sono **protetti** 
+	- sia da accesso da parte di utenti non autorizzati
+	- sia da corruzione dovuta a malfunzionamenti hw o sw
+- Sono **utilizzabili contemporaneamente** da due utenti diversi

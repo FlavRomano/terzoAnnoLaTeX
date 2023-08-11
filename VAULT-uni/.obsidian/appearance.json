@@ -1,9 +1,9 @@
 {
   "baseFontSize": 14,
   "translucency": false,
-  "cssTheme": "Minimal",
+  "cssTheme": "Things",
   "accentColor": "#dfb234",
-  "theme": "obsidian",
+  "theme": "moonstone",
   "monospaceFontFamily": "IBM Plex Mono",
   "baseFontSizeAction": false,
   "interfaceFontFamily": "",

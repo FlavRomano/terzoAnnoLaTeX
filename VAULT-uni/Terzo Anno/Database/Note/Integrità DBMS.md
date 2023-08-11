@@ -1,0 +1,1 @@
+Mantenimento delle proprietà specificate in modo dichiarativo nello schema (**vincoli d'integrità**).

@@ -14,5 +14,8 @@
   "readableLineLength": true,
   "showFrontmatter": true,
   "spellcheck": false,
-  "vimMode": false
+  "vimMode": false,
+  "attachmentFolderPath": "Terzo Anno/Database/immagini",
+  "newFileLocation": "folder",
+  "newFileFolderPath": "Terzo Anno/Database/Note"
 }
