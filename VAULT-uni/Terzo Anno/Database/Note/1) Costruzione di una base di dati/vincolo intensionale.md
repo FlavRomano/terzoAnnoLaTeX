@@ -1,0 +1,1 @@
+Se $C'$ è sottoclasse di $C$, allora il tipo degli elementi di $C'$ è **sottotipo** del tipo degli elementi di $C$.

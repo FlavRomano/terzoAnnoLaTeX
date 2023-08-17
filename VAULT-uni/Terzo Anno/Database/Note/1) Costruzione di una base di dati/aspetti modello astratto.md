@@ -1,0 +1,5 @@
+- il modello è la rappresentazione di certi fatti
+- la rappresentazione è data con un linguaggio formale
+- il modello è il risultato di un processo di interpretazion guidato 
+	- dalle idee del soggetto che interpreta
+	- e dalla sua conoscenza pregressa

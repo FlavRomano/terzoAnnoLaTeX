@@ -1,0 +1,1 @@
+Un **tipo ennupla** $T$ è un insieme finito di coppie $$(\text{Attributo},\text{Tipo elementare})$$

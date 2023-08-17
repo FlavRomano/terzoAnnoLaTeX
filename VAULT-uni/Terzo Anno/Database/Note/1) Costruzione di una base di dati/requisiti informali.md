@@ -1,0 +1,1 @@
+Fanno uso del linguaggio naturale per descrivere i requisiti

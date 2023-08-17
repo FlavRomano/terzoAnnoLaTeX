@@ -1,0 +1,1 @@
+Uno schema di base di dati $$R = \{ R_{1}(X_{1}),\ldots, R_{k}(X_{k}) \}$$ è un insieme di schemi di relazione, dove $X_{1},\ldots, X_{k}$ sono insiemi di attributi.

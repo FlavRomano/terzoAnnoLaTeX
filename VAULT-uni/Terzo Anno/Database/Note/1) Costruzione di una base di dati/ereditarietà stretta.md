@@ -1,0 +1,2 @@
+- Gli attributi possono essere solo aggiunti
+- Gli attributi possono essere ridefiniti solo specializzandone il tipo.

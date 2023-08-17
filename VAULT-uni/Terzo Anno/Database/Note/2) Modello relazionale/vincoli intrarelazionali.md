@@ -1,0 +1,1 @@
+Sono i vincoli che devono essere rispettati dai valori contenuti nella relazione considerata.

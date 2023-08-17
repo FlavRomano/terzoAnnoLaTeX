@@ -11,7 +11,7 @@ title: Alcune sigle
 - Transaction Processing Systems (TPS)
 ```
 
-Un esempio topico sono i [[sistemi transazionali OLTP]] 
+Un esempio classico sono i [[sistemi transazionali OLTP]] 
 
 ![[Pasted image 20230811160512.png]]
 

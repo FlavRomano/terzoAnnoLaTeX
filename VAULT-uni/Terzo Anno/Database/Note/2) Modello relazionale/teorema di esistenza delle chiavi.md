@@ -1,0 +1,4 @@
+- Una [[relazione]] non può contenere **[[Ennupla|ennuple]] distinte** ma con **valori uguali**
+	- una [[relazione]] è un sottoinsieme del prodotto cartesiano
+- Ogni relazione ha **sicuramente** come [[chiave|superchiave]] l'**insieme di tutti gli attributi su cui è definita**
+-  Ogni [[relazione]] **ha almeno una chiave**

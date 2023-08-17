@@ -1,0 +1,3 @@
+- **entità** con le loro proprietà
+- **collezioni** di entità omogenee
+- **associazioni** fra entità

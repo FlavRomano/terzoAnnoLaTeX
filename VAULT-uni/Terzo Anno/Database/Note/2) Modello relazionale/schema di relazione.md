@@ -1,0 +1,1 @@
+Uno schema di relazione $$R(A_{1},\ldots,A_{n})$$  è un nome $R$ con un insieme di attributi $A_{1},\ldots,A_{n}$
