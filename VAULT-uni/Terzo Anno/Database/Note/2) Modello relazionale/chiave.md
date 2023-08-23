@@ -7,7 +7,7 @@ $K$ è **chiave** per $r$ se
 	- cioè non contiene un'altra superchiave
 
 ## Chiave Primaria
-Una **chiave primarie** è una chiave su cui **NON** sono ammessi [[Valore nullo|valori nulli]]
+Una **chiave primaria** è una chiave su cui **NON** sono ammessi [[Valore nullo|valori nulli]]
 
 n.b: Come notazione si predilige la sottolineatura dell'attributo all'interno dello [[schema di relazione]].
 
@@ -28,7 +28,7 @@ CREATE TABLE fattura (
 ```
 
 ```ad-example
-!uesto codice andrà a creare una tabella `fattura` in cui si potranno specificare un `id` ([[chiave#Chiave Primaria|chiave primaria]]), una `data_acquisto` e un `id_cliente`. Il vincolo imposto è che `id_cliente` sia contenuto nella colonna `id` della [[tabella]] `cliente`.
+Questo codice andrà a creare una tabella `fattura` in cui si potranno specificare un `id` ([[chiave#Chiave Primaria|chiave primaria]]), una `data_acquisto` e un `id_cliente`. Il vincolo imposto è che `id_cliente` sia contenuto nella colonna `id` della [[tabella]] `cliente`.
 ```
 
 

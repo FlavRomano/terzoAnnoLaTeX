@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "dece2a142c12b743",
+        "id": "31dc5e14b946dd2a",
         "type": "tabs",
         "children": [
           {
-            "id": "6caddf47a0209030",
+            "id": "f91d71857b6fa8ca",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Terzo Anno/Database/3. Trasformazione di schemi.md",
-                "mode": "preview",
+                "file": "Terzo Anno/Database/5. SQL.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 298.5026054382324,
-    "collapsed": true
+    "width": 298.5026054382324
   },
   "right": {
     "id": "4588802823540321",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Terzo Anno/Database/3. Trasformazione di schemi.md",
+                "file": "Terzo Anno/Database/5. SQL.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,16 +103,9 @@
               "type": "advanced-tables-toolbar",
               "state": {}
             }
-          },
-          {
-            "id": "6a3edf4d7d20c91f",
-            "type": "leaf",
-            "state": {
-              "type": "calendar",
-              "state": {}
-            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
@@ -130,53 +122,54 @@
       "table-editor-obsidian:Advanced Tables Toolbar": false
     }
   },
-  "active": "6caddf47a0209030",
+  "active": "f91d71857b6fa8ca",
   "lastOpenFiles": [
-    "Terzo Anno/Database/Note/rappresentazione associazione ricorsiva.md",
-    "Terzo Anno/Database/immagini/Pasted image 20230817192315.png",
-    "Terzo Anno/Database/3. Trasformazione di schemi.md",
-    "Terzo Anno/Database/Note/rappresentazione associazione molti a molti.md",
-    "Terzo Anno/Database/immagini/Pasted image 20230817192204.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817192042.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817192009.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817191905.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817191516.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817191412.png",
-    "Terzo Anno/Database/immagini/Pasted image 20230817191013.png",
-    "Terzo Anno/Database/Note/rappresentazione associazione uno a uno.md",
-    "Terzo Anno/Database/immagini/Pasted image 20230817185555.png",
-    "Terzo Anno/Database/Note/rappresentazione associazione uno a molti.md",
-    "Terzo Anno/Database/Note/Da concettuale a logico.md",
-    "Terzo Anno/Database/immagini/Pasted image 20230817184407.png",
-    "Terzo Anno/Database/2. Modello relazionale.md",
-    "Terzo Anno/Database/Note/1) Costruzione di una base di dati/vincolo intensionale.md",
-    "Terzo Anno/Database/Note/1) Costruzione di una base di dati/sottoclasse.md",
-    "Terzo Anno/Database/Note/1) Costruzione di una base di dati/associazione.md",
-    "Terzo Anno/Database/Note/1) Costruzione di una base di dati/Progettazione concettuale.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/vincolo di integrità referenziale.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/vincolo d'integrità.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/vincoli intrarelazionali.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/vincoli interrelazionali.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/vincoli di ennupla.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/Valore nullo.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/teorema di esistenza delle chiavi.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/tabella.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/schema di relazione.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/schema di base di dati.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/relazione.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/esempio chiave.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/Ennupla.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale/chiave.md",
-    "Terzo Anno/Database/Note/2) Modello relazionale",
+    "Terzo Anno/Database/1. Costruzione di una base di dati.md",
+    "Terzo Anno/Database/5. SQL.md",
+    "Terzo Anno/Database/Note/UPDATE SQL.md",
+    "Terzo Anno/Database/Note/DELETE SQL.md",
+    "Terzo Anno/Database/Note/INSERT SQL.md",
+    "Terzo Anno/Database/Note/INTERSECT SQL.md",
+    "Terzo Anno/Database/Note/UNION SQL.md",
+    "Terzo Anno/Database/Note/JOIN SQL.md",
+    "Terzo Anno/Database/Note/EXCEPT SQL.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230823184136.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230823184118.png",
+    "Terzo Anno/Database/Note/EXISTS SQL.md",
+    "Terzo Anno/Database/Note/ALL SQL.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230823180015.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230823175926.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230823175702.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230823175636.png",
+    "Terzo Anno/Database/Note/OUTER JOIN.md",
+    "Terzo Anno/Database/Note/universale negata.md",
+    "Terzo Anno/Database/Note/esistenziale negata.md",
+    "Terzo Anno/Database/Note/Untitled.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230823172615.png",
+    "Terzo Anno/Database/Note/ANY SQL.md",
+    "Terzo Anno/Database/Note/INNER JOIN.md",
+    "Terzo Anno/Database/Note/IN SQL.md",
+    "Terzo Anno/Database/Note/Subquery di Tabella.md",
+    "Terzo Anno/Database/Note/Subquery di Colonna.md",
+    "Terzo Anno/Database/Note/Subquery scalare.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230823161239.png",
+    "Terzo Anno/Database/immagini/Pasted image 20230823161229.png",
+    "Terzo Anno/Database/Note/SELF JOIN.md",
+    "Terzo Anno/Database/Note/USING.md",
+    "Terzo Anno/Database/Note/CROSS JOIN.md",
+    "Terzo Anno/Database/4. Algebra relazionale.md",
+    "Terzo Anno/Database/immagini/Pasted image 20230823110159.png",
+    "Terzo Anno/Database/Note/4) Algebra relazionale/Join.md",
+    "MAX",
+    "Terzo Anno/Database/Note/4) Algebra relazionale",
     "Terzo Anno/Database/Note/untitled folder",
+    "Terzo Anno/Database/Note/3) Trasformazione di schemi",
+    "Terzo Anno/Database/Note/2) Modello relazionale",
     "Terzo Anno/Database/Note/1) Costruzione di una base di dati",
     "Untitled.canvas",
     "Terzo Anno/Database/Note",
     "Terzo Anno/WebScraping/immagini",
     "Terzo Anno/WebScraping",
-    "Terzo Anno/HMI",
-    "Terzo Anno/IUM",
-    "Programming stud/Articles",
-    "Terzo Anno/IIA/Lezioni/Terza parte"
+    "Terzo Anno/HMI"
   ]
 }
