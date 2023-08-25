@@ -1,0 +1,1 @@
+**Tutti i fatti** sono descritti da attributi di un'unica relazione (la **relazione universale**), cioè gli attributi hanno un significato globale.

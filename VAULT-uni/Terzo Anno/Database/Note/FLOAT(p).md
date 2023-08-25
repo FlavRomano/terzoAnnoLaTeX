@@ -1,0 +1,1 @@
+Tipo per **numeri binari in virgola mobile** con almeno **$p$ cifre significative**.

@@ -1,0 +1,1 @@
+Tipo per numeri con **$p$ cifre** di cui **$s$ decimali**

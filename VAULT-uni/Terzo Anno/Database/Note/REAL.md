@@ -1,0 +1,1 @@
+Tipo per numeri reali con dimensione uguale alla **parola di memoria standard dell'elaboratore**

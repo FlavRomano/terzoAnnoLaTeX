@@ -1,0 +1,1 @@
+Tipo per stringhe di caratteri di **lunghezza fissa** $n$.

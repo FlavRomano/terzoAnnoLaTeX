@@ -1,0 +1,1 @@
+Tipo per interi con dimensione uguale alla **parola di memoria standard dell'elaboratore**.

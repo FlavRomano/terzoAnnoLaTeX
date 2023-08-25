@@ -1,0 +1,1 @@
+Tipo per valori che rappresentano **istanti di tempo** oppure solo **date** (dipende dal sistema).
