@@ -1,0 +1,1 @@
+Definiamo **attributo primo**, un attributo che **appartiene ad almento una** [[Chiave candidata|chiave candidata]].

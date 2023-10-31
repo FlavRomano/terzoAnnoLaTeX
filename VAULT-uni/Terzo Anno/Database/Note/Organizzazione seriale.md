@@ -1,0 +1,3 @@
+Questo tipo di organizzazione è il modo **più naive** di organizzare i record di una collezione, essi vengono memorizzati uno dopo l'altro (cioè consecutivamente all'ordine d'inserzione).
+
+Le inserzioni di nuovi record sono veloci, il trade-off sta nelle ricerche. Infatti la ricerca di un record sono lente se i dati sono molti. Per questa ragione si usa per piccole collezioni (o su grandi sottoinsiemi di record).
