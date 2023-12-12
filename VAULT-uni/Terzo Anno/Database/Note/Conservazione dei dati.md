@@ -16,7 +16,7 @@ In questo caso **si perde informazione sullo studente**, non c'è modo di risali
 
 ![[Pasted image 20230827160147.png]]
 
-Mario non ha preso un esame di Storia e Laura non ha preso un esame di Matematica nella tabella originale.
+Mario non ha sostenuto un esame di Storia e Laura non ha sostenuto un esame di Matematica nella tabella originale.
 ### Decomposizione corretta
 Consideriamo il seguente schema:
 - StudentiEdEsami(Matricola, Nome, Provincia, AnnoNascita, Materia, Voto)
@@ -28,7 +28,7 @@ Può essere correttamente decomposto in
 Non perdo informazioni perché **matricola è [[chiave]]**. Usare la chiave è l'unico modo per avere decomposizione senza perdita d'informazione.
 ## Teorema
 Dalla definizione di [[Join#Join naturale|join naturale]]
-- se $\rho=\{ R_{1}(T_{1}),\ldots, R_{k}(T_{k}) \}$ **è una decomposizione su $R(T)$**, allora per ogni istanza $r\in R$ si ha $$r\subseteq \{ R_{1}(T_{1}),\ldots, R_{k}(T_{k}) \}$$
+- se $\rho=\{ R_{1}(T_{1}),\ldots, R_{k}(T_{k}) \}$ **è una decomposizione su $R(T)$**, allora per ogni istanza $r\in R$ si ha $$r\subseteq (\pi_{T_{1}}r) \cup (\pi_{T_{2}}r) \cup \ldots \cup (\pi_{T_{k}}r)$$
 
 Uno schema $R(T)$ si **decompone senza perdita** in due schemi $R_{1}(T_{1})$ e $R_{2}(T_{2})$ se 
 - per ogni possibile istanza $r\in R(T)$ il **join naturale delle proiezioni di** $r$ su $T_{1}$ e $T_{2}$ **produce la tabella di partenza** (cioé senza [[tuple spurie]]).
@@ -39,14 +39,14 @@ La decomposizione senza perdita **è garantita**
 
 ### Dimostrazione
 Supponiamo $r$ essere una relazione sugli attributi $ABC$, consideriamo le sue proiezioni:
-- $r_{1}$ su $AB$ 
-- $r_{2}$ su $AC$
+- $r_{1} = \pi_{AB}(r)$ 
+- $r_{2} = \pi_{AC}(r)$ 
 
-Supponiamo $r$ soddisfi la dipendenza funzionale $A\to C$, allora $A$ **è chiave** per $r_{1}$ su $AC$
-- quindi non ci sono, in tale proiezione ($r_{1}$) , due tuple diverse sugli stessi valori di $A$
+Supponiamo $r$ soddisfi la dipendenza funzionale $A\to C$, allora $A$ **è chiave** per $r$ su $AC$
+- quindi in tale proiezione, $r_{2} = \pi_{AC}(r)$, non ci sono due tuple diverse sugli stessi valori di $A$
 
 Il join costruisce tuple **a partire dalle tuple delle due proiezioni**
-- sia $t=(a,b,c)$ una tupla del join $r_{1}\bowtie r_{2}$
+- sia $t= (a,b,c)$ una tupla del join $r_{1}\bowtie r_{2}$, visto che $r_{1}\ni t_{1} = (a,b)$ ed $r_{2}\ni t_{2}= (a,c )$.
 - per definizione di proiezione:
 	- esistono due tuple in $r$, $t_{1}'=(a,b,*)$ e $t_{2}'=(a,*,c)$ dove "$*$" sta per *un valore non noto*
 - poiché $A\to C$, allora esiste un solo valore in $C$ associato al valore $a$

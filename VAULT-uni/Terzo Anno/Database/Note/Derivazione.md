@@ -28,7 +28,7 @@ Da unione e decomposizione si ricava che
 ## Esempi
 ### Esempio 1
 Abbiamo una relazione $R(A,B,C,D)$ e un insieme di dipendenze funzionale $F=\{A\to B, BC\to D\}$
-- $AC$ è [[chiave#Superchiave|superchiave?]]?
+- $AC$ è [[chiave#Superchiave|superchiave]]?
 
 $AC$ superchiave vuol dire che $AC$ determina funzionalmente $ABCD$, cioé $AC \to ABCD$
 

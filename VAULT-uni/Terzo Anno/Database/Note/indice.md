@@ -1,6 +1,5 @@
 L'indice è una **struttura che contiene informazioni**
-- sulla posizione di memorizzazione delle tuple
-- in base al valore del campo chiave
+- sulla **posizione** di memorizzazione delle tuple in base al valore del **campo chiave**
 
 Velocizza l'accesso casuale via chiave di ricerca.
 
@@ -21,6 +20,7 @@ Un indice **primario**
 	2. Il secondo campo è un **puntatore a un blocco del disco**
 
 Esiste **un record nel file dell'indice** per ogni blocco nel file di dati 
+
 ![[Pasted image 20230830193322.png]]
 
 ## Indice secondario

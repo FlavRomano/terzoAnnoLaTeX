@@ -1,7 +1,5 @@
-Quando bisogna effettuare una ricerca su range di valori e ricerche su chiave, si opta per il **metodo tabellare**:
-- si usa un **indice**, un **insieme ordinato** di coppie $$(k, r(k))$$ 
-	- $k$ valore della chiave
-	- $r(k)$ riferimento al record con chiave $k$
+Quando bisogna effettuare una ricerca su *range di valori* e *ricerche su chiave*, si opta per il **metodo tabellare**:
+- si usa un **indice**: un **insieme ordinato** di coppie $$(k, r(k))$$  $$k = \text{valore della chiave} \quad r(k) = \text{riferimento al record con chiave }k$$
 - contiene informazioni sulla posizione di **memorizzazione delle tuple** sulla base del valore del campo $k$
 - la realizzazione di indici avviene tipicamente attraverso **strutture ad albero multi livello**.
 

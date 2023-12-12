@@ -19,12 +19,14 @@ n.b: Come notazione si predilige la sottolineatura dell'attributo all'interno de
 - che referenzia una o più colonne di un'altra tabella, detta **referenziata**.
 
 ```sql
-CREATE TABLE fattura (
-  id INTEGER PRIMARY KEY,
-  data_acquisto DATE,
-  id_cliente INTEGER,
-  FOREIGN KEY(id_cliente) REFERENCES cliente(id) ON DELETE CASCADE
-)
+CREATE TABLE 
+	Fattura (
+	  id INTEGER PRIMARY KEY,
+	  data_acquisto DATE,
+	  id_cliente INTEGER,
+	  FOREIGN KEY(id_cliente) 
+		  REFERENCES Cliente(id) ON DELETE CASCADE
+	)
 ```
 
 ```ad-example

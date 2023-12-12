@@ -1,12 +1,13 @@
 Dato un insieme di [[dipendenza funzionale|dipendenze funzionali]] $F$, $X\to Y\in F$ è una **dipendenza ridondante**
 - se **eliminandola da** $F$ riesco comunque a [[Derivazione|derivarla]], cioè $$F\setminus \{ X\to Y \} \vdash X \to Y$$
 
-Per stabilire se una dipendenza funzionale $X\to A$ è ridondante
-- la eliminiamo da $F$
-- calcoliamo la [[problema dell'implicazione#Algoritmo per calcolare la chiusura di $X$ rispetto a $F$|chiusura]] $X^{+}$
-	- verifichiamo se $X^{+}$ include $A$, ovvero se con le dipendenze funzionali che restano riusciamo ancora a dimostrare che $X$ determina $A$
+## Stabilire se una dipendenza è ridondante
+Per stabilire se una dipendenza funzionale $X\to A$ è ridondante:
+1. la eliminiamo da $F$ $$F = F \setminus \{X \to A\}$$
+2. calcoliamo la [[problema dell'implicazione#Algoritmo per calcolare la chiusura di $X$ rispetto a $F$|chiusura]] $X^{+}_F$
+	- verifichiamo se $X^{+}_F$ include $A$, ovvero se con le dipendenze funzionali che restano riusciamo ancora a dimostrare che $X$ determina $A$
 
-## Esempio
+### Esempio
 Dato lo schema
 - Orari(CodAula, NomeAula, Piano, Posti, Materia, CDL, Docente, Giorno, Ora)
 

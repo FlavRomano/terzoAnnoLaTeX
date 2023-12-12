@@ -16,7 +16,8 @@ FROM Reparti
 WHERE EXISTS (  
 	SELECT * 
 	FROM Impiegati 
-	WHERE Mansione = ‘Programmatore’
+	WHERE Reparti.idReparto = Impiegati.idReparto and
+		Mansione = ‘Programmatore’
 )
 ```
 

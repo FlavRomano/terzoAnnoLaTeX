@@ -21,6 +21,8 @@ non è in forma normale di Boyce Codd perché $Matricola$ non è [[chiave#Superc
 Dato lo schema $R\langle T, F \rangle$, è in **forma normale di BC**
 - se per ogni $X\to A\in F^{+}$, con $A$ non banale, vale che $X$ è [[chiave#Superchiave|superchiave]]
 
+> Lo schema è in forma normale di BC se ogni parte sinistra delle dipendenze funzionali in $F^+$  è *superchiave*
+
 ## Teorema
 Dato lo schema $R\langle T, F \rangle$, è in **forma normale di BC**
 - se per ogni $X\to A\in F$, con $A$ non banale, vale che $X$ è [[chiave#Superchiave|superchiave]]
@@ -43,20 +45,24 @@ La relazione $R\langle T, F\rangle$ è decomposta in
 su di esse si ripete questo procedimento esponenziale
 
 ```py
-if (is_copertura_canonica(F)):
+def algoritmo_di_analisi(T,F):
+	assert('F copertura canonica')
 	rho = set(R<T,F>)
-	for Ri<Ti,Fi> in rho non ancora in BCNF per la DF X->A:
-		T1 = chiusura(X) # X diventa chiave per R
-		F1 = proietta(dipendenze=Fi, su=T1)
-		T2 = Ti - chiusura(X) + X 
+	while esiste in rho una Ri<Ti,Fi> non in FNBC per la DF X->A:
+		# X diventa chiave per R
+		Ta = chiusura(X)
+		Fa = proiezione(di=Fi, su=Ta)
+
 		# elimino dagli attributi tutti gli elementi della chiusura di X
-		# ma aggiungo X per preservare i dati
-		F2 = proietta(dipendenze=Fi, su=T2)
-		rho = rho - Ri + set(R1<T1, F1>, R2<T2,  F2>)
+		Tb = Ti - chiusura(X) + X 
+		Fb = proiezione(di=Fi, su=Tb) 
+		# Ra ed Rb sono nomi nuovi
+		rho = rho - Ri + set(Ra<Ta, Fa>, Rb<Tb, Fb>)
 	return rho
 ```
 
-questo algoritmo **preserva i dati**, ma non necessariamente le dipendenze.
+### Proprietà
+Questo algoritmo **preserva i dati**, ma non necessariamente le dipendenze.
 
 ### Esempio
 Lo schema 
@@ -75,13 +81,13 @@ Lo schema
 Preserva dati e dipendenze.
 
 ### Esempio
-Si consideri il seguente schema relazionale $$R\langle ABCDE, F=\{ CE\to A, D\to E, CB\to E, CE\to B \}$$
+Si consideri il seguente schema relazionale $$R\langle T, F\rangle$$ con $$T = ABCDE \quad F=\{ CE\to A, D\to E, CB\to E, CE\to B \}$$
 1. Le parti sinistre di $F$ sono tutte [[chiave#Superchiave|superchiavi]]? No
 	- Basta fare la chiusura della prima $$(CE)^{+}= CEAB\quad\text{manca D}$$
 2. Allora decomponiamo in
-	- Lo schema $$R_{1}= (CE)^{+}= CEAB$$ con $$F_{1}= \pi_{CE}(F) = \{ CE\to A, CB\to E, CE\to B \}$$
+	- Lo schema $R_1$ $$T_{1}= (CE)^{+}= CEAB$$ con $$F_{1}= \pi_{CEAB}(F) = \{ CE\to A, CB\to E, CE\to B \}$$
 		- In questa relazione non ci sono problemi, ogni membro sinistro in $F_{1}$ è superchiave
-	- Lo schema $$R_{2}= T - (CE)^{+} + CE = ABCDE - CEAB + CE = DCE$$ con $$F_{2}=\pi_{DCE}(F)=\{ D\to E \}$$
+	- Lo schema $R_2$ $$T_{2}= T - (CE)^{+} + CE = ABCDE - CEAB + CE = DCE$$ con $$F_{2}=\pi_{DCE}(F)=\{ D\to E \}$$
 		- In questa relazione CI SONO problemi, l'unico membro sinistro in $F_{2}$ NON è superchiave $$(D)^{+}= DE\quad\text{manca C}$$
 3. Decomponiamo, stavolta $R_{2}\langle DCE, F_{2}=\{ D \to E \}\rangle$ in
 	- Lo schema $$R_{3} = (D)^{+} = DE$$ con $$F_{3}= \{ D\to E \}$$

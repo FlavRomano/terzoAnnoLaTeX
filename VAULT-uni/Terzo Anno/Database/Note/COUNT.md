@@ -10,7 +10,8 @@ Restituisce il numero di righe della tabella o il numero di valori di un partico
 Numero di figli di Franco
 
 ```sql
-SELECT count(*) as NumFigliDiFranco FROM Paternita  
+SELECT count(*) as NumFigliDiFranco 
+FROM Paternita  
 WHERE Padre = "Franco"
 ```
 

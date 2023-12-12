@@ -1,5 +1,5 @@
 Sono delle regole di inferenza.
-Data una relazione $R(T)$...
+Data una relazione $R(T)$ con $X,Y\subseteq T$
 ## Riflessività R
 Se $Y\subseteq X$ allora $X$ **determina funzionalmente** $Y$
 $$Y\subseteq X\vDash X\to Y$$

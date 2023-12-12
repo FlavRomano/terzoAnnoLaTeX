@@ -54,7 +54,9 @@ Assieme a questa clausola è possibile specificare **LOCAL** oppure **CASCACED**
 Creare una vista contenente: la matricola, il nome, il cognome, lo stipendio degli impiegati del dipartimento di Amministrazione il cui stipendio è maggiore di 1000 euro.
 
 ```sql
-CRETE VIEW ImpiegatiAmministrazione (Matricola, Nome, Cognome, Stipendio)
+CRETE VIEW ImpiegatiAmministrazione (
+	Matricola, Nome, Cognome, Stipendio
+)
 AS SELECT Matr, Nome, Cognome, Stip
 FROM Impiegato
 WHERE Stip > 1000 and Dipartimento = "Amministrazione"

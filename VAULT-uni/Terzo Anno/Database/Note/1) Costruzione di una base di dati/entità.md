@@ -1,4 +1,4 @@
-Sono ciò di cui interessa rappresentare alcuni [[fatto]] (o proprietà)
+Sono ciò di cui interessa rappresentare alcuni [[fatto|fatti]]
 
 ```ad-example
 - Una descrizione bibliografica di un libro

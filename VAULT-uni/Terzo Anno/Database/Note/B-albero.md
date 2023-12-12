@@ -7,10 +7,11 @@ Il tempo di ricerca e inserimento è **logaritmico** al caso medio.
 
 ## Albero di ricerca di ordine P
 È un albero di ricerca in cui ogni nodo 
-- ha **$P$ figli**
-- e le etichette fino a $P-1$ sono **ordinate**
+- ha **$p$  figli**
+- e le etichette fino a $p-1$ sono **ordinate**
 
- un albero i cui nodi contengono al più $P-1$ **valori chiave** (*search value*) e $P$ puntatori nel seguente ordine 
+ un albero i cui nodi contengono al più $p-1$ **valori chiave** (*search value*) e $p$ puntatori nel seguente ordine 
+ $$p=\# figli$$
  $$\langle P_{1},K_{1},P_{2},K_{2},\ldots,P_{q-1},K_{q-1},P_{q}\rangle\quad\text{con }q\le p$$
 
 - ogni $P_{i}$ è un **puntatore ad un nodo figlio** (o puntatore nullo)
@@ -53,7 +54,7 @@ Per **inserire** valori di ricerca nell'albero
 ## B-Alberi
 Un **B-albero di ordine $p$** se usato come struttura di accesso su un campo chiave
 - deve soddisfare le seguenti condizioni:
-	1. Ogni **nodo interno** del B-albero ha la forma  $$\langle P_{1},K_{1},P_{2},K_{2},\ldots,P_{q-1},K_{q-1},P_{q}\rangle\quad\text{con }q\le p$$ proprio come visto in precedenza, in particolare
+	1. Ogni **nodo interno** del B-albero ha la forma  $$\langle P_{1},(K_{1}, Pr_1),P_{2},(K_{2}, Pr_2),\ldots,P_{q-1},(K_{q-1}, Pr_{q-1}),P_{q}\rangle\quad\text{con }q\le p$$ proprio come visto in precedenza, in particolare
 		- $P_{i}$ è un **tree pointer**, cioè puntatore ad un altro nodo del B-Albero
 		- $K_{i}$ è la **chiave di ricerca**
 		- $Pr_{i}$ è un **data pointer**, cioè un puntatore ad un record il cui campo chiave di ricerca **è uguale a** $K_{i}$ (o alla pagina che contiene tale record)
@@ -67,15 +68,13 @@ Ancora, per tutti i valori $X$ della chiave di ricerca appartenenti al sottoalbe
 2. $K_{i-1}< X< K_{i}$ per $1<i<q$
 3. $K_{i-1}< X$ per $i=q$
 
+![[Pasted image 20231124170740.png]]
+
 - la **radice**
 	- ha almeno 2 *tree pointer* (uno per ogni lato della chiave)
 	- a meno che non sia l'unico nodo dell'albero
-- ogni **nodo**, esclusa la radice
-	- ha almeno $\lceil \frac{p}{2}\rceil$ *tree pointer*
-	- in generale ogni nodo con $q$ *tree pointer*, dove $q\le p$, 
-		- ha $q-1$ campi **chiave di ricerca** 
-		- e $q-1$ *data pointer*
-- tutti i **nodi foglia** sono posti allo stesso livello 
+- ogni **nodo interno** ha  $$q = \left\lceil \frac{p}{2}\right\rceil = \#\text{tree pointer}, \quad q\le p$$ $$\# K = q-1 = \#\text{campi di ricerca}$$ $$\# P_{r}= q - 1 = \#\text{data pointer}$$
+- tutti i **nodi foglia** sono posti allo stesso livello e
 	- hanno la stessa struttura dei nodi interni
 	- però tutti i loro *tree pointer* $P_{i}$ sono nulli, ovviamente
 
@@ -85,7 +84,9 @@ Non solo, essendo tutti i nodi foglia allo stesso livello il B-albero è **bilan
 ## $B^{+}$-Alberi
 Un $B^{+}$-Albero è un [[B-albero#B-Alberi|B-albero]] in cui 
 - i *data pointer* sono **memorizzati solo nei nodi foglia dell'albero**
-- la struttura dei nodi foglia **differisce** quella del B-albero
+- la struttura dei nodi foglia **differisce** da quella del B-albero
+
+![[Pasted image 20231124171212.png]]
 
 In particolare:
 - se il **campo di ricerca** è **un campo chiave**
@@ -110,16 +111,18 @@ La struttura dei **nodi interni** (di ordine $p$) di un $B^{+}$-albero è la seg
 	1. $K_{i-1}X \le K_{i}$ per $1<i<q$ (non più minore stretto)
 	2. $X\le K_{i}$ per $i=1$ (non più minore stretto)
 	3. $K_{i-1}< X$ per $i=q$
-5. Ogni nodo interno, **esclusa la radice** ha almeno $$\left\lceil \frac{p}{2} \right\rceil\quad\text{tree pointer}$$ la **radice** ha almeno 2 *tree pointer* se è un nodo interno
-6. Un nodo interno con $q$ *tree pointer*, con $q\le p$, ha $q-1$ **campi di ricerca**
+5. Ogni nodo interno, **esclusa la radice** ha almeno $\lceil p/2 \rceil$ *tree pointer* $$q= \left\lceil \frac{p}{2} \right\rceil=\#\text{tree pointer}$$ la **radice** ha almeno 2 *tree pointer* se è un nodo interno
+6. Un nodo interno con $q$ *tree pointer*, con $q\le p$, ha $q-1$ *campi di ricerca* $$\#K=q-1 =\#\text{campi di ricerca}$$
 
 ![[Pasted image 20230830190447.png]]
 
 ### Struttura nodi foglia
 La struttura dei **nodi foglia** di un $B^{+}$-albero è la seguente:
-1. Ogni nodo foglia è della forma $$\left\langle \langle K_{1},Pr_{1}\rangle, \langle K_{2},Pr_{2}\rangle, \ldots, \langle K_{q},Pr_{q}\rangle P_{next} \right\rangle$$ dove $q\le p_{leaf}$ e per ogni nodo si ha che $$K_{1}< K_{2}<\ldots< K_{q}$$
+1. Ogni nodo foglia è della forma $$\left\langle \langle K_{1},Pr_{1}\rangle, \langle K_{2},Pr_{2}\rangle, \ldots, \langle K_{q},Pr_{q}\rangle P_{next} \right\rangle \quad q \le p_{leaf}$$ $$P_{next} := \texttt{null} \mid \text{puntatore alla successiva foglia}$$ dove $q\le p_{leaf}$ e per ogni nodo si ha che i valori chiave sono ordinati $$K_{1}< K_{2}<\ldots< K_{q}$$
 	- $P_{next}$ è un *tree pointer* che punta alla **successiva foglia** dell'albero
-	- ogni $Pr_{i}$ è un *data pointer* che punta al record con valore del campo di ricerca uguale a $K_{i}$  (oppure a un blocco di puntatori ai record con valore del campo di ricerca uguale a $K_{i}$, se il campo di ricerca non è una chiave)
+	- ogni $Pr_{i}$ è un *data pointer*:
+		- se il campo di ricerca è una chiave allora punta al record con valore del campo di ricerca uguale a $K_{i}$
+		- altrimenti punta a un blocco di puntatori ai record con valore del campo di ricerca uguale a $K_{i}$
 2. Ogni nodo foglia ha almeno $$\left\lceil \frac{p_{leaf}}{2}\right\rceil \quad\text{valori}$$
 3. Tutti i nodi foglia **sono dello stesso livello**
 

@@ -9,6 +9,8 @@
   "interfaceFontFamily": "",
   "textFontFamily": "",
   "enabledCssSnippets": [
-    "centerImage"
-  ]
+    "centerImage",
+    "centerTable"
+  ],
+  "nativeMenus": true
 }

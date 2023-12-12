@@ -1,4 +1,4 @@
-Nonostante riesca a decomporre correttamente [[Conservazione dei dati|senza perdite]] uno schema, ancora niente mi garantisca che non vengano violate delle dipendenze 
+Nonostante riesca a decomporre correttamente [[Conservazione dei dati|senza perdite]] uno schema, ancora niente mi garantisce che non vengano violate delle dipendenze 
 
 ### Esempio
 Abbiamo una decomposizione sì fatta:
@@ -7,7 +7,7 @@ Abbiamo una decomposizione sì fatta:
 
 con dipendenze funzionali $Impiegato \to Sede$ e $Progetto \to Sede$.
 
-> Che accade se aggiungo l'impiegato "Neri" al progetto "Marte"?
+> Che cosa accade se aggiungo l'impiegato "Neri", che lavora a Milano, al progetto "Marte"?
 > - oss: stiamo aggiungendo (impiegato, progetto), le dipendenze funzionali che dicono?
 
 ![[Pasted image 20230827164702.png]]
@@ -22,14 +22,20 @@ Facendo il join naturale, si viene a creare una [[tuple spurie|tupla spuria]] $N
 
 ![[Pasted image 20230827165133.png]]
 
+oss: tupla spuria perché non ha senso che a un progetto che sta a Roma ci lavori uno con sede a Milano
+> No smart-working 😭
+
 ## Proiezione delle dipendenze
 Dato uno schema $R\langle T, F\rangle$ e un insieme di attributi $T_{1}\subseteq T$, la **proiezione di $F$ su $T_{1}$** è 
 - l'insieme di tutte le dipendenze funzionali $X\to Y$ nella chiusura $F^{+}$ tali che $XY$ sia in $T_{1}$ $$\pi_{T_{1}}(F) = \{ X \to Y \in F^{+} \mid XY \subseteq T_{1} \}$$
 
 ### Esempio
-Sia $R(A, B, C)$ e $F=\{A\to B\;; B\to C\;; C\to A\}$ $$\pi_{AB} (F) = \{ A\to B\;; B \to A \}$$ $B\to A$ perché: $$A\to B\quad B\to C \quad C \to A \quad B\to A \ni F^{+}$$
+Sia $R(A, B, C)$ e $F=\{A\to B\;; B\to C\;; C\to A\}$ 
+1. Calcoliamo la proiezione di $F$ su $AB$:
+$$\pi_{AB} (F) = \{ A\to B\;; B \to A \}$$ oss: $B\to A$ perché: $$\begin{align} A&\to B\\ B&\to C \\ C &\to A \\ B&\to A \ni F^{+}\end{align}$$
+2. Calcoliamo la proiezione di $F$ su $AC$:
 $$\pi_{AC}(F) = \{ A\to C, C\to A \}$$
-$A\to C$ perché: $$C\to A\quad A\to B\quad B\to C$$
+oss: $A\to C$ perché: $$\begin{align}C&\to A\\ A&\to B\\ B&\to C\\A&\to C\ni F^{+}\end{align}$$
 
 ## Conservazione delle dipendenze
 Dato lo schema $R \langle T, F \rangle$ la decomposizione $\rho = \{ R_{1},\ldots, R_{n} \}$ **preserva le dipendenze** 
@@ -39,7 +45,9 @@ Dato lo schema $R \langle T, F \rangle$ la decomposizione $\rho = \{ R_{1},\ldot
 Il problema di stabilire se una decomposizione $\rho$ preserva le dipendenze ha complessità polinomiale.
 
 ## Teorema ponte tra conservazione delle dipendenze e dati
-Sia $\rho = \{ R_{i}\langle T_{i}, F_{i}\rangle \}$ una decomposizione di $R\langle T, F \rangle$ che **preserva le dipendenze**, **preserva anche i dati** 
+Sia $\rho = \{ R_{i}\langle T_{i}, F_{i}\rangle \}$ una decomposizione di $R\langle T, F \rangle$ che **preserva le dipendenze**, 
+
+**preserva anche i dati** 
 - se esiste una $T_{j}$ [[chiave#Superchiave|superchiave]] per $R\langle T,F\rangle$ 
 
 ### Esempio

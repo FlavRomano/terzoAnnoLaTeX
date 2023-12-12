@@ -35,7 +35,7 @@ Per ogni candidato voglio:
 1. Viene restituita una nuova nelazione che contiene tante ennuple quanti *$Candidati$* (attributo su cui abbiamo fatto la `groupby`) *distinti* stanno sulla relazione.
 ![[Pasted image 20230821163025.png]]
 
-```ad-faq
+```ad-example
 
 | Materia | Candidato | Voto | Docente |
 |---------|-----------|------|---------|
@@ -162,3 +162,4 @@ Per ogni studente visualizzare
 facciamo una groupby sugli attributi $Matricola,Nome$ e applichiamo la funzione $count(*)$
 $${}_{\{Matricola,Nome\}} \gamma_{\{count(*)\}}(Studenti\bowtie_{S.matricola=E.matricola} Esami)$$
 ![[Pasted image 20230821172230.png]]
+

@@ -19,7 +19,7 @@ Quindi la relazione è in 3NF.
 ## Pro e Contro
 Di contro ha che
 - è **meno restrittiva** della [[forma normale di Boyce Codd]]
-	- tollera alvune ridondanze e anomalie sui dati
+	- tollera alcune ridondanze e anomalie sui dati
 	- certifica meno la qualità dello schema ottenuto
 
 Di pro ha che 

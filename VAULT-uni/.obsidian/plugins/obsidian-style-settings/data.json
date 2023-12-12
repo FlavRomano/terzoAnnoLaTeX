@@ -22,5 +22,6 @@
   "things-style@@default-font-color": false,
   "things-style@@text-highlight-bg-l": "#DB0B0B",
   "things-style@@strong-color": "#DC0909",
-  "things-style@@em-color": "#FF5252"
+  "things-style@@em-color": "#FF5252",
+  "things-style@@quote-color": "#526567"
 }

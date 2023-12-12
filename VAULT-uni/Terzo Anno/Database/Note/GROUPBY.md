@@ -32,19 +32,19 @@ GROUP BY s.Matricola, s.Nome -- perché la colonna Matricola non è nella Select
 
 ### Sbagliatissimo
 ```sql
-SELECT padre, avg(f.reddito), p.reddito  
-FROM persone f 
+SELECT padre, avg(P1.reddito), P2.reddito  
+FROM persone P1
 JOIN paternita ON figlio = nome 
-JOIN persone p ON padre = p.nome
+JOIN persone P2 ON padre = P2.nome
 GROUP BY padre
 ```
 
 ### Corretto
 ```sql
-SELECT padre, avg(f.reddito)  
-FROM persone f 
+SELECT padre, avg(P1.reddito)  
+FROM persone P1 
 JOIN paternita ON figlio = nome 
-JOIN persone p ON padre = p.nome 
+JOIN persone P2 ON padre = P2.nome 
 GROUP BY padre
 ```
 

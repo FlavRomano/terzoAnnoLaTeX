@@ -8,13 +8,33 @@ Quindi per **trovare tutte le chiavi**
 
 ## Algoritmo 
 Per trovare tutte le chiavi di $R\langle T, F \rangle$ si parte da un insieme di candidati pari all'insieme $T$ **meno tutte le parti destre delle dipendenze funzionali in $F$**
-$$\texttt{Base} = T \setminus \texttt{partiDestre}(F)$$ Ogni candidato è un **sottoinsieme di $T$** rappresentato come $$X\text{::}{Y}\subseteq T$$ che denota
-- dato $Y=\{A_{1},\ldots,A_{n}\}$ **tutti gli insiemi** formati da **$X$** e da **qualsiasi insieme di attributi $A_{i}$**
+$$X = T \setminus \texttt{partiDestre}(F)$$ 
+- Dalla proprietà (1), segue che $$X^{+}= T \implies \texttt{Base}\text{ è chiave}$$
+- Se invece $X^{+}\neq T$ allora occorre **aggiungere attributi a $X$**.
+	- occorre aggiungere quegli attributi $W\subseteq T$ che appaiono a destra di qualche dipendenza e a sinistra di qualche altra, uno alla volta.
+	- ad ogni passo occorre **evitare di aggiungere** attributi che siano **già nella chiusura di $X$**, perché 
+		- o sono attributi ridondanti
+		- oppure producono un insieme $X'$ che contiene una chiave già trovata in precedenza.
+	- si calcola la chiusura di ogni $X'$ fino a quando questa non coincide con $T$, il che garantisce che $X'$ **sia chiave**
+
+### Esempio
+Sia $R\langle T, F\rangle$ con $T= \{ A, B, C, D, E ,G \}$ ed $F = \{AB\to C, BC\to AD, D\to E, CG\to B\}$
+
+1. $X = T \setminus \texttt{partiDestre}(F) = \{G\}$, calcoliamo la chiusura di $X$: $$X^{+}= G^{+}= G$$
+2. Aggiungiamo un attributo di $W = \{A,B,C,D\}$ a $G$: $$\begin{align} GA^{+} &=GA\neq T\\
+ GB^{+}&=GB\neq T \\ GC^{+}&=GCBADE=T\implies GC\text{ è una chiave di }R\\
+GD^{+}&=GDE\neq T\end{align}$$
+1. Proviamo ad aggiungere a $GA$, $GB$ e $GD$ (i *candidati*) un altro attributo di $W = \{ B,D \}$, considerando stavolta solo insiemi di attributi che non contengono la chiave $GC$: $$\begin{align} GAB^{+}&=GABCDE = T\implies GAB \text{ è una chiave di }R \\ GAD^{+}&= GADE\neq T\\ GBD^{+}&=GBDE\neq T\end{align}$$
+2. Proviamo ad aggiungere a $GAD$ e $GBD$ un altro attributo di $W = W\setminus \{GC\} \setminus \{GAB\}$, togliendo le chiavi $GC$ e $GAB$ otteniamo un $W = \emptyset$ e quindi si conclude che non esistono altre chiavi. Termina perché **non abbiamo più candidati**.
+ 
+Ogni candidato è un **sottoinsieme di $T$** rappresentato come $$X\text{::}{Y}\subseteq T$$ che denota
+- dato $Y=\{A_{1},\ldots,A_{n}\}$ **tutti gli insiemi** formati da **$X$ unito** a **qualsiasi insieme di attributi $A_{i}$**
+	- e.g $AB\;\text {::}\;CD$ rappresenta $\{AB, ABC, ABD, ABCD\}$.
 
 Sapendo tutto questo
-- se $\texttt{Base}$ sono gli attributi **che non appaiono a destra** di nessuna dipendenza 
+- se $\texttt{noDes}$ sono gli attributi **che non appaiono a destra** di nessuna dipendenza 
 	- questi attributi **devono apparire in ogni chiave**
-- per cui inizialmente i candidati saranno $$Candidati = \texttt{Base}\text{:: }T\setminus \texttt{Base} $$
+- per cui inizialmente i candidati saranno $$Candidati = \texttt{noDes}\text{:: } \texttt{sinDes} $$
 - ogni insieme in $X\text{::} Y$  è analizzato partendo da $X$
 	- se **è già chiave** allora **tutti gli altri insiemi** $X\text{::} Y$ sono scartati
 	- altrimenti si mettono in $Candidati$ $$XA_{1}{::}(Y\setminus A_{1}),\ldots, XA_{n}{::}(Y\setminus A_{n})$$
@@ -23,23 +43,5 @@ Sapendo tutto questo
 Oss: le chiavi trovate dopo saranno per forza più lunghe, non potranno essere contenute in una chiave già trovata.
 - questo si assicura aggiungendo i **nuovi candidati in coda alla lista** (`append`)
 	- mantenendo quindi la lista dei **candidati ordinata per lunghezza**.
-
-### Esempio 
-Con $T=\{ A,B,C,D,E,F \}$ e $\overline F = \{C\to D, \;CF\to B, \;D\to C,\; F \to E\}$
-
-Si parte col trovare la base $$Base = T \setminus \texttt{partiDestre}(\overline {F}) = \{A,F\}$$ e quindi i candidati $$Candidati = Base\text : \text : T \setminus Base = AF::T\setminus AF = \{AF::BCDE\}$$
-
-Verifichiamo se nell'insieme sono presenti chiavi, qui abbiamo solo $AF$. Calcoliamone la [[problema dell'implicazione#Algoritmo per calcolare la chiusura di $X$ rispetto a $F$|chiusura]]
-$$\{AF\}^{+} = AFE \implies \text{non è chiave}$$ Quindi si prosegue ad aggiungere nuovi candidati $$Candidati = \{AF::(BCDE \setminus AFE)\} = \{AF::BCD\} = \{ AFB::CD,AFC::D, AFD \}$$
-
-Verifichiamo se nell'insieme dei candidati sono presenti chiavi:
-- $AFB$, calcoliamone la chiusura $$\{AFB\}^{+}=AFBE\implies \text{non è chiave}$$
-	- Quindi modifichiamo $$Candidati = \{ AFB::(CD\setminus AFBE),\ldots \} =\{AFB::CD,\ldots\}$$
-- $AFC$, calcoliamone la chiusura $$\{AFC\}^{+}=AFCDBE\implies \text{E' CHIAVE}$$
-	- Quindi modifichiamo $$Candidati =\{AFB::CD,AFC::D, AFD \}\setminus \{AFC::D\}=\{AFB::CD, AFD\}$$
-- $AFD$, calcoliamone la chiusura $$\{AFD\}^{+}=AFDC\supseteq AFC \implies \text{E' CHIAVE}$$
-	- Quindi modifichiamo $$Candidati =\{AFB::CD, AFD\}\setminus \{AFD\}=\{AFB::CD\}$$
-
-Quindi $Candidati =\{AFB::CD\}$.
 
 

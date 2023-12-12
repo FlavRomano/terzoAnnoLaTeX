@@ -5,7 +5,7 @@ Consideriamo il caso base, cioè
 ![[Pasted image 20230831171537.png]]
 
 ## Fusione z-way
-Nel caso base **Z = 2** si fondono **due run alla volta**
+Nel caso base **$Z = 2$** si fondono **due run alla volta**
 - con $NB=3$, si associa un buffer a ognuna delle run
 	- il terzo buffer **serve per produrre l'output** una pagina alla volta
 
@@ -25,7 +25,7 @@ Con $Z=2$ e $NB=3$ si osserva che:
 - ad ogni **passo di merge** si leggono e si riscrivono $NP$ pagine
 - quindi $2\cdot NP$
 	- il numero di **passi di fusione** è $$\# fusione = \lceil \lg NP\rceil$$ in quanto ad ogni passo il numero di run **si dimezza**
-- il costo complessivo è $$2 \cdot NP \cdot \left( \lceil \lg NP\rceil + 1 \right)$$
+- il costo complessivo è $$2 \cdot NP \cdot \left( \lceil \lg NP\rceil + 1\right)$$ cioè $$\underbrace{2 \cdot NP}_{\text{I/O sort interno + merge}} \cdot (\underbrace{\lceil\lg NP\rceil}_{\text{passi di fusione}} + \underbrace{1}_{\text{passo finale}})$$
 
 ### Esempio
 Per ordinare $NP = 8000$ pagine sono necessarie

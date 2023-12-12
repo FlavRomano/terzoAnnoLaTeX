@@ -33,16 +33,23 @@ Il confronto logico con un valore che `NULL` da come output **sconosciuto** (ind
 ```sql
 SELECT * 
 FROM Persone 
-WHERE Nome = Luigi OR AnnoNascita = 2022
+WHERE Nome = 'Luigi' OR AnnoNascita = 2022
 ```
 
 ![[Pasted image 20230822164825.png]]
+la query restituirà:
+
+|  Nome | Cognome | AnnoNascita | LuogoDiNascita |
+|-------|---------|-------------|----------------|
+| Luigi | Bianchi |      (null) |           Roma |
+| Mario |   Verdi |        2022 |           Pisa |
 
 2. __
 ```sql
 SELECT * 
 FROM Persone 
-WHERE Nome = Luigi AND AnnoNascita = 2022;
+WHERE Nome = 'Luigi' AND AnnoNascita = 2022;
 ```
 
 ![[Pasted image 20230822165011.png]]
+la query non restituirà nulla.
